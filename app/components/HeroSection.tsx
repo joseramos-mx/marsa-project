@@ -45,7 +45,7 @@ export default function HeroSection() {
             fill
             priority
             className="object-contain object-bottom"
-            sizes="480px"
+            sizes="600px"
           />
         </div>
       </div>
