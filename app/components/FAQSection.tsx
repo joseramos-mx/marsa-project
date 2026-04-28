@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import type { CSSProperties } from 'react'
 
-function CrossMark({ style }: { style: CSSProperties }) {
+function CrossMark({ style, className = '' }: { style: CSSProperties; className?: string }) {
   return (
-    <div className="absolute w-5 h-5" style={style}>
+    <div className={`absolute w-5 h-5 ${className}`} style={style}>
       <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-px bg-white/30" />
       <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-px bg-white/30" />
     </div>
@@ -67,7 +67,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         className="overflow-hidden transition-all duration-300 ease-in-out"
         style={{ maxHeight: open ? '200px' : '0px' }}
       >
-        <p className="px-7 pb-5 pl-[4.25rem] text-white/45 text-sm leading-relaxed">
+        <p className="px-7 pb-5 pl-17 text-white/45 text-sm leading-relaxed">
           {a}
         </p>
       </div>
@@ -91,21 +91,21 @@ export default function FAQSection() {
           <CrossMark style={{ bottom: 0, right: 0,     transform: 'translate( 50%,  50%)' }} />
 
           {/* Divider intersections — grid-cols-[4fr_5fr] → divider at 44.44% */}
-          <CrossMark style={{ top: 0,    left: '44.44%', transform: 'translate(-50%, -50%)' }} />
-          <CrossMark style={{ bottom: 0, left: '44.44%', transform: 'translate(-50%,  50%)' }} />
+          <CrossMark style={{ top: 0,    left: '44.44%', transform: 'translate(-50%, -50%)' }} className="hidden md:block" />
+          <CrossMark style={{ bottom: 0, left: '44.44%', transform: 'translate(-50%,  50%)' }} className="hidden md:block" />
 
-          <div className="grid grid-cols-[4fr_5fr] border border-white/15">
+          <div className="grid grid-cols-1 md:grid-cols-[4fr_5fr] border border-white/15">
 
             {/* Left — yellow panel */}
             <div
-              className="flex flex-col justify-between px-10 py-12 border-r border-white/15"
+              className="flex flex-col justify-between px-8 py-10 md:px-10 md:py-12 border-b md:border-b-0 md:border-r border-white/15"
               style={{ backgroundColor: '#EAB308' }}
             >
               <div className="flex flex-col gap-6">
-                <h2 className="text-black text-5xl font-normal leading-tight">
+                <h2 className="text-black text-4xl md:text-5xl font-normal leading-tight">
                   Preguntas<br />Frecuentes
                 </h2>
-                <p className="text-black/70 text-sm leading-relaxed max-w-[220px]">
+                <p className="text-black/70 text-sm leading-relaxed max-w-55">
                   Encuentra respuestas a preguntas comunes acerca de la odontología
                   especializada y el proceso en Marsa Project.
                 </p>

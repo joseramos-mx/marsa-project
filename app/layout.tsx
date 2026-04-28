@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Albert_Sans } from "next/font/google";
 import "./globals.css";
 import JsonLd from "./components/seo/JsonLd";
+import SmoothScrolling from "./components/SmoothScrolling";
+import FloatingButtons from "./components/FloatingButtons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -119,10 +121,14 @@ export default function RootLayout({
     <html
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <JsonLd siteUrl={SITE_URL} />
-        {children}
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        <SmoothScrolling>
+          <JsonLd siteUrl={SITE_URL} />
+          {children}
+          <FloatingButtons />
+        </SmoothScrolling>
       </body>
     </html>
   );

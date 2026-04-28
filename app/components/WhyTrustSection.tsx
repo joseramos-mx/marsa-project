@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
+import { motion } from 'motion/react'
 
 const features = [
   {
@@ -21,9 +24,9 @@ const features = [
   },
 ]
 
-function CrossMark({ style }: { style: CSSProperties }) {
+function CrossMark({ style, className = '' }: { style: CSSProperties; className?: string }) {
   return (
-    <div className="absolute w-5 h-5" style={style}>
+    <div className={`absolute w-5 h-5 ${className}`} style={style}>
       <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-px bg-white/30" />
       <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-px bg-white/30" />
     </div>
@@ -57,17 +60,21 @@ export default function WhyTrustSection() {
           <CrossMark style={{ bottom: 0,   right: 0,       transform: 'translate( 50%,  50%)' }} />
 
           {/* 4 divider intersections (top + bottom of each inner column border) */}
-          <CrossMark style={{ top: 0,    left: '33.333%', transform: T }} />
-          <CrossMark style={{ top: 0,    left: '66.667%', transform: T }} />
-          <CrossMark style={{ bottom: 0, left: '33.333%', transform: B }} />
-          <CrossMark style={{ bottom: 0, left: '66.667%', transform: B }} />
+          <CrossMark style={{ top: 0,    left: '33.333%', transform: T }} className="hidden md:block" />
+          <CrossMark style={{ top: 0,    left: '66.667%', transform: T }} className="hidden md:block" />
+          <CrossMark style={{ bottom: 0, left: '33.333%', transform: B }} className="hidden md:block" />
+          <CrossMark style={{ bottom: 0, left: '66.667%', transform: B }} className="hidden md:block" />
 
-          <div className="grid grid-cols-3 border border-white/15">
+          <div className="grid grid-cols-1 md:grid-cols-3 border border-white/15">
             {features.map((feature, i) => (
-              <div
+              <motion.div
                 key={feature.icon}
-                className={`flex flex-col gap-8 pt-14 pb-16 px-10 ${
-                  i < 2 ? 'border-r border-white/15' : ''
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
+                className={`flex flex-col gap-8 pt-14 pb-16 px-8 md:px-10 ${
+                  i < 2 ? 'border-b md:border-b-0 md:border-r border-white/15' : ''
                 }`}
               >
                 {/* Icon — centered */}
@@ -78,6 +85,7 @@ export default function WhyTrustSection() {
                     width={150}
                     height={120}
                     className="object-contain"
+                    style={{ height: 'auto' }}
                   />
                 </div>
 
@@ -90,7 +98,7 @@ export default function WhyTrustSection() {
                     {feature.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

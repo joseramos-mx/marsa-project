@@ -9,6 +9,7 @@ function LogoItem() {
         width={160}
         height={40}
         className="object-contain invert"
+        style={{ height: 'auto' }}
       />
     </div>
   )
@@ -18,7 +19,7 @@ const LOGOS = Array.from({ length: 6 })
 
 export default function LogoMarquee() {
   return (
-    <div className="relative bg-black border-t border-white/[0.06] py-10 overflow-hidden">
+    <div className="relative bg-black border-t border-white/6 py-10 overflow-hidden">
 
       {/* Left fade */}
       <div

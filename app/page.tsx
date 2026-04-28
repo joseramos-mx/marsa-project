@@ -7,6 +7,7 @@ import WellnessSection from './components/WellnessSection'
 import ServicesCarousel from './components/ServicesCarousel'
 import FAQSection from './components/FAQSection'
 import CTASection from './components/CTASection'
+import Footer from './components/Footer'
 
 export const metadata: Metadata = {
   title: 'Odontología Estética y Medicina Estética',
@@ -47,6 +48,8 @@ export default function Home() {
       <section id="contacto" aria-label="Agenda tu cita">
         <CTASection />
       </section>
+
+      <Footer />
     </main>
   )
 }

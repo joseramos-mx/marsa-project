@@ -1,4 +1,7 @@
+'use client'
+
 import type { CSSProperties } from 'react'
+import { motion } from 'motion/react'
 
 function CrossMark({ style }: { style: CSSProperties }) {
   return (
@@ -33,19 +36,28 @@ export default function CTASection() {
           <CrossMark style={{ top: '50%', right: 0, transform: 'translate( 50%, -50%)' }} />
 
           {/* Top half — headline */}
-          <div className="flex flex-col items-center text-center px-16 pt-16 pb-12">
-            <span className="text-[#EAB308] text-[11px] uppercase tracking-[0.25em] font-medium mb-6">
-              Consulta gratuita · Sin compromiso
-            </span>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center text-center px-6 pt-12 pb-10 md:px-16 md:pt-16 md:pb-12"
+          >
             <h2 className="text-white font-semibold leading-tight"
               style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)' }}>
               Tu mejor sonrisa<br />
               <em className="not-italic text-white/40">te espera.</em>
             </h2>
-          </div>
+          </motion.div>
 
           {/* Bottom half — body + buttons */}
-          <div className="flex flex-col items-center text-center px-16 pt-10 pb-16 gap-9">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="flex flex-col items-center text-center px-6 pt-8 pb-12 md:px-16 md:pt-10 md:pb-16 gap-9"
+          >
             <p className="text-white/45 text-sm leading-relaxed max-w-md">
               En Marsa Project combinamos especialistas certificados, tecnología avanzada
               y un ambiente pensado para tu comodidad. Agenda hoy y descubre el
@@ -55,7 +67,7 @@ export default function CTASection() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#"
-                className="px-8 py-3.5 bg-[#EAB308] text-black text-sm font-semibold hover:bg-[#ca9a07] transition-colors"
+                className="px-8 py-3.5 bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black text-sm font-semibold hover:brightness-110 transition-all"
               >
                 Agenda tu cita
               </a>
@@ -71,7 +83,7 @@ export default function CTASection() {
             <p className="text-white/20 text-xs tracking-wider uppercase">
               Más de 500 sonrisas transformadas · Especialistas certificados
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </div>

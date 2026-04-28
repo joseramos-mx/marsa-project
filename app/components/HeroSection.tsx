@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { motion } from 'motion/react'
 
 export default function HeroSection() {
   return (
@@ -36,19 +39,23 @@ export default function HeroSection() {
         }}
       />
 
-      {/* z-[3] — doctor image (place /public/doctor.png) */}
-      <div className="absolute inset-0 z-3 flex items-end justify-center pointer-events-none">
-        <div className="relative w-[480px] h-[90%]">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="absolute inset-0 z-3 flex items-end justify-center pointer-events-none"
+      >
+        <div className="relative w-[90vw] sm:w-100 md:w-150 h-200">
           <Image
-            src="/doctor.png"
+            src="/doctor2.png"
             alt="Doctor salem"
             fill
             priority
+            sizes="(max-width: 640px) 20rem, (max-width: 768px) 25rem, 37.5rem"
             className="object-contain object-bottom"
-            sizes="600px"
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* z-[4] — second gradient black → transparent, bottom to top, over the doctor */}
       <div
@@ -59,7 +66,12 @@ export default function HeroSection() {
       />
 
       {/* Description card — bottom-left glass panel, above everything */}
-      <div className="absolute bottom-[88px] left-8 z-5 max-w-72.5">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+        className="absolute bottom-20 left-4 md:bottom-22 md:left-8 z-5 max-w-[calc(100%-2rem)] md:max-w-72.5"
+      >
         <div
           className="rounded-2xl px-5 py-4"
           style={{
@@ -74,7 +86,7 @@ export default function HeroSection() {
             resultados naturales, seguros y personalizados
           </p>
         </div>
-      </div>
+      </motion.div>
 
     </section>
   )
