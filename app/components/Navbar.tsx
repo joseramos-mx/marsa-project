@@ -49,6 +49,7 @@ export default function Navbar() {
           <Link href="#servicios" className="hover:text-white transition-colors">Servicios</Link>
           <Link href="#nosotros" className="hover:text-white transition-colors">Nosotros</Link>
           <Link href="#aliados" className="hover:text-white transition-colors">Aliados</Link>
+          <Link href="#testimonios" className="hover:text-white transition-colors">Testimonios</Link>
           <Link href="#faq" className="hover:text-white transition-colors">FAQ</Link>
         </nav>
 
@@ -97,6 +98,7 @@ export default function Navbar() {
             { label: 'Servicios', href: '#servicios' },
             { label: 'Nosotros', href: '#nosotros' },
             { label: 'Aliados', href: '#aliados' },
+            { label: 'Testimonios', href: '#testimonios' },
             { label: 'FAQ', href: '#faq' },
           ].map((item, i, arr) => (
             item.href ? (

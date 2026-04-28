@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import LogoMarquee from './components/LogoMarquee'
+import StatsSection from './components/StatsSection'
 import WhyTrustSection from './components/WhyTrustSection'
 import WellnessSection from './components/WellnessSection'
 import ServicesCarousel from './components/ServicesCarousel'
+import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
 import CTASection from './components/CTASection'
 import Footer from './components/Footer'
@@ -29,6 +31,10 @@ export default function Home() {
         <LogoMarquee />
       </section>
 
+      <section id="estadisticas" aria-label="Nuestras estadísticas">
+        <StatsSection />
+      </section>
+
       <section id="por-que-elegirnos" aria-label="Por qué elegirnos">
         <WhyTrustSection />
       </section>
@@ -39,6 +45,10 @@ export default function Home() {
 
       <section id="servicios" aria-label="Nuestros servicios">
         <ServicesCarousel />
+      </section>
+
+      <section id="testimonios" aria-label="Testimonios">
+        <TestimonialsSection />
       </section>
 
       <section id="faq" aria-label="Preguntas frecuentes">
