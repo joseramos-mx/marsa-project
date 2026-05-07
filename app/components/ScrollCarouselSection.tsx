@@ -1,8 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'motion/react'
+import { motion } from 'motion/react'
 
 const CARDS = [
   {
@@ -37,172 +35,167 @@ const CARDS = [
   },
 ]
 
-const CARD_W     = 200
-const CARD_H     = 200
-const RADIUS     = 650
-const N          = CARDS.length
-const ANGLE_STEP = 360 / N
+const CENTER = (CARDS.length - 1) / 2
 
-const DR_W = 500
-const DR_H = 1200
+const STARS = Array.from({ length: 5 })
 
 export default function ScrollCarouselSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  })
-
-  const rotateY = useTransform(scrollYProgress, [0, 1], [0, -720])
-  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0])
-
   return (
-    <div ref={containerRef} style={{ height: '300vh', background: '#000' }}>
-
-      <div
+    <section
+      className="relative bg-black overflow-hidden"
+      style={{ paddingTop: '56px', paddingBottom: '60px' }}
+    >
+      {/* Label */}
+      <motion.p
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         style={{
-          position:          'sticky',
-          top:               0,
-          height:            '100vh',
-          display:           'flex',
-          flexDirection:     'column',
-          alignItems:        'center',
-          justifyContent:    'center',
-          overflow:          'hidden',
-          perspective:       '3000px',
-          perspectiveOrigin: '50% 50%',
-          background:        '#000',
-        }}
-      >
-        <p style={{
+          textAlign:     'center',
           color:         'rgba(255,255,255,0.28)',
           fontSize:      '10px',
-          letterSpacing: '0.2em',
+          letterSpacing: '0.22em',
           textTransform: 'uppercase',
-          marginBottom:  '52px',
+          marginBottom:  '40px',
           fontFamily:    'var(--font-geist-sans)',
-        }}>
-          Nuestros tratamientos
-        </p>
+        }}
+      >
+        Nuestros tratamientos
+      </motion.p>
 
-        {/*
-          Wrapper preserve-3d: propaga la perspectiva del sticky-div hacia adentro
-          y permite z-sorting entre el doctor (z=0) y las tarjetas (-R … +R)
-        */}
-        <div
-          style={{
-            position:       'relative',
-            width:          `${CARD_W}px`,
-            height:         `${CARD_H}px`,
-            transformStyle: 'preserve-3d',
-          }}
-        >
-          {/* ── Pivote rotante — solo tarjetas ── */}
-          <motion.div
-            style={{
-              position:       'absolute',
-              inset:          0,
-              transformStyle: 'preserve-3d',
-              rotateY,
-              rotateX:        15,
-            }}
-          >
-            {CARDS.map((card, i) => (
-              <div
-                key={i}
-                style={{
-                  position:           'absolute',
-                  top:                0,
-                  left:               0,
-                  width:              '100%',
-                  height:             '100%',
-                  transform:          `rotateY(${i * ANGLE_STEP}deg) translateZ(${RADIUS}px)`,
-                  borderRadius:       '24px',
-                  overflow:           'hidden',
-                  backfaceVisibility: 'hidden',
-                  boxShadow:          '0 40px 100px rgba(0,0,0,0.7), 0 8px 32px rgba(0,0,0,0.5)',
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={card.src}
-                  alt={card.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-                <div style={{
-                  position:   'absolute',
-                  inset:      0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)',
-                }} />
-                <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px' }}>
-                  <p style={{
-                    color:         'rgba(201,168,76,0.9)',
-                    fontSize:      '9px',
-                    letterSpacing: '0.14em',
-                    textTransform: 'uppercase',
-                    marginBottom:  '5px',
-                    fontWeight:    '500',
-                  }}>
-                    {card.category}
-                  </p>
-                  <p style={{
-                    color:      '#fff',
-                    fontSize:   '15px',
-                    fontWeight: '600',
-                    lineHeight: 1.2,
-                    whiteSpace: 'pre-line',
-                  }}>
-                    {card.title}
-                  </p>
-                </div>
+      {/* Card fan */}
+      <motion.div
+        initial={{ opacity: 0, y: 48 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+        style={{
+          display:           'flex',
+          alignItems:        'flex-end',
+          justifyContent:    'center',
+          gap:               '80px',
+          perspective:       '1100px',
+          perspectiveOrigin: '50% 50%',
+          padding:           '0 24px',
+        }}
+      >
+        {CARDS.map((card, i) => {
+          const offset = i - CENTER           // –2.5 … +2.5
+          const rotY   = offset * 13          // fan: outer cards tilt outward
+          const zBack  = -Math.abs(offset) * 50
+          const scale  = 1 - Math.abs(offset) * 0.04
+
+          return (
+            <div
+              key={i}
+              style={{
+                width:        '155px',
+                height:       '155px',
+                borderRadius: '18px',
+                overflow:     'hidden',
+                position:     'relative',
+                flexShrink:   0,
+                transform:    `rotateY(${rotY}deg) translateZ(${zBack}px) scale(${scale})`,
+                boxShadow:    Math.abs(offset) < 0.6
+                  ? '0 28px 80px rgba(0,0,0,0.9), 0 4px 24px rgba(0,0,0,0.5)'
+                  : '0 10px 36px rgba(0,0,0,0.6)',
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={card.src}
+                alt={card.title}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+
+              {/* Gradient */}
+              <div style={{
+                position:   'absolute',
+                inset:      0,
+                background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.06) 55%, transparent 100%)',
+              }} />
+
+              {/* Text */}
+              <div style={{ position: 'absolute', bottom: '14px', left: '14px', right: '14px' }}>
+                <p style={{
+                  color:         'rgba(201,168,76,0.9)',
+                  fontSize:      '9px',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  fontWeight:    500,
+                  marginBottom:  '5px',
+                  fontFamily:    'var(--font-geist-sans)',
+                }}>
+                  {card.category}
+                </p>
+                <p style={{
+                  color:      '#fff',
+                  fontSize:   '14px',
+                  fontWeight: 600,
+                  lineHeight: 1.25,
+                  whiteSpace: 'pre-line',
+                  fontFamily: 'var(--font-albert-sans)',
+                }}>
+                  {card.title}
+                </p>
               </div>
-            ))}
-          </motion.div>
+            </div>
+          )
+        })}
+      </motion.div>
 
-          {/*
-            ── Doctor ── completamente fuera del pivote rotante
-            Sin ningún transform → z=0 en el espacio preserve-3d del wrapper
-            Las tarjetas del frente (z > 0) aparecen delante; las del fondo (z < 0), detrás
-          */}
-          <div
-            style={{
-              position:      'absolute',
-              left:          '50%',
-              top:           '50%',
-              width:         `${DR_W}px`,
-              height:        `${DR_H}px`,
-              marginLeft:    `${-DR_W / 2}px`,
-              marginTop:     `${-DR_H / 2}px`,
-              pointerEvents: 'none',
-            }}
-          >
-            <Image
-              src="/doctor2.png"
-              alt="Doctor Salem"
-              fill
-              sizes="500px"
-              style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
-              priority
-            />
-          </div>
+      {/* Side fade gradients */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 w-16 md:w-32"
+        style={{ background: 'linear-gradient(to right, #000 0%, transparent 100%)' }}
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 w-16 md:w-32"
+        style={{ background: 'linear-gradient(to left, #000 0%, transparent 100%)' }}
+      />
+
+      {/* Reviews */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+        style={{
+          marginTop:      '40px',
+          display:        'flex',
+          flexDirection:  'column',
+          alignItems:     'center',
+          gap:            '8px',
+        }}
+      >
+        {/* Stars */}
+        <div style={{ display: 'flex', gap: '4px' }}>
+          {STARS.map((_, i) => (
+            <svg key={i} width="16" height="16" viewBox="0 0 16 16" fill="#EAB308">
+              <path d="M8 1l1.854 3.756 4.146.603-3 2.924.708 4.127L8 10.25l-3.708 1.16.708-4.127L2 4.359l4.146-.603L8 1z" />
+            </svg>
+          ))}
         </div>
 
-        {/* Indicador de scroll */}
-        <motion.div
-          style={{ opacity: scrollIndicatorOpacity }}
-          className="absolute bottom-10 flex flex-col items-center gap-2 pointer-events-none"
-        >
-          <p style={{ color: 'rgba(255,255,255,0.28)', fontSize: '10px', letterSpacing: '0.2em' }}>
-            SCROLL
-          </p>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
-            style={{ width: '1px', height: '32px', background: 'rgba(255,255,255,0.18)' }}
-          />
-        </motion.div>
-      </div>
-    </div>
+        {/* Text */}
+        <p style={{
+          color:         'rgba(255,255,255,0.40)',
+          fontSize:      '12px',
+          letterSpacing: '0.04em',
+          fontFamily:    'var(--font-geist-sans)',
+        }}>
+          Más de{' '}
+          <span style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
+            500 pacientes satisfechos
+          </span>
+          {' '}· Calificación{' '}
+          <span style={{ color: 'rgba(255,255,255,0.75)', fontWeight: 500 }}>
+            4.9 / 5
+          </span>
+        </p>
+      </motion.div>
+
+    </section>
   )
 }
