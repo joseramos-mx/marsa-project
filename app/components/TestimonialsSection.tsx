@@ -67,7 +67,6 @@ export default function TestimonialsSection() {
                   className="relative z-10 w-full h-[calc(100%+54px)] border-0 bg-transparent"
                   style={{ top: '-1px' }}
                   scrolling="no"
-                  allowTransparency={true}
                   allow="encrypted-media"
                   title={`Testimonio Marsa Project ${test.id}`}
                 />

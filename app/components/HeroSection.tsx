@@ -3,92 +3,185 @@
 import Image from 'next/image'
 import { motion } from 'motion/react'
 
+const CARDS = [
+  {
+    category: 'Odontología',
+    title: 'Blanqueamiento\nDental',
+    src: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    category: 'Odontología',
+    title: 'Carillas de\nPorcelana',
+    src: 'https://images.unsplash.com/photo-1588776814546-ec7e81f76b27?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    category: 'Diseño',
+    title: 'Diseño de\nSonrisa',
+    src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    category: 'Medicina Estética',
+    title: 'Estética\nFacial',
+    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    category: 'Ortodoncia',
+    title: 'Ortodoncia\nInvisible',
+    src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    category: 'Implantología',
+    title: 'Implantes\nDentales',
+    src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800&auto=format&fit=crop',
+  },
+]
+
+const CENTER = (CARDS.length - 1) / 2
+const STARS  = Array.from({ length: 5 })
+
 export default function HeroSection() {
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <div className="h-screen p-3 bg-white">
+    <section className="relative h-full overflow-hidden bg-black rounded-[28px]">
 
-      {/* z-[1] — MARSA full-width display text */}
-      <div className="absolute inset-0 flex items-center z-1 pointer-events-none">
-        <svg
-          viewBox="0 0 1000 480"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          aria-label="MARSA"
-          style={{ marginTop: '-2%' }}
-        >
-          <text
-            x="0"
-            y="420"
-            textLength="1000"
-            lengthAdjust="spacingAndGlyphs"
-            fontSize="400"
-            fontWeight="100"
-            fill="white"
-            style={{ fontFamily: 'var(--font-geist-sans), sans-serif' }}
-          >
-            MARSA
-          </text>
-        </svg>
+      {/* z-1 — backgroundhero.svg typographic pattern */}
+      <div className="absolute inset-0 z-1 pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/backgroundhero.svg" alt="" className="w-full h-full object-contain opacity-15 backdrop-blur-l" style={{ filter: 'brightness(0) invert(1)' }} />
       </div>
 
-      {/* z-[2] — gradient black → transparent, bottom to top */}
+      {/* z-2 — gradient black → transparent, bottom to top */}
       <div
         className="absolute inset-0 z-2 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to top, #000000 0%, transparent 60%)',
-        }}
+        style={{ background: 'linear-gradient(to top, #000000 0%, transparent 60%)' }}
       />
 
-      <motion.div 
+      {/* z-3 — doctor image */}
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 1, ease: 'easeOut' }}
         className="absolute inset-0 z-3 flex items-end justify-center pointer-events-none"
       >
-        <div className="relative w-[90vw] sm:w-100 md:w-150 h-200">
+        <div className="relative w-[90vw] sm:w-100 md:w-150 h-250">
           <Image
-            src="/doctor2.png"
-            alt="Doctor salem"
+            src="/doctor n.png"
+            alt="Doctor Marsa Project"
             fill
             priority
-            sizes="(max-width: 640px) 20rem, (max-width: 768px) 25rem, 37.5rem"
+            sizes="(max-width: 640px) 90vw, (max-width: 768px) 25rem, 37.5rem"
             className="object-contain object-bottom"
           />
         </div>
       </motion.div>
 
-      {/* z-[4] — second gradient black → transparent, bottom to top, over the doctor */}
+      {/* z-4 — second gradient over doctor (bottom fade) */}
       <div
         className="absolute inset-0 z-4 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to top, #000000 0%, transparent 60%)',
-        }}
+        style={{ background: 'linear-gradient(to top, #000000 0%, transparent 50%)' }}
       />
 
-      {/* Description card — bottom-left glass panel, above everything */}
+      {/* z-5 — card fan + reviews pinned to bottom */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="absolute bottom-20 left-4 md:bottom-22 md:left-8 z-5 max-w-[calc(100%-2rem)] md:max-w-72.5"
+        transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+        className="absolute inset-x-0 bottom-0 z-5 pointer-events-none"
+        style={{ paddingBottom: '28px' }}
       >
+        {/* Card fan */}
         <div
-          className="rounded-2xl px-5 py-4"
           style={{
-            background: 'rgba(255, 255, 255, 0.07)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            display:           'flex',
+            alignItems:        'flex-end',
+            justifyContent:    'center',
+            gap:               '80px',
+            perspective:       '1100px',
+            perspectiveOrigin: '50% 50%',
+            padding:           '0 24px',
           }}
         >
-          <p className="text-white/90 text-sm leading-relaxed font-light">
-            Nos especializamos en procesos odontológicos y medicina estética con
-            resultados naturales, seguros y personalizados
+          {CARDS.map((card, i) => {
+            const offset = i - CENTER
+            const rotY   = offset * 13
+            const zBack  = -Math.abs(offset) * 50
+            const liftY  = -Math.abs(offset) * -12
+            const scale  = 1 - Math.abs(offset) * 0.04
+
+            return (
+              <div
+                key={i}
+                style={{
+                  width:        '200px',
+                  height:       '200px',
+                  borderRadius: '18px',
+                  overflow:     'hidden',
+                  position:     'relative',
+                  flexShrink:   0,
+                  transform:    `rotateY(${rotY}deg) translateZ(${zBack}px) translateY(${liftY}px) scale(${scale})`,
+                  boxShadow:    Math.abs(offset) < 0.6
+                    ? '0 24px 70px rgba(0,0,0,0.9)'
+                    : '0 8px 32px rgba(0,0,0,0.6)',
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={card.src}
+                  alt={card.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+                <div style={{
+                  position:   'absolute',
+                  inset:      0,
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 60%)',
+                }} />
+                <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px' }}>
+                  <p style={{
+                    color: 'rgba(201,168,76,0.9)', fontSize: '8px',
+                    letterSpacing: '0.14em', textTransform: 'uppercase',
+                    fontWeight: 500, marginBottom: '3px',
+                    fontFamily: 'var(--font-geist-sans)',
+                  }}>
+                    {card.category}
+                  </p>
+                  <p style={{
+                    color: '#fff', fontSize: '12px', fontWeight: 600,
+                    lineHeight: 1.25, whiteSpace: 'pre-line',
+                    fontFamily: 'var(--font-albert-sans)',
+                  }}>
+                    {card.title}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Reviews */}
+        <div style={{
+          marginTop: '86px', display: 'flex', flexDirection: 'column',
+          alignItems: 'center', gap: '5px',
+        }}>
+          <div style={{ display: 'flex', gap: '3px' }}>
+            {STARS.map((_, i) => (
+              <svg key={i} width="14" height="14" viewBox="0 0 16 16" fill="#EAB308">
+                <path d="M8 1l1.854 3.756 4.146.603-3 2.924.708 4.127L8 10.25l-3.708 1.16.708-4.127L2 4.359l4.146-.603L8 1z" />
+              </svg>
+            ))}
+          </div>
+          <p style={{
+            color: 'rgba(255,255,255,0.38)', fontSize: '11px',
+            letterSpacing: '0.04em', fontFamily: 'var(--font-geist-sans)',
+          }}>
+            Más de{' '}
+            <span style={{ color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>500 pacientes</span>
+            {' '}· Calificación{' '}
+            <span style={{ color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>4.9 / 5</span>
           </p>
         </div>
       </motion.div>
 
-
     </section>
+    </div>
   )
 }

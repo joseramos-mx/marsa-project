@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import type { CSSProperties } from 'react'
+import { motion } from 'motion/react'
 
 function CrossMark({ style, className = '' }: { style: CSSProperties; className?: string }) {
   return (
@@ -97,7 +98,11 @@ export default function FAQSection() {
           <div className="grid grid-cols-1 md:grid-cols-[4fr_5fr] border border-white/15">
 
             {/* Left — yellow panel */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
               className="flex flex-col justify-between px-8 py-10 md:px-10 md:py-12 border-b md:border-b-0 md:border-r border-white/15"
               style={{ backgroundColor: '#EAB308' }}
             >
@@ -110,14 +115,20 @@ export default function FAQSection() {
                   especializada y el proceso en Marsa Project.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right — FAQ accordion */}
-            <div className="flex flex-col divide-y-0">
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+              className="flex flex-col divide-y-0"
+            >
               {faqs.map((item) => (
                 <FAQItem key={item.q} q={item.q} a={item.a} />
               ))}
-            </div>
+            </motion.div>
 
           </div>
         </div>

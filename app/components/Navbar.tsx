@@ -1,18 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
-
-function ChevronDown() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-      <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
+import { useState, useEffect } from 'react'
 
 function MarsaLogo() {
-  return <img src="/marsa%20logo.png" alt="MARSA Logo" className="h-10 md:h-12 w-auto object-contain" />
+  return <img src="/marsa%20logo.png" alt="MARSA Logo" className="h-9 md:h-10 w-auto object-contain" />
 }
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -36,94 +28,97 @@ function MenuIcon({ open }: { open: boolean }) {
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight - 80)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3">
 
-      {/* ── Main bar ── */}
-      <div className="flex items-center px-5 md:px-8 py-5">
-
-        {/* Left — nav links (desktop only) */}
-        <nav className="hidden md:flex items-center gap-7 text-white/90 text-sm font-light">
-          <Link href="#inicio" className="hover:text-white transition-colors">Inicio</Link>
-          <Link href="#servicios" className="hover:text-white transition-colors">Servicios</Link>
-          <Link href="#nosotros" className="hover:text-white transition-colors">Nosotros</Link>
-          <Link href="#aliados" className="hover:text-white transition-colors">Aliados</Link>
-          <Link href="#testimonios" className="hover:text-white transition-colors">Testimonios</Link>
-          <Link href="#faq" className="hover:text-white transition-colors">FAQ</Link>
-        </nav>
-
-        {/* Center — logo: left on mobile, absolutely centered on desktop */}
-        <Link
-          href="/"
-          className="md:absolute md:left-1/2 md:-translate-x-1/2 md:top-3 hover:opacity-80 transition-opacity"
-          aria-label="MARSA Home"
-        >
-          <MarsaLogo />
-        </Link>
-
-        {/* Right — CTA button + hamburger (mobile only) */}
-        <div className="flex items-center gap-3 ml-auto">
-          <Link
-            href="#contacto"
-            className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c]  text-black font-semibold px-5 py-1.5 rounded-full text-sm hover:brightness-110 transition-all"
-          >
-            Agenda
-          </Link>
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden flex items-center justify-center w-9 h-9 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/15 transition-colors"
-            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            <MenuIcon open={menuOpen} />
-          </button>
-        </div>
-
-      </div>
-
-      {/* ── Mobile dropdown menu ── */}
+      {/* ── Pill container — wraps bar + mobile dropdown ── */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-96' : 'max-h-0'
-          }`}
+        className={`rounded-2xl overflow-hidden w-fit mx-auto transition-all duration-500 ${
+          scrolled ? 'border border-white/10' : 'border border-transparent'
+        }`}
         style={{
-          background: 'rgba(0, 0, 0, 0.92)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
+          background: scrolled ? 'rgba(8, 8, 8, 0.45)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
         }}
       >
-        <nav className="flex flex-col px-6 pt-2 pb-6 border-t border-white/10">
-          {[
-            { label: 'Inicio', href: '#inicio' },
-            { label: 'Servicios', href: '#servicios' },
-            { label: 'Nosotros', href: '#nosotros' },
-            { label: 'Aliados', href: '#aliados' },
-            { label: 'Testimonios', href: '#testimonios' },
-            { label: 'FAQ', href: '#faq' },
-          ].map((item, i, arr) => (
-            item.href ? (
+
+        {/* Main bar */}
+        <div className="flex items-center justify-between md:justify-center px-4 py-2.5 gap-4 md:gap-15">
+
+          {/* Logo */}
+          <Link href="/" className="hover:opacity-80 transition-opacity shrink-0" aria-label="MARSA Home">
+            <MarsaLogo />
+          </Link>
+
+          {/* Nav links — desktop only */}
+          <nav className="hidden md:flex items-center gap-5 text-white/80 text-sm font-light">
+            <Link href="#inicio"      className="hover:text-white transition-colors uppercase tracking-wide text-xs">Inicio</Link>
+            <Link href="#servicios"   className="hover:text-white transition-colors uppercase tracking-wide text-xs">Servicios</Link>
+            <Link href="#nosotros"    className="hover:text-white transition-colors uppercase tracking-wide text-xs">Nosotros</Link>
+            <Link href="#aliados"     className="hover:text-white transition-colors uppercase tracking-wide text-xs">Aliados</Link>
+            <Link href="#testimonios" className="hover:text-white transition-colors uppercase tracking-wide text-xs">Testimonios</Link>
+            <Link href="#faq"         className="hover:text-white transition-colors uppercase tracking-wide text-xs">FAQ</Link>
+          </nav>
+
+          {/* CTA + hamburger */}
+          <div className="flex items-center gap-2 shrink-0">
+            <Link
+              href="#contacto"
+              className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-4 py-1.5 rounded-full text-sm hover:brightness-110 transition-all"
+            >
+              Agenda
+            </Link>
+
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-white/10 border border-white/15 text-white hover:bg-white/15 transition-colors"
+              aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            >
+              <MenuIcon open={menuOpen} />
+            </button>
+          </div>
+
+        </div>
+
+        {/* ── Mobile dropdown ── */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            menuOpen ? 'max-h-96' : 'max-h-0'
+          }`}
+        >
+          <nav className="flex flex-col px-6 pt-2 pb-5 border-t border-white/10">
+            {[
+              { label: 'Inicio',       href: '#inicio'      },
+              { label: 'Servicios',    href: '#servicios'   },
+              { label: 'Nosotros',     href: '#nosotros'    },
+              { label: 'Aliados',      href: '#aliados'     },
+              { label: 'Testimonios',  href: '#testimonios' },
+              { label: 'FAQ',          href: '#faq'         },
+            ].map((item, i, arr) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`py-4 text-white/80 text-base font-light hover:text-white transition-colors ${i < arr.length - 1 ? 'border-b border-white/8' : ''
-                  }`}
+                className={`py-4 text-white/80 text-base font-light hover:text-white transition-colors ${
+                  i < arr.length - 1 ? 'border-b border-white/8' : ''
+                }`}
               >
                 {item.label}
               </Link>
-            ) : (
-              <button
-                key={item.label}
-                className={`flex items-center justify-between py-4 text-white/80 text-base font-light hover:text-white transition-colors ${i < arr.length - 1 ? 'border-b border-white/8' : ''
-                  }`}
-              >
-                {item.label} <ChevronDown />
-              </button>
-            )
-          ))}
-        </nav>
-      </div>
+            ))}
+          </nav>
+        </div>
 
+      </div>
     </header>
   )
 }

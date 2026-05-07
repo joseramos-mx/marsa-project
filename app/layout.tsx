@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["300", "400", "600", "700", "900"],
   display: "swap",
 });
 
@@ -120,7 +120,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased bg-[#111111]`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>

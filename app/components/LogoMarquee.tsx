@@ -17,7 +17,7 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
         alt={alt}
         width={140}
         height={60}
-        className="object-contain grayscale brightness-0 invert"
+        className="object-contain grayscale brightness-0"
         style={{ height: 'auto', maxHeight: '50px' }}
       />
     </div>
@@ -26,17 +26,17 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
 
 export default function LogoMarquee() {
   return (
-    <div className="relative bg-black border-t border-white/10 py-12 overflow-hidden">
+    <div className="relative bg-white border-t border-black/8 py-12 overflow-hidden">
 
       {/* Left fade */}
       <div
         className="absolute left-0 inset-y-0 w-32 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, #000000 0%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 100%)' }}
       />
       {/* Right fade */}
       <div
         className="absolute right-0 inset-y-0 w-32 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to left, #000000 0%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(to left, #ffffff 0%, transparent 100%)' }}
       />
 
       {/* Scrolling track — duplicated set for seamless loop */}

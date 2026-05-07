@@ -3,48 +3,144 @@
 import Image from 'next/image'
 import { motion } from 'motion/react'
 
-const stats = [
-  { number: '08+', label: 'Años de experiencia' },
-  { number: '500+', label: 'Pacientes satisfechos' },
-  { number: '100+', label: 'Implantes colocados' },
-]
+const NUM = { fontFamily: 'var(--font-albert-sans)', fontWeight: 300}
+const LABEL = { fontFamily: 'var(--font-geist-sans)', letterSpacing: '0.08em' }
 
 export default function StatsSection() {
   return (
-    <section className="bg-black py-16 px-8 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
-          {stats.map((stat, i) => (
-             <motion.div 
-               key={i} 
-               initial={{ opacity: 0, y: 30 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true, margin: "-50px" }}
-               transition={{ duration: 0.6, delay: i * 0.2, ease: "easeOut" }}
-               className="relative flex flex-col items-center justify-center w-full aspect-[481/240]"
-               style={{ fontFamily: 'var(--font-geist-mono), monospace' }}
-             >
-               <Image 
-                 src="/mask.svg" 
-                 alt="" 
-                 fill 
-                 className="object-contain pointer-events-none" 
-                 sizes="(max-width: 768px) 100vw, 33vw"
-               />
-               <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 w-full h-full">
-                 <span 
-                   className="text-[#3e1900] text-[4.5rem] sm:text-8xl md:text-6xl lg:text-7xl xl:text-[6rem] leading-none mb-1 font-medium tracking-tight"
-                 >
-                   {stat.number}
-                 </span>
-                 <span 
-                   className="text-[#3e1900] text-sm sm:text-lg md:text-xs lg:text-sm tracking-tight"
-                 >
-                   {stat.label}
-                 </span>
-               </div>
-             </motion.div>
-          ))}
+    <section className="bg-white py-20 px-6 md:px-8">
+      <div className="max-w-7xl mx-auto">
+
+        {/* ── Header ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="text-center mb-12"
+        >
+          <p className="text-black/35 text-[10px] tracking-[0.25em] uppercase mb-5"
+             style={LABEL}>
+            • Sobre nosotros
+          </p>
+          <h2
+            className="text-[2.6rem] md:text-5xl text-black leading-[1.15] tracking-tight"
+            style={{ fontFamily: 'var(--font-albert-sans)' }}
+          >
+            Equipo especializado<br />
+            dedicado{' '}
+            <img src="/icontxt.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5" />
+            {' '}a construir tu<br />
+            <span className="text-[#c18845]">mejor sonrisa</span>
+          </h2>
+        </motion.div>
+
+        {/* ── Bento grid ── */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-3 gap-3"
+          style={{ gridTemplateRows: 'auto' }}
+        >
+
+          {/* ── Card 1 · left tall · doctor ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#111] min-h-[420px]"
+          >
+            <Image
+              src="/doctor n.png"
+              alt="Doctor Marsa Project"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            {/* inset white panel */}
+            <div className="absolute bottom-4 left-4 right-4 bg-white rounded-2xl px-6 py-5">
+              <span className="block text-[3.25rem] leading-none text-black mb-2" style={NUM}>
+                08+
+              </span>
+              <p className="text-[#555] text-sm leading-snug" style={{ fontFamily: 'var(--font-geist-sans)' }}>
+                Años de experiencia en odontología estética y medicina estética.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ── Card 2 · center · patients ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="md:row-span-2 rounded-3xl bg-[#000] px-7 pt-7 pb-8 flex flex-col justify-between min-h-[320px]"
+          >
+            {/* top */}
+            <div>
+              <p className="text-white/55 text-[11px] uppercase mb-4" style={LABEL}>
+                Pacientes satisfechos
+              </p>
+              <span className="block text-[4.5rem] leading-none text-white" style={NUM}>
+                500+
+              </span>
+            </div>
+
+            {/* bottom */}
+            <div className="flex flex-col gap-3">
+              <div className="flex -space-x-2">
+                {[0, 1, 2, 3].map(n => (
+                  <div
+                    key={n}
+                    className="w-9 h-9 rounded-full border-3 border-black flex items-center justify-center overflow-hidden"
+                  >
+                    <div className="w-15 h-15 rounded-full bg-[#c9a84c]/70" />
+                  </div>
+                ))}
+              </div>
+              <p className="text-white/60 text-[13px] leading-relaxed" style={{ fontFamily: 'var(--font-geist-sans)' }}>
+                &ldquo;Un equipo increíble, resultados naturales y un trato excepcional desde el primer día.&rdquo;
+              </p>
+            </div>
+          </motion.div>
+
+          {/* ── Card 3a · top-right · gold · implants ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            className="rounded-3xl px-7 pt-6 pb-7 flex flex-col justify-between min-h-[240px]"
+            style={{ backgroundColor: '#c18845' }}
+          >
+            <div>
+              <p className="text-white/55 text-[11px] uppercase mb-3" style={LABEL}>
+                Implantes colocados
+              </p>
+              <span className="block text-[4rem] leading-none text-white" style={NUM}>
+                100+
+              </span>
+            </div>
+            <p className="text-white/60 text-[13px] leading-snug" style={{ fontFamily: 'var(--font-geist-sans)' }}>
+              Con tecnología de última generación y materiales premium certificados.
+            </p>
+          </motion.div>
+
+          {/* ── Card 3b · bottom-right · dark · rating ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+            className="rounded-3xl bg-[#480517] px-7 py-6 flex items-center justify-between min-h-[120px]"
+          >
+            <p className="text-white/50 text-[13px]" style={{ fontFamily: 'var(--font-geist-sans)' }}>
+              Calificación promedio
+            </p>
+            <span className="text-[2.75rem] leading-none text-white" style={NUM}>
+              4.9/5
+            </span>
+          </motion.div>
+
         </div>
       </div>
     </section>

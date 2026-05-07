@@ -1,4 +1,7 @@
+'use client'
+
 import { Carousel, Card, CardData } from '@/components/ui/apple-cards-carousel'
+import { motion } from 'motion/react'
 
 const services: CardData[] = [
   {
@@ -56,7 +59,13 @@ export default function ServicesCarousel() {
       <div className="max-w-6xl mx-auto">
 
         {/* Section header */}
-        <div className="flex items-end justify-between mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="flex items-end justify-between mb-8"
+        >
           <div>
             <p className="text-white/40 uppercase tracking-widest text-xs mb-2">
               Servicios
@@ -65,7 +74,7 @@ export default function ServicesCarousel() {
               Nuestros tratamientos
             </h2>
           </div>
-        </div>
+        </motion.div>
 
         <Carousel items={cards} />
       </div>
