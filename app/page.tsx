@@ -6,6 +6,7 @@ import StatsSection from './components/StatsSection'
 import WhyTrustSection from './components/WhyTrustSection'
 import WellnessSection from './components/WellnessSection'
 import ServicesCarousel from './components/ServicesCarousel'
+import ScrollCarouselSection from './components/ScrollCarouselSection'
 import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
 import CTASection from './components/CTASection'
@@ -25,6 +26,10 @@ export default function Home() {
 
       <section id="inicio" aria-label="Inicio">
         <HeroSection />
+      </section>
+
+      <section id="tratamientos-3d" aria-label="Nuestros tratamientos">
+        <ScrollCarouselSection />
       </section>
 
       <section id="aliados" aria-label="Nuestros aliados">
