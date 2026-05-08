@@ -72,19 +72,22 @@ export default function Footer() {
           >
             <h4 className="text-white uppercase tracking-widest text-xs font-semibold">Contacto</h4>
             <div className="flex flex-col gap-3 text-sm font-light text-white/55">
-              <p className="hover:text-white transition-colors cursor-default">Av. Principal 123, Ciudad</p>
-              <a href="mailto:contacto@marsaproject.com" className="hover:text-white transition-colors">contacto@marsaproject.com</a>
-              <a href="tel:+5215555555555" className="hover:text-white transition-colors">+52 1 55 5555 5555</a>
+              <p className="hover:text-white transition-colors cursor-default leading-snug">
+                P.º Cristóbal Colón 128-MZ 027,<br />
+                Residencial Colón y Col Ciprés,<br />
+                50120 Toluca de Lerdo, Méx.
+              </p>
+              <a href="tel:+527225356109" className="hover:text-white transition-colors">722 535 6109</a>
+              <div className="text-white/40 text-xs leading-relaxed">
+                Lun–Vie 10 a.m.–8 p.m. · Sáb 10 a.m.–4 p.m.<br />Dom cerrado
+              </div>
             </div>
-            
+
             <div className="flex items-center gap-4 mt-2">
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="Instagram">
+              <a href="https://www.instagram.com/marsa.project" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="Instagram">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="Facebook">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="WhatsApp">
+              <a href="https://wa.me/527225356109" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="WhatsApp">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
               </a>
             </div>

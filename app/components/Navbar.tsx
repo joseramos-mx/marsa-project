@@ -1,10 +1,21 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 function MarsaLogo() {
-  return <img src="/marsa%20logo.png" alt="MARSA Logo" className="h-9 md:h-10 w-auto object-contain" />
+  return (
+    <Image
+      src="/marsa logo.png"
+      alt="MARSA Logo"
+      width={160}
+      height={40}
+      className="h-9 md:h-10 object-contain"
+      style={{ width: 'auto' }}
+      priority
+    />
+  )
 }
 
 function MenuIcon({ open }: { open: boolean }) {
@@ -72,7 +83,9 @@ export default function Navbar() {
           {/* CTA + hamburger */}
           <div className="flex items-center gap-2 shrink-0">
             <Link
-              href="#contacto"
+              href="https://wa.me/527225356109"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-4 py-1.5 rounded-full text-sm hover:brightness-110 transition-all"
             >
               Agenda

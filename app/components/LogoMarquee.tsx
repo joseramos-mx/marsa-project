@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 const LOGOS = [
   { src: '/allies/KerrLogo.png', alt: 'Kerr' },
   { src: '/allies/Kulzer_Logo_RGB_w_trans-1-e1747069135279.webp', alt: 'Kulzer' },
@@ -12,13 +10,12 @@ const LOGOS = [
 function LogoItem({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="flex items-center justify-center mx-16 shrink-0 opacity-50 hover:opacity-100 transition-opacity">
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={src}
         alt={alt}
-        width={140}
-        height={60}
         className="object-contain grayscale brightness-0"
-        style={{ height: 'auto', maxHeight: '50px' }}
+        style={{ height: '44px', width: 'auto', maxWidth: '140px' }}
       />
     </div>
   )

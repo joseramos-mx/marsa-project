@@ -88,12 +88,18 @@ export default function StatsSection() {
             {/* bottom */}
             <div className="flex flex-col gap-3">
               <div className="flex -space-x-2">
-                {[0, 1, 2, 3].map(n => (
+                {[
+                  '/patients/IMG_7769.PNG',
+                  '/patients/IMG_7774.PNG',
+                  '/patients/IMG_7771.PNG',
+                  '/patients/IMG_7756.PNG',
+                ].map((src, n) => (
                   <div
                     key={n}
-                    className="w-9 h-9 rounded-full border-3 border-black flex items-center justify-center overflow-hidden"
+                    className="w-9 h-9 rounded-full border-[3px] border-black overflow-hidden"
                   >
-                    <div className="w-15 h-15 rounded-full bg-[#c9a84c]/70" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt="" className="w-full h-full object-cover object-top" />
                   </div>
                 ))}
               </div>

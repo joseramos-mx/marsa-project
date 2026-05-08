@@ -18,9 +18,7 @@ export default function FloatingButtons() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // Si tienes un número específico, cámbialo aquí.
-  // Ejemplo: "https://wa.me/5215555555555"
-  const whatsappUrl = "https://wa.me/"
+  const whatsappUrl = "https://wa.me/527225356109"
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
@@ -41,7 +39,7 @@ export default function FloatingButtons() {
       <button
         onClick={scrollToTop}
         aria-label="Volver arriba"
-        className={`w-14 h-14 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white shadow-lg shadow-black/20 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:scale-110 ${
+        className={`w-14 h-14 flex items-center justify-center rounded-full bg-black/10 border border-white/20 text-white shadow-lg shadow-black/20 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:scale-110 ${
           showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >

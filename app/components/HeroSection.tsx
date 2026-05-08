@@ -2,37 +2,33 @@
 
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import { useState, useEffect } from 'react'
 
 const CARDS = [
   {
     category: 'Odontología',
     title: 'Blanqueamiento\nDental',
-    src: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=800&auto=format&fit=crop',
+    src: '/services/blanquamiento.jpg',
   },
   {
     category: 'Odontología',
     title: 'Carillas de\nPorcelana',
-    src: 'https://images.unsplash.com/photo-1588776814546-ec7e81f76b27?q=80&w=800&auto=format&fit=crop',
+    src: '/services/carillas.png',
   },
   {
     category: 'Diseño',
     title: 'Diseño de\nSonrisa',
-    src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    category: 'Medicina Estética',
-    title: 'Estética\nFacial',
-    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
+    src: '/services/diseñodesonrisa.jpg',
   },
   {
     category: 'Ortodoncia',
     title: 'Ortodoncia\nInvisible',
-    src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop',
+    src: '/services/ortodoncia invisble.png',
   },
   {
     category: 'Implantología',
     title: 'Implantes\nDentales',
-    src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800&auto=format&fit=crop',
+    src: '/services/implantes.jpg',
   },
 ]
 
@@ -40,6 +36,17 @@ const CENTER = (CARDS.length - 1) / 2
 const STARS  = Array.from({ length: 5 })
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const cardSize = isMobile ? 120 : 200
+  const fanGap   = isMobile ? 32  : 80
+
   return (
     <div className="h-screen p-3 bg-white">
     <section className="relative h-full overflow-hidden bg-black rounded-[28px]">
@@ -95,7 +102,7 @@ export default function HeroSection() {
             display:           'flex',
             alignItems:        'flex-end',
             justifyContent:    'center',
-            gap:               '80px',
+            gap:               `${fanGap}px`,
             perspective:       '1100px',
             perspectiveOrigin: '50% 50%',
             padding:           '0 24px',
@@ -105,15 +112,15 @@ export default function HeroSection() {
             const offset = i - CENTER
             const rotY   = offset * 13
             const zBack  = -Math.abs(offset) * 50
-            const liftY  = -Math.abs(offset) * -12
+            const liftY  = -Math.abs(offset) * -22
             const scale  = 1 - Math.abs(offset) * 0.04
 
             return (
               <div
                 key={i}
                 style={{
-                  width:        '200px',
-                  height:       '200px',
+                  width:        `${cardSize}px`,
+                  height:       `${cardSize}px`,
                   borderRadius: '18px',
                   overflow:     'hidden',
                   position:     'relative',
@@ -159,7 +166,7 @@ export default function HeroSection() {
 
         {/* Reviews */}
         <div style={{
-          marginTop: '86px', display: 'flex', flexDirection: 'column',
+          marginTop: isMobile ? '40px' : '86px', display: 'flex', flexDirection: 'column',
           alignItems: 'center', gap: '5px',
         }}>
           <div style={{ display: 'flex', gap: '3px' }}>

@@ -1,19 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import type { CSSProperties } from 'react'
-import { motion } from 'motion/react'
+import Link from 'next/link'
+import { motion, AnimatePresence } from 'motion/react'
+import { ArrowUpRight } from '@phosphor-icons/react'
 
-function CrossMark({ style, className = '' }: { style: CSSProperties; className?: string }) {
-  return (
-    <div className={`absolute w-5 h-5 ${className}`} style={style}>
-      <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-px bg-white/30" />
-      <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-px bg-white/30" />
-    </div>
-  )
-}
+const GEIST  = { fontFamily: 'var(--font-geist-sans)' }
+const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
-const faqs = [
+const FAQS = [
   {
     q: '¿Qué es Marsa Project y qué servicios ofrece?',
     a: 'Marsa Project es una clínica especializada en odontología estética y medicina estética. Ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales y tratamientos de medicina estética no invasiva.',
@@ -44,93 +39,126 @@ const faqs = [
   },
 ]
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="border-b border-white/12 last:border-b-0">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-20px' }}
+      transition={{ duration: 0.45, delay: index * 0.06, ease: 'easeOut' }}
+      className="border-b border-black/8 last:border-b-0"
+    >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-5 px-7 py-5 text-left group"
+        className="w-full flex items-center justify-between gap-4 py-5 text-left group"
       >
-        {/* + / × icon */}
         <span
-          className="shrink-0 text-white/50 text-xl leading-none transition-transform duration-300 group-hover:text-white"
-          style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
+          className="text-black text-[14px] leading-snug flex-1"
+          style={ALBERT}
+        >
+          {q}
+        </span>
+        <span
+          className="shrink-0 w-6 h-6 rounded-full border border-black/15 flex items-center justify-center text-black/40 text-sm transition-all duration-300 group-hover:border-black/30 group-hover:text-black/70"
+          style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease, color 0.2s, border-color 0.2s' }}
         >
           +
         </span>
-        <span className="text-white text-sm font-light flex-1">{q}</span>
       </button>
 
-      {/* Answer — CSS height transition */}
-      <div
-        className="overflow-hidden transition-all duration-300 ease-in-out"
-        style={{ maxHeight: open ? '200px' : '0px' }}
-      >
-        <p className="px-7 pb-5 pl-17 text-white/45 text-sm leading-relaxed">
-          {a}
-        </p>
-      </div>
-    </div>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="answer"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="overflow-hidden"
+          >
+            <p
+              className="text-black/50 text-[13px] leading-relaxed pb-5 pr-10"
+              style={GEIST}
+            >
+              {a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   )
 }
 
 export default function FAQSection() {
   return (
-    <section
-      className="bg-black py-20 px-8"
-      style={{ fontFamily: 'var(--font-albert-sans), sans-serif' }}
-    >
+    <section className="bg-white py-20 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="relative">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-12 md:gap-20">
 
-          {/* 4 outer corners */}
-          <CrossMark style={{ top: 0,    left: 0,      transform: 'translate(-50%, -50%)' }} />
-          <CrossMark style={{ top: 0,    right: 0,     transform: 'translate( 50%, -50%)' }} />
-          <CrossMark style={{ bottom: 0, left: 0,      transform: 'translate(-50%,  50%)' }} />
-          <CrossMark style={{ bottom: 0, right: 0,     transform: 'translate( 50%,  50%)' }} />
+          {/* ── Left ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.65, ease: 'easeOut' }}
+            className="flex flex-col justify-between gap-10"
+          >
+            <div>
+              <p
+                className="text-black/35 text-[10px] uppercase mb-4"
+                style={{ ...GEIST, letterSpacing: '0.22em' }}
+              >
+                ▪ FAQ
+              </p>
+              <h2
+                className="text-[2.6rem] md:text-5xl text-black leading-[1.1] tracking-tight mb-5"
+                style={ALBERT}
+              >
+                Preguntas<br />
+                <span style={{ color: '#480517' }}>frecuentes</span>
+              </h2>
+              <p
+                className="text-black/45 text-[14px] leading-relaxed max-w-xs"
+                style={GEIST}
+              >
+                Encuentra respuestas a las preguntas más comunes sobre nuestros
+                tratamientos y el proceso en Marsa Project.
+              </p>
+            </div>
 
-          {/* Divider intersections — grid-cols-[4fr_5fr] → divider at 44.44% */}
-          <CrossMark style={{ top: 0,    left: '44.44%', transform: 'translate(-50%, -50%)' }} className="hidden md:block" />
-          <CrossMark style={{ bottom: 0, left: '44.44%', transform: 'translate(-50%,  50%)' }} className="hidden md:block" />
-
-          <div className="grid grid-cols-1 md:grid-cols-[4fr_5fr] border border-white/15">
-
-            {/* Left — yellow panel */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="flex flex-col justify-between px-8 py-10 md:px-10 md:py-12 border-b md:border-b-0 md:border-r border-white/15"
-              style={{ backgroundColor: '#EAB308' }}
+            <Link
+              href="https://wa.me/527225356109"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center self-start bg-[#0c0c0c] text-white pl-6 pr-1.5 py-1.5 rounded-full hover:bg-black/80 transition-colors"
             >
-              <div className="flex flex-col gap-6">
-                <h2 className="text-black text-4xl md:text-5xl font-normal leading-tight">
-                  Preguntas<br />Frecuentes
-                </h2>
-                <p className="text-black/70 text-sm leading-relaxed max-w-55">
-                  Encuentra respuestas a preguntas comunes acerca de la odontología
-                  especializada y el proceso en Marsa Project.
-                </p>
-              </div>
-            </motion.div>
+              <span
+                className="text-[11px] font-medium uppercase tracking-[0.12em] pr-3"
+                style={GEIST}
+              >
+                Agenda tu cita
+              </span>
+              <span className="w-8 h-8 rounded-full bg-[#c18845] flex items-center justify-center shrink-0">
+                <ArrowUpRight size={15} weight="bold" className="text-black" />
+              </span>
+            </Link>
+          </motion.div>
 
-            {/* Right — FAQ accordion */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="flex flex-col divide-y-0"
-            >
-              {faqs.map((item) => (
-                <FAQItem key={item.q} q={item.q} a={item.a} />
-              ))}
-            </motion.div>
+          {/* ── Right — accordion ── */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.65, delay: 0.1, ease: 'easeOut' }}
+            className="bg-[#f5f4f2] rounded-3xl px-7 py-4"
+          >
+            {FAQS.map((item, i) => (
+              <FAQItem key={item.q} q={item.q} a={item.a} index={i} />
+            ))}
+          </motion.div>
 
-          </div>
         </div>
       </div>
     </section>
