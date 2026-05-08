@@ -18,12 +18,12 @@ const CARDS = [
   {
     category: 'Diseño',
     title: 'Diseño de\nSonrisa',
-    src: '/services/diseñodesonrisa.jpg',
+    src: '/services/disenodesonrisa.jpg',
   },
   {
     category: 'Ortodoncia',
     title: 'Ortodoncia\nInvisible',
-    src: '/services/ortodoncia invisble.png',
+    src: '/services/ortodoncia-invisible.png',
   },
   {
     category: 'Implantología',

@@ -23,14 +23,14 @@ const services: CardData[] = [
     title: 'Diseño de sonrisa',
     description:
       'Planificamos cada detalle de tu nueva sonrisa con simulaciones digitales antes del tratamiento para que apruebes el resultado.',
-    src: '/services/diseñodesonrisa.jpg',
+    src: '/services/disenodesonrisa.jpg',
   },
   {
     category: 'Ortodoncia',
     title: 'Ortodoncia invisible',
     description:
       'Alineadores transparentes a medida que corrigen la posición de tus dientes de forma discreta y cómoda.',
-    src: '/services/ortodoncia invisble.png',
+    src: '/services/ortodoncia-invisible.png',
   },
   {
     category: 'Implantología',

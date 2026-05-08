@@ -8,7 +8,7 @@ const GEIST  = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
 const AVATARS = [
-  '/patients/IMG_7764.PNG',
+  '/patients/IMG_7756.PNG',
   '/patients/IMG_7759.PNG',
   '/patients/IMG_7774.PNG',
   '/patients/IMG_7771.PNG',
