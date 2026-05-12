@@ -50,14 +50,14 @@ export default function StatsSection() {
             className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#1a1a1a] min-h-105"
           >
             <Image
-              src="/doctor n.png"
+              src="/docsalem.jpeg"
               alt="Doctor Marsa Project"
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
             {/* inset panel */}
-            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-5">
+            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-2">
               <span className="block text-[3.25rem] leading-none text-black mb-2" style={NUM}>
                 08+
               </span>

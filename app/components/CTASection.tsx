@@ -31,7 +31,7 @@ export default function CTASection() {
             className="w-full h-full object-cover object-top"
           />
           {/* fade into bg on the left edge */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #181818 0%, transparent 40%)' }} />
+          
         </div>
 
         <motion.div

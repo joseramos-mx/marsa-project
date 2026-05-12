@@ -28,15 +28,15 @@ export default function FloatingButtons() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Agenda tu cita por WhatsApp"
-      className="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-2 rounded-l-2xl shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-x-1 px-2 py-5 bg-linear-to-b from-[#c69a2c] via-[#f8d974] to-[#c69a2c]"
+      className="flex fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-2 rounded-l-2xl shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-x-1 px-1.5 py-4 md:px-2 md:py-5 bg-linear-to-b from-[#c69a2c] via-[#f8d974] to-[#c69a2c]"
     >
       <span
-        className="text-black text-[11px] font-semibold uppercase tracking-[0.18em]"
+        className="text-black text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] md:tracking-[0.18em]"
         style={{ fontFamily: 'var(--font-geist-sans)', writingMode: 'vertical-rl' }}
       >
         Agenda tu cita
       </span>
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black md:w-3 md:h-3">
         <path d="M6 9l6 6 6-6"/>
       </svg>
     </a>

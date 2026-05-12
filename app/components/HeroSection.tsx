@@ -37,7 +37,9 @@ const STARS  = Array.from({ length: 5 })
 
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false)
-  const heroRef = useRef<HTMLDivElement>(null)
+  const [activeIdx, setActiveIdx] = useState(0)
+  const heroRef  = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768)
@@ -45,6 +47,14 @@ export default function HeroSection() {
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
   }, [])
+
+  /* ── Mobile carousel: track scroll position for dots ── */
+  const handleTrackScroll = () => {
+    if (!trackRef.current) return
+    const { scrollLeft, clientWidth } = trackRef.current
+    const idx = Math.round(scrollLeft / clientWidth)
+    if (idx !== activeIdx) setActiveIdx(idx)
+  }
 
   /* ── Scroll-linked transforms ── */
   const { scrollYProgress } = useScroll({
@@ -91,17 +101,27 @@ export default function HeroSection() {
 
       {/* z-3 — doctor image */}
       <motion.div
-        className="absolute inset-0 z-3 flex items-end justify-center pointer-events-none"
+        className="absolute inset-0 z-3 flex items-start sm:items-end justify-center pointer-events-none"
         style={{ y: doctorY, scale: doctorScale, opacity: doctorOpacity }}
       >
-        <div className="relative w-[90vw] sm:w-100 md:w-150 h-250">
+        <div className="relative w-[150vw] sm:w-100 md:w-150 h-full md:h-250">
+          {/* Mobile: vertical-portrait doctor (1340×2400) */}
+          <Image
+            src="/doctorver.png"
+            alt="Doctor Marsa Project"
+            fill
+            priority
+            sizes="(max-width: 640px) 150vw, 0px"
+            className="object-cover object-top sm:hidden"
+          />
+          {/* Desktop & up: standard doctor */}
           <Image
             src="/doctor n.png"
             alt="Doctor Marsa Project"
             fill
             priority
-            sizes="(max-width: 640px) 90vw, (max-width: 768px) 25rem, 37.5rem"
-            className="object-contain object-bottom"
+            sizes="(max-width: 768px) 25rem, 37.5rem"
+            className="hidden sm:block object-contain object-bottom"
           />
         </div>
       </motion.div>
@@ -117,83 +137,162 @@ export default function HeroSection() {
         className="absolute inset-x-0 bottom-0 z-5 pointer-events-none"
         style={{ paddingBottom: '28px', y: cardsY, opacity: cardsOpacity }}
       >
-        {/* Card fan */}
-        <div
-          style={{
-            display:           'flex',
-            alignItems:        'flex-end',
-            justifyContent:    'center',
-            gap:               `${fanGap}px`,
-            perspective:       '1100px',
-            perspectiveOrigin: '50% 50%',
-            padding:           '0 24px',
-          }}
-        >
-          {CARDS.map((card, i) => {
-            const offset    = i - CENTER
-            const rotY      = offset * 13
-            const zBack     = -Math.abs(offset) * 50
-            const liftY     = Math.abs(offset) * 22
-            const cardScale = 1 - Math.abs(offset) * 0.04
-            const floatAmp  = 6 + Math.abs(offset) * 2
-
-            return (
-              <motion.div
-                key={i}
-                style={{
-                  width:        `${cardSize}px`,
-                  height:       `${cardSize}px`,
-                  borderRadius: '18px',
-                  overflow:     'hidden',
-                  position:     'relative',
-                  flexShrink:   0,
-                  rotateY:      rotY,
-                  z:            zBack,
-                  scale:        cardScale,
-                  boxShadow:    Math.abs(offset) < 0.6
-                    ? '0 24px 70px rgba(0,0,0,0.9)'
-                    : '0 8px 32px rgba(0,0,0,0.6)',
-                }}
-                animate={{ y: [liftY, liftY - floatAmp, liftY] }}
-                transition={{
-                  duration: 4 + Math.abs(offset) * 0.6,
-                  delay:    i * 0.35,
-                  repeat:   Infinity,
-                  ease:     'easeInOut',
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={card.src}
-                  alt={card.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-                <div style={{
-                  position:   'absolute',
-                  inset:      0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 60%)',
-                }} />
-                <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px' }}>
-                  <p style={{
-                    color: 'rgba(201,168,76,0.9)', fontSize: '8px',
-                    letterSpacing: '0.14em', textTransform: 'uppercase',
-                    fontWeight: 500, marginBottom: '3px',
-                    fontFamily: 'var(--font-geist-sans)',
-                  }}>
-                    {card.category}
-                  </p>
-                  <p style={{
-                    color: '#fff', fontSize: '12px', fontWeight: 600,
-                    lineHeight: 1.25, whiteSpace: 'pre-line',
-                    fontFamily: 'var(--font-albert-sans)',
-                  }}>
-                    {card.title}
-                  </p>
+        {/* ── Mobile: swipeable carousel (one card per slide) ── */}
+        {isMobile ? (
+          <>
+            <div
+              ref={trackRef}
+              onScroll={handleTrackScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pointer-events-auto"
+              style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}
+            >
+              {CARDS.map((card, i) => (
+                <div
+                  key={i}
+                  className="snap-center shrink-0 w-screen flex justify-center items-center"
+                  style={{ scrollSnapAlign: 'center' }}
+                >
+                  <motion.div
+                    style={{
+                      width:        '60vw',
+                      height:       '60vw',
+                      borderRadius: '20px',
+                      overflow:     'hidden',
+                      position:     'relative',
+                      boxShadow:    '0 24px 70px rgba(0,0,0,0.9)',
+                    }}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{
+                      duration: 4,
+                      delay:    i * 0.3,
+                      repeat:   Infinity,
+                      ease:     'easeInOut',
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={card.src}
+                      alt={card.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                    <div style={{
+                      position:   'absolute',
+                      inset:      0,
+                      background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 55%)',
+                    }} />
+                    <div style={{ position: 'absolute', bottom: '14px', left: '14px', right: '14px' }}>
+                      <p style={{
+                        color: 'rgba(248,217,116,0.95)', fontSize: '9px',
+                        letterSpacing: '0.16em', textTransform: 'uppercase',
+                        fontWeight: 500, marginBottom: '4px',
+                        fontFamily: 'var(--font-geist-sans)',
+                      }}>
+                        {card.category}
+                      </p>
+                      <p style={{
+                        color: '#fff', fontSize: '15px', fontWeight: 600,
+                        lineHeight: 1.2, whiteSpace: 'pre-line',
+                        fontFamily: 'var(--font-albert-sans)',
+                      }}>
+                        {card.title}
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            )
-          })}
-        </div>
+              ))}
+            </div>
+
+            {/* Dot indicators */}
+            <div className="flex justify-center gap-2 mt-5">
+              {CARDS.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === activeIdx ? 'w-6 bg-white/90' : 'w-1.5 bg-white/30'
+                  }`}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          /* ── Desktop: 3D card fan ── */
+          <div
+            style={{
+              display:           'flex',
+              alignItems:        'flex-end',
+              justifyContent:    'center',
+              gap:               `${fanGap}px`,
+              perspective:       '1100px',
+              perspectiveOrigin: '50% 50%',
+              padding:           '0 24px',
+            }}
+          >
+            {CARDS.map((card, i) => {
+              const offset    = i - CENTER
+              const rotY      = offset * 13
+              const zBack     = -Math.abs(offset) * 50
+              const liftY     = Math.abs(offset) * 22
+              const cardScale = 1 - Math.abs(offset) * 0.04
+              const floatAmp  = 6 + Math.abs(offset) * 2
+
+              return (
+                <motion.div
+                  key={i}
+                  style={{
+                    width:        `${cardSize}px`,
+                    height:       `${cardSize}px`,
+                    borderRadius: '18px',
+                    overflow:     'hidden',
+                    position:     'relative',
+                    flexShrink:   0,
+                    rotateY:      rotY,
+                    z:            zBack,
+                    scale:        cardScale,
+                    boxShadow:    Math.abs(offset) < 0.6
+                      ? '0 24px 70px rgba(0,0,0,0.9)'
+                      : '0 8px 32px rgba(0,0,0,0.6)',
+                  }}
+                  animate={{ y: [liftY, liftY - floatAmp, liftY] }}
+                  transition={{
+                    duration: 4 + Math.abs(offset) * 0.6,
+                    delay:    i * 0.35,
+                    repeat:   Infinity,
+                    ease:     'easeInOut',
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={card.src}
+                    alt={card.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{
+                    position:   'absolute',
+                    inset:      0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 60%)',
+                  }} />
+                  <div style={{ position: 'absolute', bottom: '12px', left: '12px', right: '12px' }}>
+                    <p style={{
+                      color: 'rgba(201,168,76,0.9)', fontSize: '8px',
+                      letterSpacing: '0.14em', textTransform: 'uppercase',
+                      fontWeight: 500, marginBottom: '3px',
+                      fontFamily: 'var(--font-geist-sans)',
+                    }}>
+                      {card.category}
+                    </p>
+                    <p style={{
+                      color: '#fff', fontSize: '12px', fontWeight: 600,
+                      lineHeight: 1.25, whiteSpace: 'pre-line',
+                      fontFamily: 'var(--font-albert-sans)',
+                    }}>
+                      {card.title}
+                    </p>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        )}
 
         {/* Reviews */}
         <div style={{

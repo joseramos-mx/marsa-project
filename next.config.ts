@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /* ── Dev origins (cross-origin requests from LAN devices) ── */
+  allowedDevOrigins: ['192.168.68.52'],
+
   /* ── Security & SEO headers ── */
   async headers() {
     return [
