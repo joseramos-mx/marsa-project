@@ -46,7 +46,7 @@ export default function ServicesCarousel() {
 
   return (
     <section
-      className="bg-white py-16 px-8"
+      className="bg-[#0c0c0c] py-16 px-8"
       style={{ fontFamily: 'var(--font-albert-sans), sans-serif' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -60,10 +60,10 @@ export default function ServicesCarousel() {
           className="flex items-end justify-between mb-8"
         >
           <div>
-            <p className="text-black/35 uppercase tracking-widest text-xs mb-2">
+            <p className="text-white/40 uppercase tracking-widest text-xs mb-2">
               Servicios
             </p>
-            <h2 className="text-black text-3xl font-semibold">
+            <h2 className="text-white text-3xl font-semibold">
               Nuestros tratamientos
             </h2>
           </div>

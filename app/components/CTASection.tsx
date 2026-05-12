@@ -16,11 +16,11 @@ const AVATARS = [
 
 export default function CTASection() {
   return (
-    <section className="bg-white px-3 pb-3">
+    <section className="bg-[#0c0c0c] px-3 pb-3">
       <div className="max-w-7xl mx-auto">
       <div
         className="rounded-[28px] overflow-hidden relative"
-        style={{ background: 'linear-gradient(135deg, #1a0008 0%, #0c0c0c 60%)' }}
+        style={{ background: 'linear-gradient(135deg, #2a0a12 0%, #181818 60%)' }}
       >
         {/* Doctor image — right side */}
         <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden md:block pointer-events-none">
@@ -31,7 +31,7 @@ export default function CTASection() {
             className="w-full h-full object-cover object-top"
           />
           {/* fade into bg on the left edge */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #0c0c0c 0%, transparent 40%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #181818 0%, transparent 40%)' }} />
         </div>
 
         <motion.div

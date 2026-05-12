@@ -8,7 +8,7 @@ const LABEL = { fontFamily: 'var(--font-geist-sans)', letterSpacing: '0.08em' }
 
 export default function StatsSection() {
   return (
-    <section className="bg-white py-20 px-6 md:px-8">
+    <section className="bg-[#0c0c0c] py-20 px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* ── Header ── */}
@@ -19,17 +19,17 @@ export default function StatsSection() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="text-center mb-12"
         >
-          <p className="text-black/35 text-[10px] tracking-[0.25em] uppercase mb-5"
+          <p className="text-white/40 text-[10px] tracking-[0.25em] uppercase mb-5"
              style={LABEL}>
             • Sobre nosotros
           </p>
           <h2
-            className="text-[2.6rem] md:text-5xl text-black leading-[1.15] tracking-tight"
+            className="text-[2.6rem] md:text-5xl text-white leading-[1.15] tracking-tight"
             style={{ fontFamily: 'var(--font-albert-sans)' }}
           >
             Equipo especializado<br />
             dedicado{' '}
-            <img src="/icontxt.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5" />
+            <img src="/icontxt.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5" style={{ filter: 'invert(1)' }} />
             {' '}a construir tu<br />
             <span className="text-[#c18845]">mejor sonrisa</span>
           </h2>
@@ -47,7 +47,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#111] min-h-[420px]"
+            className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#1a1a1a] min-h-105"
           >
             <Image
               src="/doctor n.png"
@@ -56,8 +56,8 @@ export default function StatsSection() {
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            {/* inset white panel */}
-            <div className="absolute bottom-4 left-4 right-4 bg-white rounded-2xl px-6 py-5">
+            {/* inset panel */}
+            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-5">
               <span className="block text-[3.25rem] leading-none text-black mb-2" style={NUM}>
                 08+
               </span>
@@ -73,7 +73,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
-            className="md:row-span-2 rounded-3xl bg-[#000] px-7 pt-7 pb-8 flex flex-col justify-between min-h-[320px]"
+            className="md:row-span-2 rounded-3xl bg-[#1a1a1a] px-7 pt-7 pb-8 flex flex-col justify-between min-h-80"
           >
             {/* top */}
             <div>
@@ -96,7 +96,7 @@ export default function StatsSection() {
                 ].map((src, n) => (
                   <div
                     key={n}
-                    className="w-9 h-9 rounded-full border-[3px] border-black overflow-hidden"
+                    className="w-9 h-9 rounded-full border-[3px] border-[#1a1a1a] overflow-hidden"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={src} alt="" className="w-full h-full object-cover object-top" />
@@ -115,7 +115,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-            className="rounded-3xl px-7 pt-6 pb-7 flex flex-col justify-between min-h-[240px]"
+            className="rounded-3xl px-7 pt-6 pb-7 flex flex-col justify-between min-h-60"
             style={{ backgroundColor: '#c18845' }}
           >
             <div>
@@ -137,7 +137,7 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-            className="rounded-3xl bg-[#480517] px-7 py-6 flex items-center justify-between min-h-[120px]"
+            className="rounded-3xl bg-[#480517] px-7 py-6 flex items-center justify-between min-h-30"
           >
             <p className="text-white/50 text-[13px]" style={{ fontFamily: 'var(--font-geist-sans)' }}>
               Calificación promedio

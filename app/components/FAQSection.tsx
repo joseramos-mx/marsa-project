@@ -48,20 +48,20 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
       transition={{ duration: 0.45, delay: index * 0.06, ease: 'easeOut' }}
-      className="border-b border-black/8 last:border-b-0"
+      className="border-b border-white/8 last:border-b-0"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 py-5 text-left group"
       >
         <span
-          className="text-black text-[14px] leading-snug flex-1"
+          className="text-white text-[14px] leading-snug flex-1"
           style={ALBERT}
         >
           {q}
         </span>
         <span
-          className="shrink-0 w-6 h-6 rounded-full border border-black/15 flex items-center justify-center text-black/40 text-sm transition-all duration-300 group-hover:border-black/30 group-hover:text-black/70"
+          className="shrink-0 w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-white/50 text-sm transition-all duration-300 group-hover:border-white/40 group-hover:text-white/80"
           style={{ transform: open ? 'rotate(45deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease, color 0.2s, border-color 0.2s' }}
         >
           +
@@ -79,7 +79,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
             className="overflow-hidden"
           >
             <p
-              className="text-black/50 text-[13px] leading-relaxed pb-5 pr-10"
+              className="text-white/55 text-[13px] leading-relaxed pb-5 pr-10"
               style={GEIST}
             >
               {a}
@@ -93,7 +93,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 
 export default function FAQSection() {
   return (
-    <section className="bg-white py-20 px-6 md:px-8">
+    <section className="bg-[#0c0c0c] py-20 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-12 md:gap-20">
 
@@ -107,20 +107,20 @@ export default function FAQSection() {
           >
             <div>
               <p
-                className="text-black/35 text-[10px] uppercase mb-4"
+                className="text-white/40 text-[10px] uppercase mb-4"
                 style={{ ...GEIST, letterSpacing: '0.22em' }}
               >
                 ▪ FAQ
               </p>
               <h2
-                className="text-[2.6rem] md:text-5xl text-black leading-[1.1] tracking-tight mb-5"
+                className="text-[2.6rem] md:text-5xl text-white leading-[1.1] tracking-tight mb-5"
                 style={ALBERT}
               >
                 Preguntas<br />
-                <span style={{ color: '#480517' }}>frecuentes</span>
+                <span style={{ color: '#c18845' }}>frecuentes</span>
               </h2>
               <p
-                className="text-black/45 text-[14px] leading-relaxed max-w-xs"
+                className="text-white/50 text-[14px] leading-relaxed max-w-xs"
                 style={GEIST}
               >
                 Encuentra respuestas a las preguntas más comunes sobre nuestros
@@ -132,7 +132,7 @@ export default function FAQSection() {
               href="https://wa.me/527225356109"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center self-start bg-[#0c0c0c] text-white pl-6 pr-1.5 py-1.5 rounded-full hover:bg-black/80 transition-colors"
+              className="inline-flex items-center self-start bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
             >
               <span
                 className="text-[11px] font-medium uppercase tracking-[0.12em] pr-3"
@@ -152,7 +152,7 @@ export default function FAQSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.65, delay: 0.1, ease: 'easeOut' }}
-            className="bg-[#f5f4f2] rounded-3xl px-7 py-4"
+            className="bg-[#141414] border border-white/5 rounded-3xl px-7 py-4"
           >
             {FAQS.map((item, i) => (
               <FAQItem key={item.q} q={item.q} a={item.a} index={i} />

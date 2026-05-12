@@ -16,7 +16,7 @@ const TAGS = [
 
 export default function WellnessSection() {
   return (
-    <section className="bg-white py-20 px-6 md:px-8">
+    <section className="bg-[#0c0c0c] py-20 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
 
         {/* ── Header — left title / right description ── */}
@@ -30,13 +30,13 @@ export default function WellnessSection() {
           {/* Left */}
           <div className="max-w-xl">
             <p
-              className="text-black/35 text-[10px] uppercase mb-4"
+              className="text-white/40 text-[10px] uppercase mb-4"
               style={{ ...GEIST, letterSpacing: '0.22em' }}
             >
               ▪ Nosotros
             </p>
             <h2
-              className="text-[2.6rem] md:text-5xl text-black tracking-tight leading-[1.12]"
+              className="text-[2.6rem] md:text-5xl text-white tracking-tight leading-[1.12]"
               style={ALBERT}
             >
               Un equipo dedicado<br />a tu bienestar y<br />
@@ -50,7 +50,7 @@ export default function WellnessSection() {
 
           {/* Right */}
           <div className="flex flex-col gap-5 max-w-xs">
-            <p className="text-black/50 text-[14px] leading-relaxed" style={GEIST}>
+            <p className="text-white/50 text-[14px] leading-relaxed" style={GEIST}>
               En Marsa Project combinamos ciencia, tecnología avanzada y
               un enfoque humano para brindarte resultados excepcionales.
             </p>
@@ -58,7 +58,7 @@ export default function WellnessSection() {
               href="https://wa.me/527225356109"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center self-start bg-[#0c0c0c] text-white pl-6 pr-1.5 py-1.5 rounded-full hover:bg-black/80 transition-colors"
+              className="inline-flex items-center self-start bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
             >
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] pr-3" style={GEIST}>
                 Agenda tu cita
@@ -79,7 +79,7 @@ export default function WellnessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#e8e0d5] min-h-100"
+            className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#1a1a1a] min-h-100"
           >
             <Image
               src="/doctores.jpg"
@@ -97,7 +97,7 @@ export default function WellnessSection() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="rounded-3xl overflow-hidden relative min-h-50"
-            style={{ backgroundColor: '#0c0c0c' }}
+            style={{ backgroundColor: '#1a1a1a' }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -134,20 +134,20 @@ export default function WellnessSection() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
             className="md:col-span-2 rounded-3xl p-7 flex flex-col justify-between min-h-40 relative overflow-hidden"
-            style={{ backgroundColor: '#f2f0ed' }}
+            style={{ backgroundColor: '#1a1a1a' }}
           >
             {/* Placeholder bg — user will add image later */}
-            <div className="absolute inset-0 rounded-3xl" style={{ background: 'linear-gradient(135deg, #f2f0ed 0%, #e8e4de 100%)' }} />
+            <div className="absolute inset-0 rounded-3xl" style={{ background: 'linear-gradient(135deg, #1a1a1a 0%, #141414 100%)' }} />
 
             <div className="relative z-10 flex flex-col gap-5">
-              <p className="text-black/35 text-[11px] uppercase tracking-widest" style={GEIST}>
+              <p className="text-white/40 text-[11px] uppercase tracking-widest" style={GEIST}>
                 Nuestros tratamientos
               </p>
               <div className="flex flex-wrap gap-2">
                 {TAGS.map(tag => (
                   <span
                     key={tag}
-                    className="px-4 py-1.5 rounded-full text-[12px] text-black/65 border border-black/12 bg-white/70"
+                    className="px-4 py-1.5 rounded-full text-[12px] text-white/65 border border-white/12 bg-white/5"
                     style={GEIST}
                   >
                     {tag}

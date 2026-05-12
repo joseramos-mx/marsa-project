@@ -9,12 +9,12 @@ const LOGOS = [
 
 function LogoItem({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="flex items-center justify-center mx-16 shrink-0 opacity-50 hover:opacity-100 transition-opacity">
+    <div className="flex items-center justify-center mx-16 shrink-0 opacity-60 hover:opacity-100 transition-opacity">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
-        className="object-contain grayscale brightness-0"
+        className="object-contain grayscale brightness-0 invert"
         style={{ height: '44px', width: 'auto', maxWidth: '140px' }}
       />
     </div>
@@ -23,17 +23,17 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
 
 export default function LogoMarquee() {
   return (
-    <div className="relative bg-white border-t border-black/8 py-12 overflow-hidden">
+    <div className="relative bg-[#0c0c0c] border-t border-white/8 py-12 overflow-hidden">
 
       {/* Left fade */}
       <div
         className="absolute left-0 inset-y-0 w-32 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, #ffffff 0%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(to right, #0c0c0c 0%, transparent 100%)' }}
       />
       {/* Right fade */}
       <div
         className="absolute right-0 inset-y-0 w-32 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to left, #ffffff 0%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(to left, #0c0c0c 0%, transparent 100%)' }}
       />
 
       {/* Scrolling track — duplicated set for seamless loop */}

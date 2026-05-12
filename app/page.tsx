@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main className="bg-[#0c0c0c]">
       <Navbar />
 
       <section id="inicio" aria-label="Inicio">

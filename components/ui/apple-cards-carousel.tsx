@@ -103,7 +103,7 @@ export function Carousel({
             onClick={() => scrollBy(-360)}
             disabled={!canLeft}
             className={cn(
-              'flex h-10 w-10 items-center justify-center border border-black/20 text-black transition-opacity hover:border-black/40',
+              'flex h-10 w-10 items-center justify-center border border-white/20 text-white transition-opacity hover:border-white/40',
               !canLeft && 'opacity-30 cursor-not-allowed'
             )}
             aria-label="Anterior"
@@ -114,7 +114,7 @@ export function Carousel({
             onClick={() => scrollBy(360)}
             disabled={!canRight}
             className={cn(
-              'flex h-10 w-10 items-center justify-center border border-black/20 text-black transition-opacity hover:border-black/40',
+              'flex h-10 w-10 items-center justify-center border border-white/20 text-white transition-opacity hover:border-white/40',
               !canRight && 'opacity-30 cursor-not-allowed'
             )}
             aria-label="Siguiente"

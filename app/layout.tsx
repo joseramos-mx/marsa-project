@@ -120,7 +120,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased bg-[#111111]`}
+      className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased bg-[#0c0c0c]`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>

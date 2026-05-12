@@ -62,7 +62,7 @@ export default function TestimonialsSection() {
   const items = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]
 
   return (
-    <section className="bg-white py-20 overflow-hidden">
+    <section className="bg-[#0c0c0c] py-20 overflow-hidden">
 
       {/* ── Header (constrained) ── */}
       <div className="max-w-6xl mx-auto px-6 md:px-8 mb-10">
@@ -73,18 +73,18 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           <p
-            className="text-black/35 text-[10px] uppercase mb-4"
+            className="text-white/40 text-[10px] uppercase mb-4"
             style={{ ...GEIST, letterSpacing: '0.22em' }}
           >
             ▪ Testimonios
           </p>
           <h2
-            className="text-[2.6rem] md:text-5xl text-black leading-[1.12] tracking-tight mb-3"
+            className="text-[2.6rem] md:text-5xl text-white leading-[1.12] tracking-tight mb-3"
             style={ALBERT}
           >
             Lo que dicen<br />sobre nosotros
           </h2>
-          <p className="text-black/45 text-[14px] leading-relaxed" style={GEIST}>
+          <p className="text-white/50 text-[14px] leading-relaxed" style={GEIST}>
             Historias reales de pacientes que transformaron su sonrisa.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="text-black/35 text-[10px] uppercase mb-8"
+          className="text-white/40 text-[10px] uppercase mb-8"
           style={{ ...GEIST, letterSpacing: '0.22em' }}
         >
           ▪ En video

@@ -48,7 +48,7 @@ export default function HeroSection() {
   const fanGap   = isMobile ? 32  : 80
 
   return (
-    <div className="h-screen p-3 bg-white">
+    <div className="h-screen p-3 bg-[#0c0c0c]">
     <section className="relative h-full overflow-hidden bg-black rounded-[28px]">
 
       {/* z-1 — backgroundhero.svg typographic pattern */}
