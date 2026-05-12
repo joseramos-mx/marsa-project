@@ -56,6 +56,44 @@ export default function HeroSection() {
     if (idx !== activeIdx) setActiveIdx(idx)
   }
 
+  /* ── Desktop carousel: auto-advance every 3.5s (paused while user interacts) ── */
+  const pauseUntilRef = useRef(0)
+  useEffect(() => {
+    if (isMobile) return
+    const id = setInterval(() => {
+      if (Date.now() < pauseUntilRef.current) return
+      setActiveIdx(prev => (prev + 1) % CARDS.length)
+    }, 3500)
+    return () => clearInterval(id)
+  }, [isMobile])
+
+  /* ── Desktop drag/swipe: manual rotation with mouse or touch ── */
+  const dragStartRef = useRef<number | null>(null)
+  const [isDragging, setIsDragging] = useState(false)
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    dragStartRef.current = e.clientX
+    setIsDragging(true)
+    pauseUntilRef.current = Date.now() + 8000   // pause auto-advance for 8s
+  }
+
+  const handlePointerUp = (e: React.PointerEvent) => {
+    if (dragStartRef.current === null) return
+    const delta = e.clientX - dragStartRef.current
+    const SWIPE_THRESHOLD = 40
+    if (Math.abs(delta) > SWIPE_THRESHOLD) {
+      if (delta < 0) setActiveIdx(prev => (prev + 1) % CARDS.length)
+      else           setActiveIdx(prev => (prev - 1 + CARDS.length) % CARDS.length)
+    }
+    dragStartRef.current = null
+    setIsDragging(false)
+  }
+
+  const handlePointerCancel = () => {
+    dragStartRef.current = null
+    setIsDragging(false)
+  }
+
   /* ── Scroll-linked transforms ── */
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -215,49 +253,62 @@ export default function HeroSection() {
             </div>
           </>
         ) : (
-          /* ── Desktop: 3D card fan ── */
+          /* ── Desktop: auto-rotating 3D carousel (also draggable) ── */
           <div
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerCancel={handlePointerCancel}
+            onPointerLeave={handlePointerCancel}
+            className="pointer-events-auto select-none"
             style={{
-              display:           'flex',
-              alignItems:        'flex-end',
-              justifyContent:    'center',
-              gap:               `${fanGap}px`,
+              position:          'relative',
+              height:            `${cardSize + 60}px`,
               perspective:       '1100px',
               perspectiveOrigin: '50% 50%',
               padding:           '0 24px',
+              cursor:            isDragging ? 'grabbing' : 'grab',
+              touchAction:       'pan-y',
             }}
           >
             {CARDS.map((card, i) => {
-              const offset    = i - CENTER
-              const rotY      = offset * 13
-              const zBack     = -Math.abs(offset) * 50
-              const liftY     = Math.abs(offset) * 22
-              const cardScale = 1 - Math.abs(offset) * 0.04
-              const floatAmp  = 6 + Math.abs(offset) * 2
+              const N = CARDS.length
+              // Position of this card in the fan, relative to the center slot.
+              // pos cycles -2,-1,0,1,2 (for N=5) as activeIdx advances.
+              let pos = ((i - activeIdx) % N + N) % N
+              if (pos > Math.floor(N / 2)) pos -= N
+
+              const isFarEdge = Math.abs(pos) === Math.floor(N / 2)
+              const rotY      = pos * 13
+              const zBack     = -Math.abs(pos) * 60
+              const liftY     = Math.abs(pos) * 22
+              const cardScale = 1 - Math.abs(pos) * 0.06
+              const spacing   = cardSize + fanGap
 
               return (
                 <motion.div
                   key={i}
+                  initial={false}
+                  animate={{
+                    x:        pos * spacing,
+                    rotateY:  rotY,
+                    z:        zBack,
+                    y:        liftY,
+                    scale:    cardScale,
+                    opacity:  isFarEdge ? 0.45 : 1,
+                  }}
+                  transition={{ duration: 1.0, ease: [0.4, 0, 0.2, 1] }}
                   style={{
+                    position:     'absolute',
+                    left:         `calc(50% - ${cardSize / 2}px)`,
+                    top:          0,
                     width:        `${cardSize}px`,
                     height:       `${cardSize}px`,
                     borderRadius: '18px',
                     overflow:     'hidden',
-                    position:     'relative',
-                    flexShrink:   0,
-                    rotateY:      rotY,
-                    z:            zBack,
-                    scale:        cardScale,
-                    boxShadow:    Math.abs(offset) < 0.6
+                    zIndex:       10 - Math.abs(pos) * 3,
+                    boxShadow:    Math.abs(pos) < 0.6
                       ? '0 24px 70px rgba(0,0,0,0.9)'
                       : '0 8px 32px rgba(0,0,0,0.6)',
-                  }}
-                  animate={{ y: [liftY, liftY - floatAmp, liftY] }}
-                  transition={{
-                    duration: 4 + Math.abs(offset) * 0.6,
-                    delay:    i * 0.35,
-                    repeat:   Infinity,
-                    ease:     'easeInOut',
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}

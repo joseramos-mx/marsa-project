@@ -35,7 +35,7 @@ const FAQS = [
   },
   {
     q: '¿Cuánto tiempo duran los resultados de los tratamientos?',
-    a: 'Depende del tratamiento: el blanqueamiento dura hasta 2 años, las carillas de porcelana hasta 15 años y los implantes dentales son una solución permanente con el cuidado adecuado.',
+    a: 'Depende del tratamiento: el aclaramiento dura hasta 2 años, las carillas hasta 10 años y los implantes dentales son una solución fija, todo tratamiento dependerá del cuidado del paciente y revisiones periódicas.',
   },
 ]
 
