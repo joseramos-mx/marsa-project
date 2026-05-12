@@ -117,7 +117,7 @@ export default function FAQSection() {
                 style={ALBERT}
               >
                 Preguntas<br />
-                <span style={{ color: '#c18845' }}>frecuentes</span>
+                <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">frecuentes</span>
               </h2>
               <p
                 className="text-white/50 text-[14px] leading-relaxed max-w-xs"
@@ -140,7 +140,7 @@ export default function FAQSection() {
               >
                 Agenda tu cita
               </span>
-              <span className="w-8 h-8 rounded-full bg-[#c18845] flex items-center justify-center shrink-0">
+              <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
                 <ArrowUpRight size={15} weight="bold" className="text-black" />
               </span>
             </Link>

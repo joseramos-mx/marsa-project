@@ -21,6 +21,26 @@ export default function FloatingButtons() {
   const whatsappUrl = "https://wa.me/527225356109"
 
   return (
+    <>
+    {/* Botón lateral fijo — Agenda tu cita */}
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Agenda tu cita por WhatsApp"
+      className="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-2 rounded-l-2xl shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-x-1 px-2 py-5 bg-linear-to-b from-[#c69a2c] via-[#f8d974] to-[#c69a2c]"
+    >
+      <span
+        className="text-black text-[11px] font-semibold uppercase tracking-[0.18em]"
+        style={{ fontFamily: 'var(--font-geist-sans)', writingMode: 'vertical-rl' }}
+      >
+        Agenda tu cita
+      </span>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black">
+        <path d="M6 9l6 6 6-6"/>
+      </svg>
+    </a>
+
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
       {/* Botón de WhatsApp */}
       <a
@@ -48,5 +68,6 @@ export default function FloatingButtons() {
         </svg>
       </button>
     </div>
+    </>
   )
 }

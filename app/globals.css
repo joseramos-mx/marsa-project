@@ -27,3 +27,24 @@ body {
   animation: marquee-scroll 28s linear infinite;
   will-change: transform;
 }
+
+/* ── Gold gradient shimmer — slow sweep across text ── */
+@keyframes gold-shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.gold-shimmer {
+  background-size: 200% 100% !important;
+  animation: gold-shimmer 5s linear infinite;
+}
+
+/* ── Soft pulse — for glowing accents ── */
+@keyframes soft-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(248, 217, 116, 0.45); }
+  50%      { box-shadow: 0 0 0 10px rgba(248, 217, 116, 0); }
+}
+
+.soft-pulse {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}

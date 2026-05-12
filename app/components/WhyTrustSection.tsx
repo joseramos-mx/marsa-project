@@ -80,7 +80,7 @@ export default function WhyTrustSection() {
             >
               Agenda tu cita
             </span>
-            <span className="w-8 h-8 rounded-full bg-[#c9a84c] flex items-center justify-center shrink-0">
+            <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
               <ArrowUpRight size={15} weight="bold" className="text-black" />
             </span>
           </Link>
@@ -111,7 +111,7 @@ export default function WhyTrustSection() {
                   onMouseLeave={() => setHovered(null)}
                 >
                   {/* Phosphor icon badge — top left */}
-                  <div className="absolute top-5 left-5 w-10 h-10 rounded-xl bg-[#c9a84c] flex items-center justify-center z-10">
+                  <div className="absolute top-5 left-5 w-10 h-10 rounded-xl bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center z-10">
                     <card.Icon size={20} weight="duotone" className="text-black" />
                   </div>
 
@@ -170,7 +170,7 @@ export default function WhyTrustSection() {
                   className="relative bg-[#1f1f1f] rounded-2xl overflow-hidden"
                   style={{ minHeight: '200px' }}
                 >
-                  <div className="absolute top-5 left-5 w-10 h-10 rounded-xl bg-[#c9a84c] flex items-center justify-center z-10">
+                  <div className="absolute top-5 left-5 w-10 h-10 rounded-xl bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center z-10">
                     <card.Icon size={20} weight="duotone" className="text-black" />
                   </div>
                   <div className="absolute bottom-5 left-5 right-5 z-10">

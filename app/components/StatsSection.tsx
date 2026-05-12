@@ -29,9 +29,9 @@ export default function StatsSection() {
           >
             Equipo especializado<br />
             dedicado{' '}
-            <img src="/icontxt.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5" style={{ filter: 'invert(1)' }} />
+            <img src="/heart-icon.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5"/>
             {' '}a construir tu<br />
-            <span className="text-[#c18845]">mejor sonrisa</span>
+            <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">mejor sonrisa</span>
           </h2>
         </motion.div>
 
@@ -116,7 +116,7 @@ export default function StatsSection() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="rounded-3xl px-7 pt-6 pb-7 flex flex-col justify-between min-h-60"
-            style={{ backgroundColor: '#c18845' }}
+            style={{ background: 'linear-gradient(135deg, #c69a2c 0%, #f8d974 50%, #c69a2c 100%)' }}
           >
             <div>
               <p className="text-white/55 text-[11px] uppercase mb-3" style={LABEL}>

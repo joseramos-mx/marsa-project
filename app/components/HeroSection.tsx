@@ -1,8 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'motion/react'
-import { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'motion/react'
+import { useState, useEffect, useRef } from 'react'
 
 const CARDS = [
   {
@@ -37,6 +37,8 @@ const STARS  = Array.from({ length: 5 })
 
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false)
+  const heroRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768)
     check()
@@ -44,18 +46,42 @@ export default function HeroSection() {
     return () => window.removeEventListener('resize', check)
   }, [])
 
+  /* ── Scroll-linked transforms ── */
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  })
+
+  // Background SVG pattern — slow parallax (lags behind, depth)
+  const bgY       = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [0.15, 0.1, 0])
+
+  // Doctor — subtle zoom + slight downward lag + fade
+  const doctorY       = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
+  const doctorScale   = useTransform(scrollYProgress, [0, 1], [1, 1.08])
+  const doctorOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.7, 0])
+
+  // Card fan — accelerated exit (moves down faster than scroll) + fade
+  const cardsY       = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
+  const cardsOpacity = useTransform(scrollYProgress, [0, 0.45, 0.85], [1, 0.5, 0])
+
   const cardSize = isMobile ? 120 : 200
   const fanGap   = isMobile ? 32  : 80
 
   return (
-    <div className="h-screen p-3 bg-[#0c0c0c]">
+    <div ref={heroRef} className="h-screen p-3 bg-[#0c0c0c]">
     <section className="relative h-full overflow-hidden bg-black rounded-[28px]">
 
       {/* z-1 — backgroundhero.svg typographic pattern */}
-      <div className="absolute inset-0 z-1 pointer-events-none">
+      <motion.div
+        className="absolute inset-0 z-1 pointer-events-none"
+        style={{ y: bgY, opacity: bgOpacity }}
+        animate={{ scale: [1, 1.04, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+      >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/backgroundhero.svg" alt="" className="w-full h-full object-contain opacity-15 backdrop-blur-l" style={{ filter: 'brightness(0) invert(1)' }} />
-      </div>
+        <img src="/backgroundhero.svg" alt="" className="w-full h-full object-contain backdrop-blur-l" style={{ filter: 'brightness(0) invert(1)' }} />
+      </motion.div>
 
       {/* z-2 — gradient black → transparent, bottom to top */}
       <div
@@ -65,10 +91,8 @@ export default function HeroSection() {
 
       {/* z-3 — doctor image */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
         className="absolute inset-0 z-3 flex items-end justify-center pointer-events-none"
+        style={{ y: doctorY, scale: doctorScale, opacity: doctorOpacity }}
       >
         <div className="relative w-[90vw] sm:w-100 md:w-150 h-250">
           <Image
@@ -90,11 +114,8 @@ export default function HeroSection() {
 
       {/* z-5 — card fan + reviews pinned to bottom */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         className="absolute inset-x-0 bottom-0 z-5 pointer-events-none"
-        style={{ paddingBottom: '28px' }}
+        style={{ paddingBottom: '28px', y: cardsY, opacity: cardsOpacity }}
       >
         {/* Card fan */}
         <div
@@ -109,14 +130,15 @@ export default function HeroSection() {
           }}
         >
           {CARDS.map((card, i) => {
-            const offset = i - CENTER
-            const rotY   = offset * 13
-            const zBack  = -Math.abs(offset) * 50
-            const liftY  = -Math.abs(offset) * -22
-            const scale  = 1 - Math.abs(offset) * 0.04
+            const offset    = i - CENTER
+            const rotY      = offset * 13
+            const zBack     = -Math.abs(offset) * 50
+            const liftY     = Math.abs(offset) * 22
+            const cardScale = 1 - Math.abs(offset) * 0.04
+            const floatAmp  = 6 + Math.abs(offset) * 2
 
             return (
-              <div
+              <motion.div
                 key={i}
                 style={{
                   width:        `${cardSize}px`,
@@ -125,10 +147,19 @@ export default function HeroSection() {
                   overflow:     'hidden',
                   position:     'relative',
                   flexShrink:   0,
-                  transform:    `rotateY(${rotY}deg) translateZ(${zBack}px) translateY(${liftY}px) scale(${scale})`,
+                  rotateY:      rotY,
+                  z:            zBack,
+                  scale:        cardScale,
                   boxShadow:    Math.abs(offset) < 0.6
                     ? '0 24px 70px rgba(0,0,0,0.9)'
                     : '0 8px 32px rgba(0,0,0,0.6)',
+                }}
+                animate={{ y: [liftY, liftY - floatAmp, liftY] }}
+                transition={{
+                  duration: 4 + Math.abs(offset) * 0.6,
+                  delay:    i * 0.35,
+                  repeat:   Infinity,
+                  ease:     'easeInOut',
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -159,7 +190,7 @@ export default function HeroSection() {
                     {card.title}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>
@@ -171,9 +202,19 @@ export default function HeroSection() {
         }}>
           <div style={{ display: 'flex', gap: '3px' }}>
             {STARS.map((_, i) => (
-              <svg key={i} width="14" height="14" viewBox="0 0 16 16" fill="#EAB308">
+              <motion.svg
+                key={i}
+                width="14" height="14" viewBox="0 0 16 16" fill="#EAB308"
+                animate={{ opacity: [0.75, 1, 0.75], scale: [1, 1.12, 1] }}
+                transition={{
+                  duration: 2.2,
+                  delay:    i * 0.18,
+                  repeat:   Infinity,
+                  ease:     'easeInOut',
+                }}
+              >
                 <path d="M8 1l1.854 3.756 4.146.603-3 2.924.708 4.127L8 10.25l-3.708 1.16.708-4.127L2 4.359l4.146-.603L8 1z" />
-              </svg>
+              </motion.svg>
             ))}
           </div>
           <p style={{

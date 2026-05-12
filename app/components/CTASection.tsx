@@ -68,7 +68,7 @@ export default function CTASection() {
             style={ALBERT}
           >
             Tu mejor sonrisa<br />
-            <span style={{ color: '#c18845' }}>te espera.</span>
+            <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">te espera.</span>
           </h2>
 
           {/* Body */}
@@ -94,7 +94,7 @@ export default function CTASection() {
               >
                 Agenda tu cita
               </span>
-              <span className="w-8 h-8 rounded-full bg-[#c18845] flex items-center justify-center shrink-0">
+              <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
                 <ArrowUpRight size={15} weight="bold" className="text-black" />
               </span>
             </Link>

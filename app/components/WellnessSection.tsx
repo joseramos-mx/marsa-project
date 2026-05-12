@@ -40,7 +40,7 @@ export default function WellnessSection() {
               style={ALBERT}
             >
               Un equipo dedicado<br />a tu bienestar y<br />
-              <span style={{ color: '#c18845' }}>
+              <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">
                 tu mejor{' '}
                 <img src="/smileicon.svg" alt="" className="inline h-[0.85em] align-middle mx-0.5" />
                 {' '}sonrisa
@@ -63,7 +63,7 @@ export default function WellnessSection() {
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] pr-3" style={GEIST}>
                 Agenda tu cita
               </span>
-              <span className="w-8 h-8 rounded-full bg-[#c18845] flex items-center justify-center shrink-0">
+              <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
                 <ArrowUpRight size={15} weight="bold" className="text-black" />
               </span>
             </Link>
@@ -101,7 +101,7 @@ export default function WellnessSection() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/bg img us.svg"
+              src="/asset.svg"
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
