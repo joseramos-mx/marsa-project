@@ -5,6 +5,7 @@ import LogoMarquee from './components/LogoMarquee'
 import StatsSection from './components/StatsSection'
 import WhyTrustSection from './components/WhyTrustSection'
 import WellnessSection from './components/WellnessSection'
+import SpecialtiesSection from './components/SpecialtiesSection'
 import ServicesCarousel from './components/ServicesCarousel'
 import TestimonialsSection from './components/TestimonialsSection'
 import FAQSection from './components/FAQSection'
@@ -41,6 +42,10 @@ export default function Home() {
 
       <section id="nosotros" aria-label="Nosotros">
         <WellnessSection />
+      </section>
+
+      <section id="especialidades" aria-label="Nuestras especialidades">
+        <SpecialtiesSection />
       </section>
 
       <section id="servicios" aria-label="Nuestros servicios">

@@ -72,12 +72,12 @@ export default function Navbar() {
 
           {/* Nav links — desktop only */}
           <nav className="hidden md:flex items-center gap-5 text-white/80 text-sm font-light">
-            <Link href="#inicio"      className="hover:text-white transition-colors uppercase tracking-wide text-xs">Inicio</Link>
-            <Link href="#servicios"   className="hover:text-white transition-colors uppercase tracking-wide text-xs">Servicios</Link>
-            <Link href="#nosotros"    className="hover:text-white transition-colors uppercase tracking-wide text-xs">Nosotros</Link>
-            <Link href="#aliados"     className="hover:text-white transition-colors uppercase tracking-wide text-xs">Aliados</Link>
-            <Link href="#testimonios" className="hover:text-white transition-colors uppercase tracking-wide text-xs">Testimonios</Link>
-            <Link href="#faq"         className="hover:text-white transition-colors uppercase tracking-wide text-xs">FAQ</Link>
+            <Link href="#inicio"         className="hover:text-white transition-colors uppercase tracking-wide text-xs">Inicio</Link>
+            <Link href="#nosotros"       className="hover:text-white transition-colors uppercase tracking-wide text-xs">Nosotros</Link>
+            <Link href="#especialidades" className="hover:text-white transition-colors uppercase tracking-wide text-xs">Especialidades</Link>
+            <Link href="#servicios"      className="hover:text-white transition-colors uppercase tracking-wide text-xs">Servicios</Link>
+            <Link href="#testimonios"    className="hover:text-white transition-colors uppercase tracking-wide text-xs">Testimonios</Link>
+            <Link href="#faq"            className="hover:text-white transition-colors uppercase tracking-wide text-xs">FAQ</Link>
           </nav>
 
           {/* CTA + hamburger */}
@@ -110,12 +110,12 @@ export default function Navbar() {
         >
           <nav className="flex flex-col px-6 pt-2 pb-5 border-t border-white/10">
             {[
-              { label: 'Inicio',       href: '#inicio'      },
-              { label: 'Servicios',    href: '#servicios'   },
-              { label: 'Nosotros',     href: '#nosotros'    },
-              { label: 'Aliados',      href: '#aliados'     },
-              { label: 'Testimonios',  href: '#testimonios' },
-              { label: 'FAQ',          href: '#faq'         },
+              { label: 'Inicio',         href: '#inicio'         },
+              { label: 'Nosotros',       href: '#nosotros'       },
+              { label: 'Especialidades', href: '#especialidades' },
+              { label: 'Servicios',      href: '#servicios'      },
+              { label: 'Testimonios',    href: '#testimonios'    },
+              { label: 'FAQ',            href: '#faq'            },
             ].map((item, i, arr) => (
               <Link
                 key={item.label}

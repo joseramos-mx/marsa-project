@@ -11,7 +11,7 @@ const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 const FAQS = [
   {
     q: '¿Qué es Marsa Project y qué servicios ofrece?',
-    a: 'Marsa Project es una clínica especializada en odontología estética y medicina estética. Ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales y tratamientos de medicina estética no invasiva.',
+    a: 'Marsa Project es una clínica especializada en odontología estética y medicina estética. Ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales.',
   },
   {
     q: '¿Cuánto tiempo dura un tratamiento de blanqueamiento dental?',
