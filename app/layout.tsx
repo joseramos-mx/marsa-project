@@ -28,7 +28,7 @@ const albertSans = Albert_Sans({
 const SITE_URL = "https://marsaproject.com";
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#0c0c0c",
   width: "device-width",
   initialScale: 1,
 };
@@ -66,6 +66,23 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { "es-MX": "/" },
   },
+
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico",       sizes: "any",   type: "image/x-icon" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "icon", url: "/favicon/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { rel: "icon", url: "/favicon/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+  },
+
+  manifest: "/manifest.webmanifest",
 
   openGraph: {
     type: "website",
