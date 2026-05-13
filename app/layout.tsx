@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Albert_Sans } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import JsonLd from "./components/seo/JsonLd";
 import SmoothScrolling from "./components/SmoothScrolling";
@@ -146,6 +147,7 @@ export default function RootLayout({
           {children}
           <FloatingButtons />
         </SmoothScrolling>
+        <SpeedInsights />
       </body>
     </html>
   );
