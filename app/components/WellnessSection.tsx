@@ -39,7 +39,7 @@ export default function WellnessSection() {
               {t('headingPart1')}<br />{t('headingPart2')}<br />
               <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">
                 {t('highlightPrefix')}{' '}
-                <img src="/smileicon.svg" alt="" className="inline h-[0.85em] align-middle mx-0.5" />
+                <img src="/smileicon.svg" alt="" width={24} height={24} className="inline h-[0.85em] align-middle mx-0.5" />
                 {' '}{t('highlightSuffix')}
               </span>
             </h2>
@@ -95,6 +95,10 @@ export default function WellnessSection() {
             <img
               src="/asset.svg"
               alt=""
+              width={600}
+              height={400}
+              loading="lazy"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </motion.div>

@@ -32,7 +32,7 @@ export default function StatsSection() {
           >
             {t('headingPart1')}<br />
             {t('headingPart2')}{' '}
-            <img src="/heart-icon.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5"/>
+            <img src="/heart-icon.svg" alt="" width={24} height={24} className="inline h-[0.9em] align-middle mx-0.5"/>
             {' '}{t('headingPart3')}<br />
             <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">{t('headingHighlight')}</span>
           </h2>

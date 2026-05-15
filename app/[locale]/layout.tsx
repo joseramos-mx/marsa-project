@@ -50,6 +50,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
   const ogLocale = locale === "en" ? "en_US" : "es_MX";
+  const isDefault = locale === routing.defaultLocale;
+  const canonicalPath = isDefault ? "/" : `/${locale}`;
+  const ogUrl = isDefault ? SITE_URL : `${SITE_URL}/${locale}`;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -59,11 +62,11 @@ export async function generateMetadata({
     creator: "Marsa Project",
     publisher: "Marsa Project",
     alternates: {
-      canonical: `/${locale}`,
+      canonical: canonicalPath,
       languages: {
-        "es-MX": "/es",
+        "es-MX": "/",
         "en-US": "/en",
-        "x-default": "/es",
+        "x-default": "/",
       },
     },
     icons: {
@@ -84,7 +87,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       locale: ogLocale,
-      url: `${SITE_URL}/${locale}`,
+      url: ogUrl,
       siteName: "Marsa Project",
       title: t("ogTitle"),
       description: t("ogDescription"),

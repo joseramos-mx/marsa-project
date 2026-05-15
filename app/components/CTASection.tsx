@@ -30,6 +30,10 @@ export default function CTASection() {
           <img
             src="/doctorascta.jpeg"
             alt={t('doctorAlt')}
+            width={800}
+            height={1000}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-top"
           />
         </div>

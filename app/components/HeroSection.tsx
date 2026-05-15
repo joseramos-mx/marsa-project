@@ -13,8 +13,7 @@ const CARD_KEYS = [
   { key: 'implantes',       src: '/services/implantes.jpg' },
 ] as const
 
-const CENTER = (CARD_KEYS.length - 1) / 2
-const STARS  = Array.from({ length: 5 })
+const STARS = Array.from({ length: 5 })
 
 export default function HeroSection() {
   const t  = useTranslations('hero')
@@ -119,7 +118,16 @@ export default function HeroSection() {
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/backgroundhero.svg" alt="" className="w-full h-full object-contain backdrop-blur-l" style={{ filter: 'brightness(0) invert(1)' }} />
+        <img
+          src="/backgroundhero.svg"
+          alt=""
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="w-full h-full object-contain backdrop-blur-l"
+          style={{ filter: 'brightness(0) invert(1)' }}
+        />
       </motion.div>
 
       {/* z-2 — gradient black → transparent, bottom to top */}
