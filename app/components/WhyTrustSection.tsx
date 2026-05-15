@@ -145,7 +145,7 @@ export default function WhyTrustSection() {
                       >
                         <Image
                           src={card.image}
-                          alt=""
+                          alt={card.title}
                           width={130}
                           height={130}
                           className="object-contain drop-shadow-lg"

@@ -27,7 +27,7 @@ export default function CTASection() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/doctorascta.jpeg"
-            alt=""
+            alt="Doctora del equipo Marsa Project"
             className="w-full h-full object-cover object-top"
           />
           {/* fade into bg on the left edge */}
