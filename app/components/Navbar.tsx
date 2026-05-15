@@ -10,7 +10,7 @@ import { routing } from '../../i18n/routing'
 function MarsaLogo() {
   return (
     <Image
-      src="/marsa logo.png"
+      src="/logo.svg"
       alt="MARSA Logo"
       width={160}
       height={40}

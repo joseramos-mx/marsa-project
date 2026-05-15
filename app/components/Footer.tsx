@@ -36,7 +36,7 @@ export default function Footer() {
             className="md:col-span-2 flex flex-col gap-6"
           >
             <Link href="/" aria-label="MARSA Home" className="inline-block w-fit hover:opacity-80 transition-opacity">
-              <Image src="/marsa%20logo.png" alt="MARSA Logo" width={150} height={40} className="h-10 w-auto object-contain" />
+              <Image src="/logo.svg" alt="MARSA Logo" width={150} height={40} className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-white/45 text-sm leading-relaxed max-w-sm">
               {t('tagline')}

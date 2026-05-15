@@ -144,7 +144,7 @@ export default function HeroSection() {
         <div className="relative w-[150vw] sm:w-100 md:w-150 h-full md:h-250">
           {/* Mobile: vertical-portrait doctor (1340×2400) */}
           <Image
-            src="/doctorver.png"
+            src="/doctorver.webp"
             alt={t('doctorAlt')}
             fill
             priority

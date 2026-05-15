@@ -29,7 +29,7 @@ export default async function JsonLd({
     url: siteUrl,
     logo: {
       "@type": "ImageObject",
-      url: `${siteUrl}/marsa%20logo.png`,
+      url: `${siteUrl}/logo.svg`,
     },
     sameAs: [
       "https://www.instagram.com/marsa.project",

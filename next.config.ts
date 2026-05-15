@@ -49,6 +49,11 @@ const nextConfig: NextConfig = {
 
   /* ── Remove X-Powered-By header ── */
   poweredByHeader: false,
+
+  /* ── Bundle splitting: import only the Phosphor icons actually used ── */
+  experimental: {
+    optimizePackageImports: ["@phosphor-icons/react"],
+  },
 };
 
 export default withNextIntl(nextConfig);
