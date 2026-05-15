@@ -1,10 +1,10 @@
 const LOGOS = [
-  { src: '/allies/KerrLogo.webp', alt: 'Kerr' },
-  { src: '/allies/Kulzer_Logo_RGB_w_trans-1-e1747069135279.webp', alt: 'Kulzer' },
-  { src: '/allies/oralb.svg', alt: 'Oral-B' },
-  { src: '/allies/Ultradent_Logo.webp', alt: 'Ultradent' },
-  { src: '/allies/enahri.webp', alt: 'Enahri' },
-  { src: '/allies/zhermack.png', alt: 'Zhermack' }
+  { src: '/Allies/KerrLogo.webp', alt: 'Kerr' },
+  { src: '/Allies/Kulzer_Logo_RGB_w_trans-1-e1747069135279.webp', alt: 'Kulzer' },
+  { src: '/Allies/oralb.svg', alt: 'Oral-B' },
+  { src: '/Allies/Ultradent_Logo.webp', alt: 'Ultradent' },
+  { src: '/Allies/enahri.webp', alt: 'Enahri' },
+  { src: '/Allies/zhermack.png', alt: 'Zhermack' }
 ]
 
 function LogoItem({ src, alt }: { src: string; alt: string }) {
