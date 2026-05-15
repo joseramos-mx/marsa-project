@@ -124,11 +124,9 @@ export const metadata: Metadata = {
     },
   },
 
-  /* ── Pegar códigos cuando se verifique el dominio en GSC/Bing ── */
-  // verification: {
-  //   google: "GSC_CODE",
-  //   bing:   "BING_CODE",
-  // },
+  verification: {
+    google: "rgFyeP5KqEFkWyLDJytbWd9TWzUcvwCyTD3HeQNnJiI",
+  },
 
   category: "health",
 };
