@@ -8,9 +8,9 @@ import { Tooth, HeartStraight, Lightning, ArrowUpRight } from '@phosphor-icons/r
 import { useTranslations } from 'next-intl'
 
 const CARD_DEFS = [
-  { key: 'specialists', Icon: Tooth,         image: '/check.png' },
-  { key: 'facilities',  Icon: HeartStraight, image: '/heart.png' },
-  { key: 'equipment',   Icon: Lightning,     image: '/caliper.png' },
+  { key: 'specialists', Icon: Tooth,         image: '/check.webp' },
+  { key: 'facilities',  Icon: HeartStraight, image: '/heart.webp' },
+  { key: 'equipment',   Icon: Lightning,     image: '/caliper.webp' },
 ] as const
 
 const GEIST = { fontFamily: 'var(--font-geist-sans)' }

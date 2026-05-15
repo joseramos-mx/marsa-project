@@ -1,9 +1,9 @@
 const LOGOS = [
-  { src: '/allies/KerrLogo.png', alt: 'Kerr' },
+  { src: '/allies/KerrLogo.webp', alt: 'Kerr' },
   { src: '/allies/Kulzer_Logo_RGB_w_trans-1-e1747069135279.webp', alt: 'Kulzer' },
   { src: '/allies/oralb.svg', alt: 'Oral-B' },
-  { src: '/allies/Ultradent_Logo.png', alt: 'Ultradent' },
-  { src: '/allies/enahri.png', alt: 'Enahri' },
+  { src: '/allies/Ultradent_Logo.webp', alt: 'Ultradent' },
+  { src: '/allies/enahri.webp', alt: 'Enahri' },
   { src: '/allies/zhermack.png', alt: 'Zhermack' }
 ]
 

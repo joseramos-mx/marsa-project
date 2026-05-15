@@ -53,7 +53,7 @@ export default function StatsSection() {
             className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#1a1a1a] min-h-105"
           >
             <Image
-              src="/docsalem.jpeg"
+              src="/docsalem.webp"
               alt={t('doctorAlt')}
               fill
               className="object-cover object-center"
@@ -89,10 +89,10 @@ export default function StatsSection() {
             <div className="flex flex-col gap-3">
               <div className="flex -space-x-2">
                 {[
-                  '/patients/IMG_7769.PNG',
-                  '/patients/IMG_7774.PNG',
-                  '/patients/IMG_7771.PNG',
-                  '/patients/IMG_7756.PNG',
+                  '/patients/IMG_7769.webp',
+                  '/patients/IMG_7774.webp',
+                  '/patients/IMG_7771.webp',
+                  '/patients/IMG_7756.webp',
                 ].map((src, n) => (
                   <div
                     key={n}

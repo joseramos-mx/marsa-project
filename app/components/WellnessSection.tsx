@@ -75,7 +75,7 @@ export default function WellnessSection() {
             className="md:row-span-2 rounded-3xl overflow-hidden relative bg-[#1a1a1a] min-h-100"
           >
             <Image
-              src="/doctores.jpg"
+              src="/doctores.webp"
               alt={t('doctorAlt')}
               fill
               className="object-cover object-top"

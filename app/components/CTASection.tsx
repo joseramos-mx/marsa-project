@@ -9,10 +9,10 @@ const GEIST  = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
 const AVATARS = [
-  '/patients/IMG_7756.PNG',
-  '/patients/IMG_7759.PNG',
-  '/patients/IMG_7774.PNG',
-  '/patients/IMG_7771.PNG',
+  '/patients/IMG_7756.webp',
+  '/patients/IMG_7759.webp',
+  '/patients/IMG_7774.webp',
+  '/patients/IMG_7771.webp',
 ]
 
 export default function CTASection() {
@@ -28,7 +28,7 @@ export default function CTASection() {
         <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden md:block pointer-events-none">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/doctorascta.jpeg"
+            src="/doctorascta.webp"
             alt={t('doctorAlt')}
             width={800}
             height={1000}

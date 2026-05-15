@@ -4,12 +4,12 @@ import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
 const PATIENT_SRCS = [
-  '/patients/IMG_7756.PNG',
-  '/patients/IMG_7759.PNG',
-  '/patients/IMG_7765.PNG',
-  '/patients/IMG_7769.PNG',
-  '/patients/IMG_7771.PNG',
-  '/patients/IMG_7774.PNG',
+  '/patients/IMG_7756.webp',
+  '/patients/IMG_7759.webp',
+  '/patients/IMG_7765.webp',
+  '/patients/IMG_7769.webp',
+  '/patients/IMG_7771.webp',
+  '/patients/IMG_7774.webp',
 ]
 
 const REELS = ['DSfOTsYFWwP', 'DScpauAEq5N', 'DSaEnJtkbZ5']

@@ -5,11 +5,11 @@ import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
 const SERVICE_KEYS = [
-  { key: 'whitening',   src: '/services/blanquamiento.jpg' },
-  { key: 'veneers',     src: '/services/carillas.png' },
-  { key: 'smileDesign', src: '/services/disenodesonrisa.jpg' },
-  { key: 'ortho',       src: '/services/ortodoncia-invisible.png' },
-  { key: 'implants',    src: '/services/implantes.jpg' },
+  { key: 'whitening',   src: '/services/blanquamiento.webp' },
+  { key: 'veneers',     src: '/services/carillas.webp' },
+  { key: 'smileDesign', src: '/services/disenodesonrisa.webp' },
+  { key: 'ortho',       src: '/services/ortodoncia-invisible.webp' },
+  { key: 'implants',    src: '/services/implantes.webp' },
 ] as const
 
 export default function ServicesCarousel() {

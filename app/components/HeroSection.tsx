@@ -6,11 +6,11 @@ import { useState, useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 
 const CARD_KEYS = [
-  { key: 'blanqueamiento',  src: '/services/blanquamiento.jpg' },
-  { key: 'carillas',        src: '/services/carillas.png' },
-  { key: 'disenoSonrisa',   src: '/services/disenodesonrisa.jpg' },
-  { key: 'ortodoncia',      src: '/services/ortodoncia-invisible.png' },
-  { key: 'implantes',       src: '/services/implantes.jpg' },
+  { key: 'blanqueamiento',  src: '/services/blanquamiento.webp' },
+  { key: 'carillas',        src: '/services/carillas.webp' },
+  { key: 'disenoSonrisa',   src: '/services/disenodesonrisa.webp' },
+  { key: 'ortodoncia',      src: '/services/ortodoncia-invisible.webp' },
+  { key: 'implantes',       src: '/services/implantes.webp' },
 ] as const
 
 const STARS = Array.from({ length: 5 })
@@ -153,7 +153,7 @@ export default function HeroSection() {
           />
           {/* Desktop & up: standard doctor */}
           <Image
-            src="/doctor n.png"
+            src="/doctor n.webp"
             alt={t('doctorAlt')}
             fill
             priority
