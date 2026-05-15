@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Clínica especializada en odontología estética y medicina estética. Blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales. Consulta gratuita — resultados naturales y seguros.",
+    "Clínica dental en Toluca: blanqueamiento, carillas, diseño de sonrisa, implantes y ortodoncia invisible. Consulta gratuita, resultados naturales.",
 
   keywords: [
     "odontología estética",
@@ -124,11 +124,11 @@ export const metadata: Metadata = {
     },
   },
 
-  /* ── Paste your verification codes here when you get them ── */
-  verification: {
-    google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_CODE",
-    // bing: "REPLACE_WITH_BING_WEBMASTER_CODE",
-  },
+  /* ── Pegar códigos cuando se verifique el dominio en GSC/Bing ── */
+  // verification: {
+  //   google: "GSC_CODE",
+  //   bing:   "BING_CODE",
+  // },
 
   category: "health",
 };

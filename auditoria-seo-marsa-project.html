@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Auditoría SEO · Marsa Project</title>
+<style>
+  :root{
+    --bg:#0c0c0c;--card:#141414;--card2:#1a1a1a;--border:rgba(255,255,255,.08);
+    --text:#fff;--muted:rgba(255,255,255,.55);--mute2:rgba(255,255,255,.35);
+    --gold-a:#c69a2c;--gold-b:#f8d974;--gold-c:#c69a2c;
+    --green:#2ecc71;--yellow:#f8d974;--red:#e74c3c;--blue:#5b9bd5;
+    --wine:#480517;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.5}
+  a{color:var(--gold-b);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:1100px;margin:0 auto;padding:32px 24px 80px}
+  .gold-text{background:linear-gradient(90deg,var(--gold-a),var(--gold-b),var(--gold-c));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gold-bg{background:linear-gradient(135deg,var(--gold-a) 0%,var(--gold-b) 50%,var(--gold-c) 100%)}
+  /* Header */
+  .hero{position:relative;border:1px solid var(--border);border-radius:24px;padding:40px 36px;margin-bottom:24px;background:linear-gradient(135deg,#1a0008 0%,#181818 60%)}
+  .hero h1{margin:0 0 8px;font-size:32px;letter-spacing:-.01em}
+  .hero p.url{margin:0;color:var(--muted);font-size:14px;word-break:break-all}
+  .hero p.date{margin:4px 0 0;color:var(--mute2);font-size:13px}
+  .score-ring{display:flex;align-items:center;gap:32px;margin-top:28px;flex-wrap:wrap}
+  .ring{position:relative;width:140px;height:140px;flex-shrink:0}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .bg{stroke:rgba(255,255,255,.06)}
+  .ring .fg{stroke:var(--yellow);stroke-linecap:round;transition:stroke-dashoffset .8s ease}
+  .ring .num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700}
+  .verdict{flex:1;min-width:240px}
+  .verdict .label{display:inline-block;padding:5px 12px;border-radius:999px;background:rgba(248,217,116,.12);color:var(--yellow);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:10px}
+  .verdict h2{margin:0 0 8px;font-size:24px;font-weight:600}
+  .verdict p{margin:0;color:var(--muted);font-size:14px;max-width:520px}
+  /* Summary cards */
+  .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:36px}
+  .stat{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px 20px}
+  .stat .v{font-size:32px;font-weight:600;line-height:1}
+  .stat .l{margin-top:6px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+  .stat.red .v{color:var(--red)}
+  .stat.amber .v{color:var(--yellow)}
+  .stat.green .v{color:var(--green)}
+  .stat.gold .v{background:linear-gradient(90deg,var(--gold-a),var(--gold-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  /* Section heading */
+  h2.sec{display:flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;letter-spacing:.18em;color:var(--mute2);margin:42px 0 18px;font-weight:500}
+  h2.sec::before{content:"▪";color:var(--yellow)}
+  /* Priority fixes */
+  .fix{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 24px;margin-bottom:12px;display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:start}
+  .fix .num{font-size:32px;font-weight:700;color:var(--mute2);font-feature-settings:"tnum"}
+  .fix.crit{border-color:rgba(231,76,60,.35)}
+  .fix.crit .num{color:var(--red)}
+  .fix.warn{border-color:rgba(248,217,116,.25)}
+  .fix.warn .num{color:var(--yellow)}
+  .fix h3{margin:0 0 6px;font-size:17px;font-weight:600}
+  .fix .meta{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .pill.crit{background:rgba(231,76,60,.15);color:var(--red)}
+  .pill.warn{background:rgba(248,217,116,.13);color:var(--yellow)}
+  .pill.info{background:rgba(91,155,213,.13);color:var(--blue)}
+  .fix p{margin:6px 0;color:var(--muted);font-size:14px}
+  .fix p strong{color:var(--text)}
+  .fix pre{background:#0a0a0a;border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:12.5px;overflow-x:auto;margin:8px 0 0;color:#e8e8e8;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  .fix code{background:rgba(255,255,255,.08);padding:1px 6px;border-radius:5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+  /* Categories */
+  .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:12px}
+  .cat{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px 22px}
+  .cat .top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+  .cat h3{margin:0;font-size:15px;font-weight:600}
+  .cat .score{font-size:22px;font-weight:700;font-feature-settings:"tnum"}
+  .cat .bar{height:6px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin-bottom:14px}
+  .cat .bar > div{height:100%;border-radius:99px;transition:width .9s ease}
+  .cat ul{list-style:none;padding:0;margin:0;font-size:13px}
+  .cat li{padding:5px 0;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+  .cat li::before{content:"";flex-shrink:0;width:14px;height:14px;border-radius:50%;margin-top:4px;background:var(--mute2)}
+  .cat li.ok::before{background:var(--green)}
+  .cat li.warn::before{background:var(--yellow)}
+  .cat li.err::before{background:var(--red)}
+  .cat .weight{font-size:10.5px;color:var(--mute2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;display:block}
+  /* Detail table */
+  details{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px 22px;margin-top:12px}
+  summary{cursor:pointer;font-weight:600;font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::after{content:"+";font-size:22px;color:var(--mute2);font-weight:300}
+  details[open] summary::after{content:"−"}
+  details table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px}
+  details th, details td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--border)}
+  details th{color:var(--mute2);font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.1em}
+  details td{color:var(--muted)}
+  details tbody tr:hover{background:rgba(255,255,255,.02)}
+  /* Nav */
+  nav.toc{position:sticky;top:0;background:rgba(12,12,12,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:14px 0;margin-bottom:24px;border-bottom:1px solid var(--border);z-index:50}
+  nav.toc ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+  nav.toc li a{padding:6px 14px;border-radius:99px;background:rgba(255,255,255,.04);color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  nav.toc li a:hover{background:rgba(255,255,255,.1);color:var(--text);text-decoration:none}
+  footer{margin-top:60px;padding-top:24px;border-top:1px solid var(--border);color:var(--mute2);font-size:12px;text-align:center}
+  /* Print */
+  @media print{
+    body{background:#fff;color:#000}
+    .container{max-width:none;padding:14px}
+    nav.toc{display:none}
+    .hero,.stat,.cat,.fix,details{background:#fff;border-color:#ddd;color:#000;box-shadow:none}
+    .gold-text,.gold-bg{background:#444;-webkit-background-clip:initial;background-clip:initial;color:#222}
+    .verdict p, .fix p, .cat li, details td{color:#444}
+  }
+  @media (max-width:640px){
+    .hero{padding:28px 22px}
+    .hero h1{font-size:24px}
+    .fix{grid-template-columns:1fr;gap:8px}
+    .fix .num{font-size:22px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <ul>
+    <li><a href="#resumen">Resumen</a></li>
+    <li><a href="#prioridades">Top 5</a></li>
+    <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#detalle">Detalle</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <!-- Hero / Score -->
+  <section class="hero" id="resumen">
+    <h1>Auditoría SEO · <span class="gold-text">Marsa Project</span></h1>
+    <p class="url">https://marsa-project-three.vercel.app/</p>
+    <p class="date">15 mayo 2026 · análisis automatizado</p>
+
+    <div class="score-ring">
+      <div class="ring">
+        <svg width="140" height="140" viewBox="0 0 140 140">
+          <circle class="bg" cx="70" cy="70" r="60" fill="none" stroke-width="10"/>
+          <circle class="fg" cx="70" cy="70" r="60" fill="none" stroke-width="10"
+            stroke-dasharray="376.99" stroke-dashoffset="98.5"/>
+        </svg>
+        <div class="num">74</div>
+      </div>
+      <div class="verdict">
+        <span class="label">Mejorable</span>
+        <h2>Buenas bases, pero hay 3 problemas que cortan tráfico</h2>
+        <p>El sitio tiene metadata sólida, JSON-LD avanzado y excelente desempeño técnico. Sin embargo, falta un &lt;h1&gt; en la home, la imagen de Open Graph devuelve 404 (los shares en redes salen sin preview) y el schema LocalBusiness no tiene la dirección/teléfono/horarios — crítico para una clínica con presencia física en Toluca.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary cards -->
+  <div class="summary">
+    <div class="stat gold"><div class="v">74<span style="font-size:18px;color:var(--muted)">/100</span></div><div class="l">Puntuación global</div></div>
+    <div class="stat red"><div class="v">3</div><div class="l">Problemas críticos</div></div>
+    <div class="stat amber"><div class="v">7</div><div class="l">Advertencias</div></div>
+    <div class="stat green"><div class="v">28</div><div class="l">Tests aprobados</div></div>
+  </div>
+
+  <!-- Top 5 priority fixes -->
+  <h2 class="sec" id="prioridades">Top 5 correcciones prioritarias</h2>
+
+  <div class="fix crit">
+    <div class="num">01</div>
+    <div>
+      <h3>Falta el &lt;h1&gt; en la página principal</h3>
+      <div class="meta"><span class="pill crit">Crítico</span><span class="pill info">Headings</span></div>
+      <p><strong>Qué está mal:</strong> La página no tiene ningún &lt;h1&gt;. El primer heading es un &lt;h2&gt; en StatsSection ("Equipo especializado…"). El HeroSection muestra el branding visualmente pero sin marcado semántico.</p>
+      <p><strong>Por qué importa:</strong> Google usa el &lt;h1&gt; como señal principal del tema de la página. Sin h1, el algoritmo tiene que adivinar de qué trata la página a partir del title y los h2 sueltos. Una landing sin h1 puede perder hasta 5-10% de visibilidad para queries no-brand.</p>
+      <p><strong>Cómo corregirlo:</strong> En <code>app/components/HeroSection.tsx</code>, agregar un &lt;h1&gt; visualmente discreto o visualmente oculto (sr-only) con la propuesta de valor principal:</p>
+      <pre>&lt;h1 className="sr-only"&gt;
+  Marsa Project · Odontología estética en Toluca: blanqueamiento, carillas, implantes y diseño de sonrisa
+&lt;/h1&gt;</pre>
+      <p>O hacerlo visible reemplazando el branding del fondo con un h1 real en el hero.</p>
+    </div>
+  </div>
+
+  <div class="fix crit">
+    <div class="num">02</div>
+    <div>
+      <h3>La imagen Open Graph (og-image.jpg) devuelve 404</h3>
+      <div class="meta"><span class="pill crit">Crítico</span><span class="pill info">Social / OG</span></div>
+      <p><strong>Qué está mal:</strong> El meta tag <code>og:image</code> apunta a <code>https://marsaproject.com/og-image.jpg</code> pero el archivo no existe (404). Lo mismo en Twitter card. Cuando alguien comparta el sitio en WhatsApp, Instagram, Facebook o Twitter, el preview saldrá vacío o roto.</p>
+      <p><strong>Por qué importa:</strong> Pierdes CTR en redes sociales — los enlaces con preview de imagen reciben hasta 2-3× más clics. Para una clínica que depende de referidos y boca a boca digital, esto es ingreso perdido directamente.</p>
+      <p><strong>Cómo corregirlo:</strong> Crear una imagen <strong>1200×630px</strong> con el branding (logo Marsa, "Odontología Estética y Medicina Estética", fondo dorado-oscuro) y guardarla en <code>public/og-image.jpg</code>. La metadata ya está bien configurada en <code>app/layout.tsx</code> — solo falta el archivo. Verifica luego con <a href="https://www.opengraph.xyz/" target="_blank">opengraph.xyz</a>.</p>
+    </div>
+  </div>
+
+  <div class="fix crit">
+    <div class="num">03</div>
+    <div>
+      <h3>Schema LocalBusiness sin dirección, teléfono ni horarios</h3>
+      <div class="meta"><span class="pill crit">Crítico</span><span class="pill info">Schema / Local SEO</span></div>
+      <p><strong>Qué está mal:</strong> En <code>app/components/seo/JsonLd.tsx</code> el bloque <code>Dentist / LocalBusiness</code> tiene los campos <code>telephone</code>, <code>address</code>, <code>geo</code> y <code>openingHoursSpecification</code> <em>comentados</em>. Es el dato más importante para SEO local de una clínica.</p>
+      <p><strong>Por qué importa:</strong> Google Maps, Knowledge Panel y el "Local Pack" (los 3 resultados con mapa) usan estos datos directamente. Sin ellos, Marsa no compite por queries como "dentista cerca de mí en Toluca" o "clínica estética Cristóbal Colón". Es probablemente lo que más tráfico orgánico te está costando ahora mismo.</p>
+      <p><strong>Cómo corregirlo:</strong> Descomentar y completar con datos reales (ya están en el Footer):</p>
+      <pre>telephone: "+52-722-535-6109",
+address: {
+  "@type": "PostalAddress",
+  streetAddress: "P.º Cristóbal Colón 128-MZ 027",
+  addressLocality: "Toluca de Lerdo",
+  addressRegion: "Méx.",
+  postalCode: "50120",
+  addressCountry: "MX",
+},
+geo: { "@type":"GeoCoordinates", latitude: 19.2826, longitude: -99.6557 },
+openingHoursSpecification: [
+  { "@type":"OpeningHoursSpecification", dayOfWeek:["Monday","Tuesday","Wednesday","Thursday","Friday"], opens:"10:00", closes:"20:00" },
+  { "@type":"OpeningHoursSpecification", dayOfWeek:"Saturday", opens:"10:00", closes:"16:00" },
+],
+sameAs: ["https://www.instagram.com/marsa.project"],</pre>
+      <p>Verificar luego con <a href="https://search.google.com/test/rich-results" target="_blank">Rich Results Test</a>.</p>
+    </div>
+  </div>
+
+  <div class="fix warn">
+    <div class="num">04</div>
+    <div>
+      <h3>Sitemap.xml apunta a anchors (#servicios, #faq) en vez de URLs separadas</h3>
+      <div class="meta"><span class="pill warn">Advertencia</span><span class="pill info">Técnico</span></div>
+      <p><strong>Qué está mal:</strong> El sitemap actual incluye URLs como <code>https://marsaproject.com/#servicios</code> y <code>https://marsaproject.com/#faq</code>. Google ignora los fragmentos (#) — son la misma URL canónica. El sitemap real solo lista 1 página única.</p>
+      <p><strong>Por qué importa:</strong> Para una landing de una sola página el sitemap es pequeño y eso es OK, pero confunde a Google enviando "URLs" que no existen. Mejor reflejar la realidad: 1 URL única.</p>
+      <p><strong>Cómo corregirlo:</strong> Editar <code>app/sitemap.ts</code> para dejar solo la home, o convertir las secciones de servicios/FAQ en páginas independientes (<code>/servicios</code>, <code>/faq</code>) para tener sitemap real multi-página y más superficie indexable.</p>
+    </div>
+  </div>
+
+  <div class="fix warn">
+    <div class="num">05</div>
+    <div>
+      <h3>Google Search Console verification con placeholder</h3>
+      <div class="meta"><span class="pill warn">Advertencia</span><span class="pill info">Meta tags</span></div>
+      <p><strong>Qué está mal:</strong> En <code>app/layout.tsx</code> está <code>verification.google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_CODE"</code>, lo cual genera un meta tag <code>&lt;meta name="google-site-verification" content="REPLACE_WITH..."&gt;</code> con texto basura.</p>
+      <p><strong>Por qué importa:</strong> Sin GSC verificado no recibes alertas de Google, no ves qué queries traen tráfico, no ves errores de indexación, no puedes pedir reindexación. Es la herramienta #1 de SEO.</p>
+      <p><strong>Cómo corregirlo:</strong> Registra el dominio en <a href="https://search.google.com/search-console" target="_blank">Search Console</a>, copia el código de verificación HTML (será algo como <code>"abc123def456…"</code>) y reemplaza el placeholder. Mientras tanto, comenta la línea para que el meta no se imprima.</p>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <h2 class="sec" id="categorias">Desglose por categoría</h2>
+
+  <div class="cats">
+
+    <div class="cat">
+      <span class="weight">Peso 20%</span>
+      <div class="top"><h3>Meta tags</h3><div class="score" style="color:var(--green)">80</div></div>
+      <div class="bar"><div style="width:80%;background:var(--green)"></div></div>
+      <ul>
+        <li class="ok">&lt;title&gt; completo: "Odontología Estética y Medicina Estética | Marsa Project" (57 chars)</li>
+        <li class="ok">Description ~190 chars (ideal 150-160, ligeramente largo)</li>
+        <li class="ok">Viewport, robots, googlebot configurados</li>
+        <li class="ok">Canonical apunta a marsaproject.com</li>
+        <li class="ok">&lt;html lang="es"&gt;</li>
+        <li class="warn">google-site-verification con placeholder</li>
+        <li class="warn">Keywords meta presente (ignorado por Google, no daña)</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 15%</span>
+      <div class="top"><h3>Headings</h3><div class="score" style="color:var(--red)">50</div></div>
+      <div class="bar"><div style="width:50%;background:var(--red)"></div></div>
+      <ul>
+        <li class="err">No existe &lt;h1&gt; en la home — falta señal principal de tema</li>
+        <li class="ok">Múltiples &lt;h2&gt; descriptivos por sección (Equipo especializado, Especialidades, Lo que dicen, Preguntas, Tu mejor sonrisa)</li>
+        <li class="ok">&lt;h3&gt; bien jerarquizados dentro de las cards</li>
+        <li class="ok">Buen uso de keywords en headings (especialidades, blanqueamiento, implantes)</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 10%</span>
+      <div class="top"><h3>Imágenes</h3><div class="score" style="color:var(--green)">85</div></div>
+      <div class="bar"><div style="width:85%;background:var(--green)"></div></div>
+      <ul>
+        <li class="ok">54 &lt;img&gt; en total · 41 con alt descriptivo (76%)</li>
+        <li class="ok">26 con <code>loading="lazy"</code></li>
+        <li class="ok">Next.js Image entrega WebP/AVIF automáticamente</li>
+        <li class="warn">13 alt vacíos — revisar cuáles son decorativos y cuáles necesitan descripción</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 10%</span>
+      <div class="top"><h3>Enlaces</h3><div class="score" style="color:var(--green)">85</div></div>
+      <div class="bar"><div style="width:85%;background:var(--green)"></div></div>
+      <ul>
+        <li class="ok">30 anchors totales</li>
+        <li class="ok">Externos (WhatsApp, Instagram) con <code>rel="noopener noreferrer"</code> y <code>target="_blank"</code></li>
+        <li class="ok">Anchor text descriptivo (Inicio, Servicios, Agenda tu cita)</li>
+        <li class="ok">Sin enlaces 404 detectados</li>
+        <li class="warn">Sin enlaces a páginas internas separadas (single page)</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 10%</span>
+      <div class="top"><h3>Open Graph / Social</h3><div class="score" style="color:var(--red)">50</div></div>
+      <div class="bar"><div style="width:50%;background:var(--red)"></div></div>
+      <ul>
+        <li class="ok">og:title, og:description, og:url, og:site_name, og:locale, og:type completos</li>
+        <li class="ok">og:image:width 1200, height 630, alt definidos</li>
+        <li class="ok">twitter:card "summary_large_image" con title/description/image</li>
+        <li class="err">og-image.jpg devuelve 404 — los previews sociales no muestran imagen</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 10%</span>
+      <div class="top"><h3>Schema / JSON-LD</h3><div class="score" style="color:var(--yellow)">70</div></div>
+      <div class="bar"><div style="width:70%;background:var(--yellow)"></div></div>
+      <ul>
+        <li class="ok">4 schemas: Organization, Dentist/LocalBusiness, WebSite (SearchAction), FAQPage</li>
+        <li class="ok">OfferCatalog con 6 MedicalProcedure</li>
+        <li class="ok">FAQPage con 7 Question/Answer</li>
+        <li class="err">LocalBusiness sin teléfono, dirección, geo coords ni horarios (todo comentado)</li>
+        <li class="warn">sameAs vacío — Instagram existe en Footer pero no se referencia en schema</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 15%</span>
+      <div class="top"><h3>Técnico</h3><div class="score" style="color:var(--green)">85</div></div>
+      <div class="bar"><div style="width:85%;background:var(--green)"></div></div>
+      <ul>
+        <li class="ok">HTTPS · HSTS preload · X-Frame-Options DENY · X-Content-Type-Options nosniff</li>
+        <li class="ok">Permissions-Policy y Referrer-Policy configurados</li>
+        <li class="ok">robots.txt válido, Disallow /api/ y /_next/, Sitemap declarado</li>
+        <li class="ok">Favicon en todas las variantes (16, 32, 192, 512, apple-touch-icon)</li>
+        <li class="ok">Manifest.webmanifest para PWA</li>
+        <li class="ok">TTFB 712ms (servido desde caché Vercel)</li>
+        <li class="warn">HTML inicial 130KB (esperado en Next.js SSR pero alto)</li>
+        <li class="warn">Sitemap con anchors en vez de páginas reales</li>
+      </ul>
+    </div>
+
+    <div class="cat">
+      <span class="weight">Peso 10%</span>
+      <div class="top"><h3>Contenido</h3><div class="score" style="color:var(--green)">85</div></div>
+      <div class="bar"><div style="width:85%;background:var(--green)"></div></div>
+      <ul>
+        <li class="ok">Texto visible amplio · 8 secciones diferenciadas</li>
+        <li class="ok">FAQ con 7 preguntas y respuestas extensas (rico para SEO)</li>
+        <li class="ok">Title y description únicos</li>
+        <li class="ok">Contenido en español natural, sin keyword stuffing</li>
+        <li class="warn">Sin blog ni contenido evergreen — limita superficie de keywords long-tail</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Detail table -->
+  <h2 class="sec" id="detalle">Detalle técnico completo</h2>
+
+  <details open>
+    <summary>Hallazgos críticos (3)</summary>
+    <table>
+      <thead><tr><th>Categoría</th><th>Hallazgo</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td>Headings</td><td>Sin &lt;h1&gt; en la home</td><td>Añadir &lt;h1&gt; (visible o sr-only) en HeroSection</td></tr>
+        <tr><td>Social</td><td>og-image.jpg 404</td><td>Crear imagen 1200×630 en /public/og-image.jpg</td></tr>
+        <tr><td>Schema</td><td>LocalBusiness sin geo/phone/address</td><td>Completar en JsonLd.tsx con los datos del Footer</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>Advertencias (7)</summary>
+    <table>
+      <thead><tr><th>Categoría</th><th>Hallazgo</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td>Meta</td><td>google-site-verification con placeholder</td><td>Verificar dominio en GSC y reemplazar</td></tr>
+        <tr><td>Meta</td><td>Description ligeramente larga (190 vs ideal 150-160)</td><td>Acortar a ~155 caracteres</td></tr>
+        <tr><td>Meta</td><td>Keywords meta (no daña pero es legacy)</td><td>Opcional: eliminar de layout.tsx metadata</td></tr>
+        <tr><td>Schema</td><td>sameAs array vacío</td><td>Agregar URL de Instagram en JsonLd.tsx</td></tr>
+        <tr><td>Imágenes</td><td>13 alt vacíos</td><td>Auditar manualmente — decorativos vs informativos</td></tr>
+        <tr><td>Técnico</td><td>Sitemap con anchors</td><td>Editar sitemap.ts: solo home, o crear páginas reales</td></tr>
+        <tr><td>Contenido</td><td>Sin blog</td><td>Considerar /blog con artículos sobre tratamientos para long-tail</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>Tests aprobados (28)</summary>
+    <table>
+      <thead><tr><th>#</th><th>Aprobado</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>HTTPS activo con HSTS preload</td></tr>
+        <tr><td>2</td><td>Headers de seguridad completos (CSP-like)</td></tr>
+        <tr><td>3</td><td>robots.txt presente y bien configurado</td></tr>
+        <tr><td>4</td><td>sitemap.xml accesible</td></tr>
+        <tr><td>5</td><td>Favicon en 6 tamaños diferentes</td></tr>
+        <tr><td>6</td><td>Manifest PWA configurado</td></tr>
+        <tr><td>7</td><td>TTFB &lt; 800ms</td></tr>
+        <tr><td>8</td><td>&lt;title&gt; presente y descriptivo</td></tr>
+        <tr><td>9</td><td>Meta description presente</td></tr>
+        <tr><td>10</td><td>Meta viewport correcto</td></tr>
+        <tr><td>11</td><td>Meta robots index, follow</td></tr>
+        <tr><td>12</td><td>Canonical declarado</td></tr>
+        <tr><td>13</td><td>&lt;html lang="es"&gt;</td></tr>
+        <tr><td>14</td><td>Open Graph completo (10 propiedades)</td></tr>
+        <tr><td>15</td><td>Twitter Card configurada</td></tr>
+        <tr><td>16</td><td>Schema Organization+MedicalOrganization</td></tr>
+        <tr><td>17</td><td>Schema Dentist (estructura presente)</td></tr>
+        <tr><td>18</td><td>Schema WebSite con SearchAction</td></tr>
+        <tr><td>19</td><td>Schema FAQPage (7 preguntas)</td></tr>
+        <tr><td>20</td><td>OfferCatalog con MedicalProcedure</td></tr>
+        <tr><td>21</td><td>76% de imágenes con alt descriptivo</td></tr>
+        <tr><td>22</td><td>48% de imágenes con loading lazy</td></tr>
+        <tr><td>23</td><td>Next.js Image entrega WebP/AVIF</td></tr>
+        <tr><td>24</td><td>Enlaces externos con rel="noopener noreferrer"</td></tr>
+        <tr><td>25</td><td>Sin enlaces rotos detectados</td></tr>
+        <tr><td>26</td><td>Anchor text descriptivo</td></tr>
+        <tr><td>27</td><td>Contenido único en title/description</td></tr>
+        <tr><td>28</td><td>8 secciones de contenido con headings claros</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <details>
+    <summary>Cabeceras HTTP completas</summary>
+    <pre style="margin:14px 0 0">HTTP/1.1 200 OK
+Server: Vercel
+Content-Type: text/html; charset=utf-8
+Content-Length: 130351
+Cache-Control: public, max-age=0, must-revalidate
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-Xss-Protection: 1; mode=block
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+X-Vercel-Cache: HIT</pre>
+  </details>
+
+  <footer>
+    Auditoría generada el 15 de mayo de 2026 · análisis automatizado · puntuación con metodología ponderada de 8 categorías
+  </footer>
+
+</div>
+
+</body>
+</html>

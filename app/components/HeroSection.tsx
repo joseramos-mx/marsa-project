@@ -120,6 +120,11 @@ export default function HeroSection() {
     <div ref={heroRef} className="h-screen p-3 bg-[#0c0c0c]">
     <section className="relative h-full overflow-hidden bg-black rounded-[28px]">
 
+      {/* SEO h1 — visually hidden, accessible to crawlers and screen readers */}
+      <h1 className="sr-only">
+        Marsa Project · Clínica de odontología estética y medicina estética en Toluca: blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales
+      </h1>
+
       {/* z-1 — backgroundhero.svg typographic pattern */}
       <motion.div
         className="absolute inset-0 z-1 pointer-events-none"

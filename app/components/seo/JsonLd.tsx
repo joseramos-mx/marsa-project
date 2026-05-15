@@ -51,12 +51,13 @@ export default function JsonLd({ siteUrl }: { siteUrl: string }) {
       url: `${siteUrl}/marsa%20logo.png`,
     },
     sameAs: [
-      // "https://www.facebook.com/marsaproject",
-      // "https://www.instagram.com/marsaproject",
+      "https://www.instagram.com/marsa.project",
     ],
     contactPoint: {
       "@type": "ContactPoint",
+      telephone: "+52-722-535-6109",
       contactType: "customer service",
+      areaServed: "MX",
       availableLanguage: "Spanish",
     },
   };
@@ -73,40 +74,59 @@ export default function JsonLd({ siteUrl }: { siteUrl: string }) {
     priceRange: "$$",
     currenciesAccepted: "MXN",
     paymentAccepted: "Cash, Credit Card, Debit Card",
-    // ── Update these with real data ──
-    // telephone: "+52-55-0000-0000",
-    // address: {
-    //   "@type": "PostalAddress",
-    //   streetAddress: "Calle Ejemplo 123",
-    //   addressLocality: "Ciudad de México",
-    //   addressRegion: "CDMX",
-    //   postalCode: "06600",
-    //   addressCountry: "MX",
-    // },
-    // geo: {
-    //   "@type": "GeoCoordinates",
-    //   latitude: 19.4326,
-    //   longitude: -99.1332,
-    // },
-    // openingHoursSpecification: [
-    //   { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "09:00", closes: "19:00" },
-    //   { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "14:00" },
-    // ],
+    telephone: "+52-722-535-6109",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "P.º Cristóbal Colón 128-MZ 027, Residencial Colón y Col Ciprés",
+      addressLocality: "Toluca de Lerdo",
+      addressRegion: "Estado de México",
+      postalCode: "50120",
+      addressCountry: "MX",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      // Aproximadas a Paseo Cristóbal Colón, Toluca — refinar con lat/lng exactos de Google Maps
+      latitude: 19.2865,
+      longitude: -99.6557,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "10:00",
+        closes: "20:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "10:00",
+        closes: "16:00",
+      },
+    ],
+    sameAs: [
+      "https://www.instagram.com/marsa.project",
+    ],
     medicalSpecialty: [
       "Dentistry",
       "Cosmetic Dentistry",
       "Aesthetic Medicine",
+      "Orthodontics",
+      "Pediatric Dentistry",
+      "Endodontics",
+      "Oral and Maxillofacial Surgery",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Tratamientos Marsa Project",
       itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Implantología dental" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Blanqueamiento dental" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Carillas de porcelana" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Diseño de sonrisa digital" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Ortodoncia invisible" } },
-        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Implantes dentales" } },
-        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Medicina estética" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Odontopediatría" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Endodoncia" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Cirugía maxilofacial" } },
       ],
     },
   };

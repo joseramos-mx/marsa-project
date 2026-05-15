@@ -13,9 +13,9 @@ import CTASection from './components/CTASection'
 import Footer from './components/Footer'
 
 export const metadata: Metadata = {
-  title: 'Odontología Estética y Medicina Estética',
+  title: 'Odontología Estética y Medicina Estética en Toluca',
   description:
-    'Marsa Project: especialistas en blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales. Consulta gratuita — resultados naturales, seguros y personalizados.',
+    'Marsa Project · Clínica dental en Toluca: blanqueamiento, carillas, diseño de sonrisa, implantes y ortodoncia invisible. Consulta gratuita.',
   alternates: { canonical: '/' },
 }
 
