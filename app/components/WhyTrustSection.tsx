@@ -5,39 +5,32 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence, LayoutGroup } from 'motion/react'
 import { Tooth, HeartStraight, Lightning, ArrowUpRight } from '@phosphor-icons/react'
+import { useTranslations } from 'next-intl'
 
-const CARDS = [
-  {
-    Icon: Tooth,
-    title: 'Especialistas certificados',
-    description: 'Profesionales certificados con amplia experiencia en estética y odontología.',
-    image: '/check.png',
-  },
-  {
-    Icon: HeartStraight,
-    title: 'Instalaciones modernas',
-    description: 'Espacios seguros y diseñados para tu comodidad y bienestar.',
-    image: '/heart.png',
-  },
-  {
-    Icon: Lightning,
-    title: 'Equipamiento de vanguardia',
-    description: 'Equipos de última generación para resultados precisos y seguros.',
-    image: '/caliper.png',
-  },
-]
+const CARD_DEFS = [
+  { key: 'specialists', Icon: Tooth,         image: '/check.png' },
+  { key: 'facilities',  Icon: HeartStraight, image: '/heart.png' },
+  { key: 'equipment',   Icon: Lightning,     image: '/caliper.png' },
+] as const
 
 const GEIST = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
 export default function WhyTrustSection() {
+  const t  = useTranslations('whyTrust')
+  const tc = useTranslations('whyTrust.cards')
+  const CARDS = CARD_DEFS.map((c) => ({
+    Icon:        c.Icon,
+    image:       c.image,
+    title:       tc(`${c.key}.title`),
+    description: tc(`${c.key}.description`),
+  }))
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
     <section className="bg-[#0c0c0c] py-20 px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
 
-        {/* ── Header ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,23 +42,22 @@ export default function WhyTrustSection() {
             className="text-white/40 text-[10px] uppercase mb-5"
             style={{ ...GEIST, letterSpacing: '0.22em' }}
           >
-            ▪ ¿Por qué elegirnos?
+            ▪ {t('eyebrow')}
           </p>
 
           <h2
             className="text-[2.6rem] md:text-5xl text-white leading-[1.12] tracking-tight mb-5"
             style={ALBERT}
           >
-            Especialistas dedicados<br />
-            a transformar tu sonrisa
+            {t('headingPart1')}<br />
+            {t('headingPart2')}
           </h2>
 
           <p
             className="text-white/50 text-[15px] leading-relaxed max-w-md mx-auto mb-9"
             style={GEIST}
           >
-            Tecnología avanzada, especialistas certificados y un ambiente
-            diseñado para que obtengas los resultados que mereces.
+            {t('description')}
           </p>
 
           <Link
@@ -78,7 +70,7 @@ export default function WhyTrustSection() {
               className="text-[11px] font-medium uppercase tracking-[0.12em] pr-3"
               style={GEIST}
             >
-              Agenda tu cita
+              {t('ctaLabel')}
             </span>
             <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
               <ArrowUpRight size={15} weight="bold" className="text-black" />
@@ -86,7 +78,6 @@ export default function WhyTrustSection() {
           </Link>
         </motion.div>
 
-        {/* ── Cards wrapper ── */}
         <div className="bg-[#141414] rounded-3xl p-3">
           <LayoutGroup>
             <div className="hidden md:flex gap-3">
@@ -110,28 +101,19 @@ export default function WhyTrustSection() {
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
                 >
-                  {/* Phosphor icon badge — top left */}
                   <div className="absolute top-5 left-5 w-10 h-10 rounded-xl bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center z-10">
                     <card.Icon size={20} weight="duotone" className="text-black" />
                   </div>
 
-                  {/* Bottom text */}
                   <div className="absolute bottom-5 left-5 right-[48%] z-10">
-                    <h3
-                      className="text-white text-[1.05rem] font-semibold leading-snug mb-1.5"
-                      style={ALBERT}
-                    >
+                    <h3 className="text-white text-[1.05rem] font-semibold leading-snug mb-1.5" style={ALBERT}>
                       {card.title}
                     </h3>
-                    <p
-                      className="text-white/50 text-[12px] leading-relaxed"
-                      style={GEIST}
-                    >
+                    <p className="text-white/50 text-[12px] leading-relaxed" style={GEIST}>
                       {card.description}
                     </p>
                   </div>
 
-                  {/* Image panel — slides in from right */}
                   <AnimatePresence>
                     {hovered === i && (
                       <motion.div
@@ -158,7 +140,6 @@ export default function WhyTrustSection() {
               ))}
             </div>
 
-            {/* Mobile — stacked, no hover effect */}
             <div className="flex flex-col md:hidden gap-3">
               {CARDS.map((card, i) => (
                 <motion.div

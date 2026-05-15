@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
 function CrossMark({ style, className = '' }: { style: CSSProperties; className?: string }) {
   return (
@@ -15,20 +16,19 @@ function CrossMark({ style, className = '' }: { style: CSSProperties; className?
 }
 
 export default function Footer() {
+  const t = useTranslations('footer')
   const currentYear = new Date().getFullYear()
 
   return (
     <footer className="bg-black pt-20 pb-10 px-8 relative overflow-hidden" style={{ fontFamily: 'var(--font-albert-sans), sans-serif' }}>
       <div className="max-w-6xl mx-auto relative border-t border-white/15 pt-16">
-        
-        {/* Corner Marks */}
+
         <CrossMark style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }} />
         <CrossMark style={{ top: 0, right: 0, transform: 'translate(50%, -50%)' }} />
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          
-          {/* Column 1: Logo & Tagline */}
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -36,41 +36,38 @@ export default function Footer() {
             className="md:col-span-2 flex flex-col gap-6"
           >
             <Link href="/" aria-label="MARSA Home" className="inline-block w-fit hover:opacity-80 transition-opacity">
-              {/* Note: In your actual app, you might want to adjust the width/height to match your exact logo aspect ratio */}
               <Image src="/marsa%20logo.png" alt="MARSA Logo" width={150} height={40} className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-white/45 text-sm leading-relaxed max-w-sm">
-              Clínica especializada en odontología estética y medicina estética. Resultados naturales, seguros y personalizados para revelar tu mejor versión.
+              {t('tagline')}
             </p>
           </motion.div>
 
-          {/* Column 2: Quick Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="flex flex-col gap-5"
           >
-            <h4 className="text-white uppercase tracking-widest text-xs font-semibold">Enlaces Rápidos</h4>
+            <h4 className="text-white uppercase tracking-widest text-xs font-semibold">{t('quickLinks')}</h4>
             <nav className="flex flex-col gap-3 text-sm font-light text-white/55">
-              <Link href="#inicio" className="hover:text-white hover:translate-x-1 transition-all w-fit">Inicio</Link>
-              <Link href="#servicios" className="hover:text-white hover:translate-x-1 transition-all w-fit">Servicios</Link>
-              <Link href="#nosotros" className="hover:text-white hover:translate-x-1 transition-all w-fit">Nosotros</Link>
-              <Link href="#aliados" className="hover:text-white hover:translate-x-1 transition-all w-fit">Aliados</Link>
-              <Link href="#faq" className="hover:text-white hover:translate-x-1 transition-all w-fit">FAQ</Link>
+              <Link href="#inicio"    className="hover:text-white hover:translate-x-1 transition-all w-fit">{t('inicio')}</Link>
+              <Link href="#servicios" className="hover:text-white hover:translate-x-1 transition-all w-fit">{t('servicios')}</Link>
+              <Link href="#nosotros"  className="hover:text-white hover:translate-x-1 transition-all w-fit">{t('nosotros')}</Link>
+              <Link href="#aliados"   className="hover:text-white hover:translate-x-1 transition-all w-fit">{t('aliados')}</Link>
+              <Link href="#faq"       className="hover:text-white hover:translate-x-1 transition-all w-fit">{t('faq')}</Link>
             </nav>
           </motion.div>
 
-          {/* Column 3: Contact & Social */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col gap-5"
           >
-            <h4 className="text-white uppercase tracking-widest text-xs font-semibold">Contacto</h4>
+            <h4 className="text-white uppercase tracking-widest text-xs font-semibold">{t('contact')}</h4>
             <div className="flex flex-col gap-3 text-sm font-light text-white/55">
               <p className="hover:text-white transition-colors cursor-default leading-snug">
                 P.º Cristóbal Colón 128-MZ 027,<br />
@@ -78,8 +75,8 @@ export default function Footer() {
                 50120 Toluca de Lerdo, Méx.
               </p>
               <a href="tel:+527225356109" className="hover:text-white transition-colors">722 535 6109</a>
-              <div className="text-white/40 text-xs leading-relaxed">
-                Lun–Vie 10 a.m.–8 p.m. · Sáb 10 a.m.–4 p.m.<br />Dom cerrado
+              <div className="text-white/40 text-xs leading-relaxed whitespace-pre-line">
+                {t('hours')}
               </div>
             </div>
 
@@ -94,8 +91,7 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Bottom Copyright */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -103,10 +99,10 @@ export default function Footer() {
           className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <p className="text-white/30 text-xs font-light">
-            &copy; {currentYear} Marsa Project. Todos los derechos reservados.
+            &copy; {currentYear} {t('copyright')}
           </p>
           <p className="text-white/30 text-xs font-light flex items-center gap-1">
-            Hecho con <span className="text-white/50">🤍</span> para tu sonrisa.
+            {t('madeWith')} <span className="text-white/50">🤍</span> {t('madeWithSuffix')}
           </p>
         </motion.div>
 

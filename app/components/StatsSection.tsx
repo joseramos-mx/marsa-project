@@ -2,11 +2,14 @@
 
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const NUM = { fontFamily: 'var(--font-albert-sans)', fontWeight: 300}
+const NUM = { fontFamily: 'var(--font-albert-sans)', fontWeight: 300 }
 const LABEL = { fontFamily: 'var(--font-geist-sans)', letterSpacing: '0.08em' }
 
 export default function StatsSection() {
+  const t = useTranslations('stats')
+
   return (
     <section className="bg-[#0c0c0c] py-20 px-6 md:px-8">
       <div className="max-w-7xl mx-auto">
@@ -21,17 +24,17 @@ export default function StatsSection() {
         >
           <p className="text-white/40 text-[10px] tracking-[0.25em] uppercase mb-5"
              style={LABEL}>
-            • Sobre nosotros
+            • {t('eyebrow')}
           </p>
           <h2
             className="text-[2.6rem] md:text-5xl text-white leading-[1.15] tracking-tight"
             style={{ fontFamily: 'var(--font-albert-sans)' }}
           >
-            Equipo especializado<br />
-            dedicado{' '}
+            {t('headingPart1')}<br />
+            {t('headingPart2')}{' '}
             <img src="/heart-icon.svg" alt="" className="inline h-[0.9em] align-middle mx-0.5"/>
-            {' '}a construir tu<br />
-            <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">mejor sonrisa</span>
+            {' '}{t('headingPart3')}<br />
+            <span className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] bg-clip-text text-transparent">{t('headingHighlight')}</span>
           </h2>
         </motion.div>
 
@@ -51,18 +54,17 @@ export default function StatsSection() {
           >
             <Image
               src="/docsalem.jpeg"
-              alt="Doctor Marsa Project"
+              alt={t('doctorAlt')}
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            {/* inset panel */}
             <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl px-6 py-2">
               <span className="block text-[3.25rem] leading-none text-black mb-2" style={NUM}>
-                08+
+                {t('yearsValue')}
               </span>
               <p className="text-[#555] text-sm leading-snug" style={{ fontFamily: 'var(--font-geist-sans)' }}>
-                Años de experiencia en odontología estética y medicina estética.
+                {t('yearsDesc')}
               </p>
             </div>
           </motion.div>
@@ -75,17 +77,15 @@ export default function StatsSection() {
             transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
             className="md:row-span-2 rounded-3xl bg-[#1a1a1a] px-7 pt-7 pb-8 flex flex-col justify-between min-h-80"
           >
-            {/* top */}
             <div>
               <p className="text-white/55 text-[11px] uppercase mb-4" style={LABEL}>
-                Pacientes satisfechos
+                {t('patientsLabel')}
               </p>
               <span className="block text-[4.5rem] leading-none text-white" style={NUM}>
-                500+
+                {t('patientsValue')}
               </span>
             </div>
 
-            {/* bottom */}
             <div className="flex flex-col gap-3">
               <div className="flex -space-x-2">
                 {[
@@ -104,7 +104,7 @@ export default function StatsSection() {
                 ))}
               </div>
               <p className="text-white/60 text-[13px] leading-relaxed" style={{ fontFamily: 'var(--font-geist-sans)' }}>
-                &ldquo;Un equipo increíble, resultados naturales y un trato excepcional desde el primer día.&rdquo;
+                &ldquo;{t('patientsQuote')}&rdquo;
               </p>
             </div>
           </motion.div>
@@ -120,14 +120,14 @@ export default function StatsSection() {
           >
             <div>
               <p className="text-white/55 text-[11px] uppercase mb-3" style={LABEL}>
-                Implantes colocados
+                {t('implantsLabel')}
               </p>
               <span className="block text-[4rem] leading-none text-white" style={NUM}>
-                100+
+                {t('implantsValue')}
               </span>
             </div>
             <p className="text-white/60 text-[13px] leading-snug" style={{ fontFamily: 'var(--font-geist-sans)' }}>
-              Con tecnología de última generación y materiales premium certificados.
+              {t('implantsDesc')}
             </p>
           </motion.div>
 
@@ -140,10 +140,10 @@ export default function StatsSection() {
             className="rounded-3xl bg-[#480517] px-7 py-6 flex items-center justify-between min-h-30"
           >
             <p className="text-white/50 text-[13px]" style={{ fontFamily: 'var(--font-geist-sans)' }}>
-              Calificación promedio
+              {t('ratingLabel')}
             </p>
             <span className="text-[2.75rem] leading-none text-white" style={NUM}>
-              4.9/5
+              {t('ratingValue')}
             </span>
           </motion.div>
 

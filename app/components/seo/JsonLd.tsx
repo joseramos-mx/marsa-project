@@ -1,5 +1,7 @@
+import { getMessages } from "next-intl/server";
+
 /* ─────────────────────────────────────────────────────────────
-   JSON-LD Structured Data — Server Component
+   JSON-LD Structured Data — Server Component (locale-aware)
    Schemas included:
      • Organization
      • Dentist (LocalBusiness)
@@ -8,38 +10,17 @@
      • FAQPage
    ───────────────────────────────────────────────────────────── */
 
-const faqItems = [
-  {
-    q: "¿Qué es Marsa Project y qué servicios ofrece?",
-    a: "Marsa Project es una clínica especializada en odontología estética y medicina estética. Ofrecemos blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales y tratamientos de medicina estética no invasiva.",
-  },
-  {
-    q: "¿Cuánto tiempo dura un tratamiento de blanqueamiento dental?",
-    a: "Una sesión dura entre 60 y 90 minutos. Los resultados son visibles desde la primera sesión y pueden mantenerse hasta 2 años con el cuidado adecuado.",
-  },
-  {
-    q: "¿Los tratamientos estéticos son seguros?",
-    a: "Sí. Todos nuestros procedimientos son realizados por especialistas certificados con tecnología de última generación y bajo protocolos de seguridad rigurosos.",
-  },
-  {
-    q: "¿Ofrecen planes de pago o financiamiento?",
-    a: "Sí, contamos con planes de pago flexibles y opciones de financiamiento adaptadas a tu presupuesto para que puedas acceder al tratamiento que necesitas.",
-  },
-  {
-    q: "¿Cómo puedo agendar mi primera consulta?",
-    a: "Puedes agendar a través de nuestro sitio web, WhatsApp o llamándonos directamente. La primera consulta incluye una evaluación completa y personalizada de tu caso.",
-  },
-  {
-    q: "¿Qué incluye el diseño de sonrisa digital?",
-    a: "Incluye una evaluación estética completa, simulación virtual de tu nueva sonrisa y un plan de tratamiento detallado antes de comenzar cualquier procedimiento.",
-  },
-  {
-    q: "¿Cuánto tiempo duran los resultados de los tratamientos?",
-    a: "Depende del tratamiento: el blanqueamiento dura hasta 2 años, las carillas de porcelana hasta 15 años y los implantes dentales son una solución permanente con el cuidado adecuado.",
-  },
-];
+type FaqMessages = { items: { q: string; a: string }[] };
 
-export default function JsonLd({ siteUrl }: { siteUrl: string }) {
+export default async function JsonLd({
+  siteUrl,
+  locale,
+}: {
+  siteUrl: string;
+  locale: string;
+}) {
+  const messages = (await getMessages({ locale })) as unknown as { faq: FaqMessages };
+  const faqItems = messages.faq.items;
   const organization = {
     "@context": "https://schema.org",
     "@type": ["Organization", "MedicalOrganization"],
@@ -137,7 +118,7 @@ export default function JsonLd({ siteUrl }: { siteUrl: string }) {
     "@id": `${siteUrl}/#website`,
     name: "Marsa Project",
     url: siteUrl,
-    inLanguage: "es-MX",
+    inLanguage: locale === "en" ? "en-US" : "es-MX",
     publisher: { "@id": `${siteUrl}/#organization` },
     potentialAction: {
       "@type": "SearchAction",

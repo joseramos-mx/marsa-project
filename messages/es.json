@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "title": "Odontología Estética y Medicina Estética en Toluca",
+    "titleTemplate": "%s | Marsa Project",
+    "description": "Marsa Project · Clínica dental en Toluca: blanqueamiento, carillas, diseño de sonrisa, implantes y ortodoncia invisible. Consulta gratuita.",
+    "ogTitle": "Marsa Project | Odontología Estética y Medicina Estética",
+    "ogDescription": "Especialistas en blanqueamiento dental, carillas, diseño de sonrisa e implantes. Tecnología avanzada, resultados naturales. ¡Agenda tu consulta gratuita!",
+    "twitterDescription": "Blanqueamiento dental, carillas, diseño de sonrisa e implantes con tecnología avanzada. Consulta gratuita.",
+    "ogAlt": "Marsa Project — Odontología Estética y Medicina Estética"
+  },
+
+  "navbar": {
+    "inicio": "Inicio",
+    "nosotros": "Nosotros",
+    "especialidades": "Especialidades",
+    "servicios": "Servicios",
+    "testimonios": "Testimonios",
+    "faq": "FAQ",
+    "agenda": "Agenda",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "home": "MARSA Home"
+  },
+
+  "hero": {
+    "h1": "Marsa Project · Clínica de odontología estética y medicina estética en Toluca: blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales",
+    "reviewsPrefix": "Más de",
+    "reviewsPatients": "500 pacientes",
+    "reviewsMiddle": "· Calificación",
+    "reviewsRating": "4.9 / 5",
+    "doctorAlt": "Doctor Marsa Project",
+    "cards": {
+      "blanqueamiento":    { "category": "Odontología",   "title": "Blanqueamiento\nDental" },
+      "carillas":          { "category": "Odontología",   "title": "Carillas de\nPorcelana" },
+      "disenoSonrisa":     { "category": "Diseño",        "title": "Diseño de\nSonrisa" },
+      "ortodoncia":        { "category": "Ortodoncia",    "title": "Ortodoncia\nInvisible" },
+      "implantes":         { "category": "Implantología", "title": "Implantes\nDentales" }
+    }
+  },
+
+  "stats": {
+    "eyebrow": "Sobre nosotros",
+    "headingPart1": "Equipo especializado",
+    "headingPart2": "dedicado",
+    "headingPart3": "a construir tu",
+    "headingHighlight": "mejor sonrisa",
+    "yearsValue": "08+",
+    "yearsDesc": "Años de experiencia en odontología estética y medicina estética.",
+    "patientsLabel": "Pacientes satisfechos",
+    "patientsValue": "500+",
+    "patientsQuote": "Un equipo increíble, resultados naturales y un trato excepcional desde el primer día.",
+    "implantsLabel": "Implantes colocados",
+    "implantsValue": "100+",
+    "implantsDesc": "Con tecnología de última generación y materiales premium certificados.",
+    "ratingLabel": "Calificación promedio",
+    "ratingValue": "4.9/5",
+    "doctorAlt": "Doctor Marsa Project"
+  },
+
+  "whyTrust": {
+    "eyebrow": "¿Por qué elegirnos?",
+    "headingPart1": "Especialistas dedicados",
+    "headingPart2": "a transformar tu sonrisa",
+    "description": "Tecnología avanzada, especialistas certificados y un ambiente diseñado para que obtengas los resultados que mereces.",
+    "ctaLabel": "Agenda tu cita",
+    "cards": {
+      "specialists":  { "title": "Especialistas certificados",   "description": "Profesionales certificados con amplia experiencia en estética y odontología." },
+      "facilities":   { "title": "Instalaciones modernas",       "description": "Espacios seguros y diseñados para tu comodidad y bienestar." },
+      "equipment":    { "title": "Equipamiento de vanguardia",   "description": "Equipos de última generación para resultados precisos y seguros." }
+    }
+  },
+
+  "wellness": {
+    "eyebrow": "Nosotros",
+    "headingPart1": "Un equipo dedicado",
+    "headingPart2": "a tu bienestar y",
+    "highlightPrefix": "tu mejor",
+    "highlightSuffix": "sonrisa",
+    "description": "En Marsa Project combinamos ciencia, tecnología avanzada y un enfoque humano para brindarte resultados excepcionales.",
+    "ctaLabel": "Agenda tu cita",
+    "doctorAlt": "Equipo Marsa Project",
+    "treatmentsLabel": "Nuestros tratamientos",
+    "ratingLabel": "Calificación promedio",
+    "ratingValue": "5.0 ★",
+    "ratingDesc": "Basada en más de 500 reseñas verificadas.",
+    "tags": [
+      "Blanqueamiento dental",
+      "Carillas de porcelana",
+      "Diseño de sonrisa",
+      "Ortodoncia invisible",
+      "Implantes dentales",
+      "Resultados naturales"
+    ]
+  },
+
+  "specialties": {
+    "eyebrow": "Especialidades",
+    "headingPart1": "Especialidades",
+    "headingHighlight": "en Marsa Project",
+    "description": "Un equipo multidisciplinario de especialistas certificados cubre cada necesidad odontológica bajo un mismo techo.",
+    "items": {
+      "implants":   { "title": "Implantología",          "description": "Reemplazo permanente de piezas perdidas con implantes de titanio de alta resistencia y acabado natural." },
+      "aesthetic":  { "title": "Odontología estética",   "description": "Carillas, blanqueamiento y diseño de sonrisa para resultados luminosos y naturales." },
+      "ortho":      { "title": "Ortodoncia",             "description": "Alineadores invisibles y brackets para corregir la posición de tus dientes de forma cómoda." },
+      "pediatric":  { "title": "Odontopediatría",        "description": "Atención dental especializada para niños en un ambiente cálido, seguro y divertido." },
+      "endo":       { "title": "Endodoncia",             "description": "Tratamientos de conducto que preservan la pieza dental original con técnica precisa." },
+      "surgery":    { "title": "Cirugía maxilofacial",   "description": "Procedimientos quirúrgicos especializados de la zona maxilofacial con tecnología avanzada." }
+    }
+  },
+
+  "services": {
+    "eyebrow": "Servicios",
+    "heading": "Nuestros tratamientos",
+    "prevLabel": "Anterior",
+    "nextLabel": "Siguiente",
+    "items": {
+      "whitening": {
+        "category": "Odontología",
+        "title": "Blanqueamiento dental",
+        "description": "En Marsa Project combinamos atención médica especializada, tecnología avanzada y un ambiente de lujo para resultados visibles desde la primera sesión."
+      },
+      "veneers": {
+        "category": "Odontología",
+        "title": "Carillas de porcelana",
+        "description": "Transformamos tu sonrisa con carillas ultrafinas de porcelana que imitan a la perfección el aspecto natural de tus dientes."
+      },
+      "smileDesign": {
+        "category": "Diseño de sonrisa",
+        "title": "Diseño de sonrisa",
+        "description": "Planificamos cada detalle de tu nueva sonrisa con simulaciones digitales antes del tratamiento para que apruebes el resultado."
+      },
+      "ortho": {
+        "category": "Ortodoncia",
+        "title": "Ortodoncia invisible",
+        "description": "Alineadores transparentes a medida que corrigen la posición de tus dientes de forma discreta y cómoda."
+      },
+      "implants": {
+        "category": "Implantología",
+        "title": "Implantes dentales",
+        "description": "Recupera la función y estética de tu sonrisa con implantes de titanio de alta resistencia y acabado natural."
+      }
+    }
+  },
+
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "headingPart1": "Lo que dicen",
+    "headingPart2": "sobre nosotros",
+    "description": "Historias reales de pacientes que transformaron su sonrisa.",
+    "videoEyebrow": "En video",
+    "patientName": "Paciente Marsa",
+    "videoTitlePrefix": "Testimonio en video",
+    "quotes": [
+      "El equipo de Marsa transformó mi sonrisa por completo. Resultados naturales y un trato increíblemente humano desde el primer día.",
+      "Los implantes quedaron perfectos. Nadie cree que no son mis dientes naturales. Totalmente recomendado.",
+      "Me devolvieron la confianza en mi sonrisa. El resultado superó todas mis expectativas, me siento increíble.",
+      "Tecnología de punta y un equipo que realmente escucha. El diseño de sonrisa cambió mi vida.",
+      "Vine por el blanqueamiento y salí enamorada del servicio. Un equipo que se preocupa genuinamente por ti.",
+      "Los implantes dentales quedaron naturales y hermosos. Gracias Marsa Project por devolverme mi sonrisa."
+    ]
+  },
+
+  "faq": {
+    "eyebrow": "FAQ",
+    "headingPart1": "Preguntas",
+    "headingHighlight": "frecuentes",
+    "description": "Encuentra respuestas a las preguntas más comunes sobre nuestros tratamientos y el proceso en Marsa Project.",
+    "ctaLabel": "Agenda tu cita",
+    "items": [
+      {
+        "q": "¿Qué es Marsa Project y qué servicios ofrece?",
+        "a": "Marsa Project es una clínica especializada en odontología estética y medicina estética. Ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales."
+      },
+      {
+        "q": "¿Cuánto tiempo dura un tratamiento de blanqueamiento dental?",
+        "a": "Una sesión dura entre 60 y 90 minutos. Los resultados son visibles desde la primera sesión y pueden mantenerse hasta 2 años con el cuidado adecuado."
+      },
+      {
+        "q": "¿Los tratamientos estéticos son seguros?",
+        "a": "Sí. Todos nuestros procedimientos son realizados por especialistas certificados con tecnología de última generación y bajo protocolos de seguridad rigurosos."
+      },
+      {
+        "q": "¿Ofrecen planes de pago o financiamiento?",
+        "a": "Sí, contamos con planes de pago flexibles y opciones de financiamiento adaptadas a tu presupuesto para que puedas acceder al tratamiento que necesitas."
+      },
+      {
+        "q": "¿Cómo puedo agendar mi primera consulta?",
+        "a": "Puedes agendar a través de nuestro sitio web, WhatsApp o llamándonos directamente. La primera consulta incluye una evaluación completa y personalizada de tu caso."
+      },
+      {
+        "q": "¿Qué incluye el diseño de sonrisa digital?",
+        "a": "Incluye una evaluación estética completa, simulación virtual de tu nueva sonrisa y un plan de tratamiento detallado antes de comenzar cualquier procedimiento."
+      },
+      {
+        "q": "¿Cuánto tiempo duran los resultados de los tratamientos?",
+        "a": "Depende del tratamiento: el aclaramiento dura hasta 2 años, las carillas hasta 10 años y los implantes dentales son una solución fija, todo tratamiento dependerá del cuidado del paciente y revisiones periódicas."
+      }
+    ]
+  },
+
+  "cta": {
+    "trustPrefix": "Más de",
+    "trustPatients": "500 pacientes",
+    "trustSuffix": "confían en nosotros",
+    "headingPart1": "Tu mejor sonrisa",
+    "headingHighlight": "te espera.",
+    "description": "Especialistas certificados, tecnología avanzada y un ambiente diseñado para tu comodidad. Agenda hoy y descubre el tratamiento ideal para ti.",
+    "ctaLabel": "Agenda tu cita",
+    "whatsappLabel": "WhatsApp",
+    "doctorAlt": "Doctora del equipo Marsa Project"
+  },
+
+  "footer": {
+    "tagline": "Clínica especializada en odontología estética y medicina estética. Resultados naturales, seguros y personalizados para revelar tu mejor versión.",
+    "quickLinks": "Enlaces Rápidos",
+    "inicio": "Inicio",
+    "servicios": "Servicios",
+    "nosotros": "Nosotros",
+    "aliados": "Aliados",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "hours": "Lun–Vie 10 a.m.–8 p.m. · Sáb 10 a.m.–4 p.m.\nDom cerrado",
+    "copyright": "Marsa Project. Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "madeWithSuffix": "para tu sonrisa."
+  },
+
+  "floating": {
+    "whatsappLabel": "Contactar por WhatsApp",
+    "scrollTopLabel": "Volver arriba",
+    "agendaLabel": "Agenda tu cita por WhatsApp",
+    "agendaText": "Agenda tu cita"
+  },
+
+  "language": {
+    "switchLabel": "Cambiar idioma",
+    "es": "ES",
+    "en": "EN"
+  }
+}

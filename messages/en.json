@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "title": "Aesthetic Dentistry & Aesthetic Medicine in Toluca",
+    "titleTemplate": "%s | Marsa Project",
+    "description": "Marsa Project · Dental clinic in Toluca: whitening, veneers, smile design, implants and clear aligners. Free first consultation.",
+    "ogTitle": "Marsa Project | Aesthetic Dentistry & Aesthetic Medicine",
+    "ogDescription": "Specialists in teeth whitening, veneers, smile design and implants. Advanced technology, natural results. Book your free consultation!",
+    "twitterDescription": "Teeth whitening, veneers, smile design and implants with advanced technology. Free consultation.",
+    "ogAlt": "Marsa Project — Aesthetic Dentistry & Aesthetic Medicine"
+  },
+
+  "navbar": {
+    "inicio": "Home",
+    "nosotros": "About",
+    "especialidades": "Specialties",
+    "servicios": "Services",
+    "testimonios": "Testimonials",
+    "faq": "FAQ",
+    "agenda": "Book",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "MARSA Home"
+  },
+
+  "hero": {
+    "h1": "Marsa Project · Aesthetic dentistry and aesthetic medicine clinic in Toluca: teeth whitening, porcelain veneers, smile design, clear aligners and dental implants",
+    "reviewsPrefix": "Over",
+    "reviewsPatients": "500 patients",
+    "reviewsMiddle": "· Rating",
+    "reviewsRating": "4.9 / 5",
+    "doctorAlt": "Marsa Project doctor",
+    "cards": {
+      "blanqueamiento":    { "category": "Dentistry",    "title": "Teeth\nWhitening" },
+      "carillas":          { "category": "Dentistry",    "title": "Porcelain\nVeneers" },
+      "disenoSonrisa":     { "category": "Design",       "title": "Smile\nDesign" },
+      "ortodoncia":        { "category": "Orthodontics", "title": "Clear\nAligners" },
+      "implantes":         { "category": "Implants",     "title": "Dental\nImplants" }
+    }
+  },
+
+  "stats": {
+    "eyebrow": "About us",
+    "headingPart1": "A specialized team",
+    "headingPart2": "dedicated",
+    "headingPart3": "to building your",
+    "headingHighlight": "best smile",
+    "yearsValue": "08+",
+    "yearsDesc": "Years of experience in aesthetic dentistry and aesthetic medicine.",
+    "patientsLabel": "Happy patients",
+    "patientsValue": "500+",
+    "patientsQuote": "An amazing team, natural results, and exceptional care from day one.",
+    "implantsLabel": "Implants placed",
+    "implantsValue": "100+",
+    "implantsDesc": "With state-of-the-art technology and certified premium materials.",
+    "ratingLabel": "Average rating",
+    "ratingValue": "4.9/5",
+    "doctorAlt": "Marsa Project doctor"
+  },
+
+  "whyTrust": {
+    "eyebrow": "Why choose us?",
+    "headingPart1": "Specialists committed",
+    "headingPart2": "to transforming your smile",
+    "description": "Advanced technology, certified specialists and an environment designed so you get the results you deserve.",
+    "ctaLabel": "Book your appointment",
+    "cards": {
+      "specialists":  { "title": "Certified specialists",   "description": "Certified professionals with broad experience in aesthetics and dentistry." },
+      "facilities":   { "title": "Modern facilities",       "description": "Safe spaces designed for your comfort and wellbeing." },
+      "equipment":    { "title": "State-of-the-art equipment", "description": "Latest-generation equipment for precise and safe results." }
+    }
+  },
+
+  "wellness": {
+    "eyebrow": "About",
+    "headingPart1": "A team devoted",
+    "headingPart2": "to your wellbeing and",
+    "highlightPrefix": "your best",
+    "highlightSuffix": "smile",
+    "description": "At Marsa Project we combine science, advanced technology and a human approach to deliver exceptional results.",
+    "ctaLabel": "Book your appointment",
+    "doctorAlt": "Marsa Project team",
+    "treatmentsLabel": "Our treatments",
+    "ratingLabel": "Average rating",
+    "ratingValue": "5.0 ★",
+    "ratingDesc": "Based on more than 500 verified reviews.",
+    "tags": [
+      "Teeth whitening",
+      "Porcelain veneers",
+      "Smile design",
+      "Clear aligners",
+      "Dental implants",
+      "Natural results"
+    ]
+  },
+
+  "specialties": {
+    "eyebrow": "Specialties",
+    "headingPart1": "Specialties",
+    "headingHighlight": "at Marsa Project",
+    "description": "A multidisciplinary team of certified specialists covers every dental need under one roof.",
+    "items": {
+      "implants":   { "title": "Implantology",         "description": "Permanent replacement of missing teeth with high-strength titanium implants and a natural finish." },
+      "aesthetic":  { "title": "Aesthetic dentistry",  "description": "Veneers, whitening and smile design for luminous, natural-looking results." },
+      "ortho":      { "title": "Orthodontics",         "description": "Clear aligners and brackets to comfortably correct the position of your teeth." },
+      "pediatric":  { "title": "Pediatric dentistry",  "description": "Specialized dental care for children in a warm, safe and fun environment." },
+      "endo":       { "title": "Endodontics",          "description": "Root canal treatments that preserve your original tooth with precise technique." },
+      "surgery":    { "title": "Maxillofacial surgery", "description": "Specialized surgical procedures of the maxillofacial area with advanced technology." }
+    }
+  },
+
+  "services": {
+    "eyebrow": "Services",
+    "heading": "Our treatments",
+    "prevLabel": "Previous",
+    "nextLabel": "Next",
+    "items": {
+      "whitening": {
+        "category": "Dentistry",
+        "title": "Teeth whitening",
+        "description": "At Marsa Project we combine specialized medical care, advanced technology and a luxury environment for results visible from the first session."
+      },
+      "veneers": {
+        "category": "Dentistry",
+        "title": "Porcelain veneers",
+        "description": "Transform your smile with ultra-thin porcelain veneers that perfectly mimic the natural look of your teeth."
+      },
+      "smileDesign": {
+        "category": "Smile design",
+        "title": "Smile design",
+        "description": "We plan every detail of your new smile with digital simulations before treatment so you approve the result."
+      },
+      "ortho": {
+        "category": "Orthodontics",
+        "title": "Clear aligners",
+        "description": "Custom transparent aligners that discreetly and comfortably correct the position of your teeth."
+      },
+      "implants": {
+        "category": "Implants",
+        "title": "Dental implants",
+        "description": "Restore the function and aesthetics of your smile with high-strength titanium implants and a natural finish."
+      }
+    }
+  },
+
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "headingPart1": "What they say",
+    "headingPart2": "about us",
+    "description": "Real stories from patients who transformed their smile.",
+    "videoEyebrow": "In video",
+    "patientName": "Marsa Patient",
+    "videoTitlePrefix": "Video testimonial",
+    "quotes": [
+      "The Marsa team completely transformed my smile. Natural results and incredibly human care from day one.",
+      "The implants turned out perfect. Nobody believes they're not my natural teeth. Totally recommended.",
+      "They gave me back the confidence in my smile. The result exceeded all my expectations — I feel amazing.",
+      "Cutting-edge technology and a team that really listens. The smile design changed my life.",
+      "I came for whitening and left in love with the service. A team that genuinely cares about you.",
+      "The dental implants look natural and beautiful. Thank you Marsa Project for giving me back my smile."
+    ]
+  },
+
+  "faq": {
+    "eyebrow": "FAQ",
+    "headingPart1": "Frequently",
+    "headingHighlight": "asked questions",
+    "description": "Find answers to the most common questions about our treatments and the process at Marsa Project.",
+    "ctaLabel": "Book your appointment",
+    "items": [
+      {
+        "q": "What is Marsa Project and what services does it offer?",
+        "a": "Marsa Project is a clinic specialized in aesthetic dentistry and aesthetic medicine. We offer whitening, porcelain veneers, smile design, clear aligners and dental implants."
+      },
+      {
+        "q": "How long does a teeth whitening treatment last?",
+        "a": "A session lasts 60 to 90 minutes. Results are visible from the first session and can last up to 2 years with proper care."
+      },
+      {
+        "q": "Are aesthetic treatments safe?",
+        "a": "Yes. All our procedures are performed by certified specialists using state-of-the-art technology under strict safety protocols."
+      },
+      {
+        "q": "Do you offer payment plans or financing?",
+        "a": "Yes — we offer flexible payment plans and financing options adapted to your budget so you can access the treatment you need."
+      },
+      {
+        "q": "How can I book my first consultation?",
+        "a": "You can book through our website, WhatsApp or by calling us directly. The first consultation includes a complete personalized evaluation of your case."
+      },
+      {
+        "q": "What does digital smile design include?",
+        "a": "It includes a complete aesthetic evaluation, virtual simulation of your new smile and a detailed treatment plan before starting any procedure."
+      },
+      {
+        "q": "How long do the results last?",
+        "a": "It depends on the treatment: whitening lasts up to 2 years, veneers up to 10 years, and dental implants are a permanent solution. Every treatment depends on patient care and periodic check-ups."
+      }
+    ]
+  },
+
+  "cta": {
+    "trustPrefix": "Over",
+    "trustPatients": "500 patients",
+    "trustSuffix": "trust us",
+    "headingPart1": "Your best smile",
+    "headingHighlight": "is waiting.",
+    "description": "Certified specialists, advanced technology and an environment designed for your comfort. Book today and discover the ideal treatment for you.",
+    "ctaLabel": "Book your appointment",
+    "whatsappLabel": "WhatsApp",
+    "doctorAlt": "Marsa Project team doctor"
+  },
+
+  "footer": {
+    "tagline": "Clinic specialized in aesthetic dentistry and aesthetic medicine. Natural, safe and personalized results to reveal your best self.",
+    "quickLinks": "Quick Links",
+    "inicio": "Home",
+    "servicios": "Services",
+    "nosotros": "About",
+    "aliados": "Partners",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "hours": "Mon–Fri 10 a.m.–8 p.m. · Sat 10 a.m.–4 p.m.\nSun closed",
+    "copyright": "Marsa Project. All rights reserved.",
+    "madeWith": "Made with",
+    "madeWithSuffix": "for your smile."
+  },
+
+  "floating": {
+    "whatsappLabel": "Contact via WhatsApp",
+    "scrollTopLabel": "Back to top",
+    "agendaLabel": "Book your appointment on WhatsApp",
+    "agendaText": "Book your appointment"
+  },
+
+  "language": {
+    "switchLabel": "Change language",
+    "es": "ES",
+    "en": "EN"
+  }
+}

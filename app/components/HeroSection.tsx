@@ -3,39 +3,27 @@
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useState, useEffect, useRef } from 'react'
+import { useTranslations } from 'next-intl'
 
-const CARDS = [
-  {
-    category: 'Odontología',
-    title: 'Blanqueamiento\nDental',
-    src: '/services/blanquamiento.jpg',
-  },
-  {
-    category: 'Odontología',
-    title: 'Carillas de\nPorcelana',
-    src: '/services/carillas.png',
-  },
-  {
-    category: 'Diseño',
-    title: 'Diseño de\nSonrisa',
-    src: '/services/disenodesonrisa.jpg',
-  },
-  {
-    category: 'Ortodoncia',
-    title: 'Ortodoncia\nInvisible',
-    src: '/services/ortodoncia-invisible.png',
-  },
-  {
-    category: 'Implantología',
-    title: 'Implantes\nDentales',
-    src: '/services/implantes.jpg',
-  },
-]
+const CARD_KEYS = [
+  { key: 'blanqueamiento',  src: '/services/blanquamiento.jpg' },
+  { key: 'carillas',        src: '/services/carillas.png' },
+  { key: 'disenoSonrisa',   src: '/services/disenodesonrisa.jpg' },
+  { key: 'ortodoncia',      src: '/services/ortodoncia-invisible.png' },
+  { key: 'implantes',       src: '/services/implantes.jpg' },
+] as const
 
-const CENTER = (CARDS.length - 1) / 2
+const CENTER = (CARD_KEYS.length - 1) / 2
 const STARS  = Array.from({ length: 5 })
 
 export default function HeroSection() {
+  const t  = useTranslations('hero')
+  const tc = useTranslations('hero.cards')
+  const CARDS = CARD_KEYS.map((c) => ({
+    category: tc(`${c.key}.category`),
+    title:    tc(`${c.key}.title`),
+    src:      c.src,
+  }))
   const [isMobile, setIsMobile] = useState(false)
   const [activeIdx, setActiveIdx] = useState(0)
   const heroRef  = useRef<HTMLDivElement>(null)
@@ -62,7 +50,7 @@ export default function HeroSection() {
     if (isMobile) return
     const id = setInterval(() => {
       if (Date.now() < pauseUntilRef.current) return
-      setActiveIdx(prev => (prev + 1) % CARDS.length)
+      setActiveIdx(prev => (prev + 1) % CARD_KEYS.length)
     }, 3500)
     return () => clearInterval(id)
   }, [isMobile])
@@ -82,8 +70,8 @@ export default function HeroSection() {
     const delta = e.clientX - dragStartRef.current
     const SWIPE_THRESHOLD = 40
     if (Math.abs(delta) > SWIPE_THRESHOLD) {
-      if (delta < 0) setActiveIdx(prev => (prev + 1) % CARDS.length)
-      else           setActiveIdx(prev => (prev - 1 + CARDS.length) % CARDS.length)
+      if (delta < 0) setActiveIdx(prev => (prev + 1) % CARD_KEYS.length)
+      else           setActiveIdx(prev => (prev - 1 + CARD_KEYS.length) % CARD_KEYS.length)
     }
     dragStartRef.current = null
     setIsDragging(false)
@@ -121,9 +109,7 @@ export default function HeroSection() {
     <section className="relative h-full overflow-hidden bg-black rounded-[28px]">
 
       {/* SEO h1 — visually hidden, accessible to crawlers and screen readers */}
-      <h1 className="sr-only">
-        Marsa Project · Clínica de odontología estética y medicina estética en Toluca: blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales
-      </h1>
+      <h1 className="sr-only">{t('h1')}</h1>
 
       {/* z-1 — backgroundhero.svg typographic pattern */}
       <motion.div
@@ -151,7 +137,7 @@ export default function HeroSection() {
           {/* Mobile: vertical-portrait doctor (1340×2400) */}
           <Image
             src="/doctorver.png"
-            alt="Doctor Marsa Project"
+            alt={t('doctorAlt')}
             fill
             priority
             sizes="(max-width: 640px) 150vw, 0px"
@@ -160,7 +146,7 @@ export default function HeroSection() {
           {/* Desktop & up: standard doctor */}
           <Image
             src="/doctor n.png"
-            alt="Doctor Marsa Project"
+            alt={t('doctorAlt')}
             fill
             priority
             sizes="(max-width: 768px) 25rem, 37.5rem"
@@ -376,10 +362,10 @@ export default function HeroSection() {
             color: 'rgba(255,255,255,0.38)', fontSize: '11px',
             letterSpacing: '0.04em', fontFamily: 'var(--font-geist-sans)',
           }}>
-            Más de{' '}
-            <span style={{ color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>500 pacientes</span>
-            {' '}· Calificación{' '}
-            <span style={{ color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>4.9 / 5</span>
+            {t('reviewsPrefix')}{' '}
+            <span style={{ color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>{t('reviewsPatients')}</span>
+            {' '}{t('reviewsMiddle')}{' '}
+            <span style={{ color: 'rgba(255,255,255,0.72)', fontWeight: 500 }}>{t('reviewsRating')}</span>
           </p>
         </div>
       </motion.div>

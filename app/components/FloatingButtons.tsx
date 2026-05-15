@@ -1,8 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function FloatingButtons() {
+  const t = useTranslations('floating')
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
@@ -27,14 +29,14 @@ export default function FloatingButtons() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Agenda tu cita por WhatsApp"
+      aria-label={t('agendaLabel')}
       className="flex fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-2 rounded-l-2xl shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-x-1 px-1.5 py-4 md:px-2 md:py-5 bg-linear-to-b from-[#c69a2c] via-[#f8d974] to-[#c69a2c]"
     >
       <span
         className="text-black text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.16em] md:tracking-[0.18em]"
         style={{ fontFamily: 'var(--font-geist-sans)', writingMode: 'vertical-rl' }}
       >
-        Agenda tu cita
+        {t('agendaText')}
       </span>
       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-black md:w-3 md:h-3">
         <path d="M6 9l6 6 6-6"/>
@@ -42,12 +44,11 @@ export default function FloatingButtons() {
     </a>
 
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-      {/* Botón de WhatsApp */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
+        aria-label={t('whatsappLabel')}
         className="w-14 h-14 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform duration-300 hover:scale-110"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -55,10 +56,9 @@ export default function FloatingButtons() {
         </svg>
       </a>
 
-      {/* Botón Volver arriba */}
       <button
         onClick={scrollToTop}
-        aria-label="Volver arriba"
+        aria-label={t('scrollTopLabel')}
         className={`w-14 h-14 flex items-center justify-center rounded-full bg-black/10 border border-white/20 text-white shadow-lg shadow-black/20 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:scale-110 ${
           showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}

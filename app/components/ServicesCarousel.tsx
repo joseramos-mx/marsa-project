@@ -2,46 +2,27 @@
 
 import { Carousel, Card, CardData } from '@/components/ui/apple-cards-carousel'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const services: CardData[] = [
-  {
-    category: 'Odontología',
-    title: 'Blanqueamiento dental',
-    description:
-      'En Marsa Project combinamos atención médica especializada, tecnología avanzada y un ambiente de lujo para resultados visibles desde la primera sesión.',
-    src: '/services/blanquamiento.jpg',
-  },
-  {
-    category: 'Odontología',
-    title: 'Carillas de porcelana',
-    description:
-      'Transformamos tu sonrisa con carillas ultrafinas de porcelana que imitan a la perfección el aspecto natural de tus dientes.',
-    src: '/services/carillas.png',
-  },
-  {
-    category: 'Diseño de sonrisa',
-    title: 'Diseño de sonrisa',
-    description:
-      'Planificamos cada detalle de tu nueva sonrisa con simulaciones digitales antes del tratamiento para que apruebes el resultado.',
-    src: '/services/disenodesonrisa.jpg',
-  },
-  {
-    category: 'Ortodoncia',
-    title: 'Ortodoncia invisible',
-    description:
-      'Alineadores transparentes a medida que corrigen la posición de tus dientes de forma discreta y cómoda.',
-    src: '/services/ortodoncia-invisible.png',
-  },
-  {
-    category: 'Implantología',
-    title: 'Implantes dentales',
-    description:
-      'Recupera la función y estética de tu sonrisa con implantes de titanio de alta resistencia y acabado natural.',
-    src: '/services/implantes.jpg',
-  },
-]
+const SERVICE_KEYS = [
+  { key: 'whitening',   src: '/services/blanquamiento.jpg' },
+  { key: 'veneers',     src: '/services/carillas.png' },
+  { key: 'smileDesign', src: '/services/disenodesonrisa.jpg' },
+  { key: 'ortho',       src: '/services/ortodoncia-invisible.png' },
+  { key: 'implants',    src: '/services/implantes.jpg' },
+] as const
 
 export default function ServicesCarousel() {
+  const t  = useTranslations('services')
+  const ti = useTranslations('services.items')
+
+  const services: CardData[] = SERVICE_KEYS.map((s) => ({
+    category:    ti(`${s.key}.category`),
+    title:       ti(`${s.key}.title`),
+    description: ti(`${s.key}.description`),
+    src:         s.src,
+  }))
+
   const cards = services.map((s, i) => <Card key={i} card={s} />)
 
   return (
@@ -51,7 +32,6 @@ export default function ServicesCarousel() {
     >
       <div className="max-w-6xl mx-auto">
 
-        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,10 +41,10 @@ export default function ServicesCarousel() {
         >
           <div>
             <p className="text-white/40 uppercase tracking-widest text-xs mb-2">
-              Servicios
+              {t('eyebrow')}
             </p>
             <h2 className="text-white text-3xl font-semibold">
-              Nuestros tratamientos
+              {t('heading')}
             </h2>
           </div>
         </motion.div>

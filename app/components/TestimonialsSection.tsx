@@ -1,46 +1,22 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 
-const TESTIMONIALS = [
-  {
-    name: 'Paciente Marsa',
-    quote: 'El equipo de Marsa transformó mi sonrisa por completo. Resultados naturales y un trato increíblemente humano desde el primer día.',
-    src: '/patients/IMG_7756.PNG',
-  },
-  {
-    name: 'Paciente Marsa',
-    quote: 'Los implantes quedaron perfectos. Nadie cree que no son mis dientes naturales. Totalmente recomendado.',
-    src: '/patients/IMG_7759.PNG',
-  },
-  {
-    name: 'Paciente Marsa',
-    quote: 'Me devolvieron la confianza en mi sonrisa. El resultado superó todas mis expectativas, me siento increíble.',
-    src: '/patients/IMG_7765.PNG',
-  },
-  {
-    name: 'Paciente Marsa',
-    quote: 'Tecnología de punta y un equipo que realmente escucha. El diseño de sonrisa cambió mi vida.',
-    src: '/patients/IMG_7769.PNG',
-  },
-  {
-    name: 'Paciente Marsa',
-    quote: 'Vine por el blanqueamiento y salí enamorada del servicio. Un equipo que se preocupa genuinamente por ti.',
-    src: '/patients/IMG_7771.PNG',
-  },
-  {
-    name: 'Paciente Marsa',
-    quote: 'Los implantes dentales quedaron naturales y hermosos. Gracias Marsa Project por devolverme mi sonrisa.',
-    src: '/patients/IMG_7774.PNG',
-  },
+const PATIENT_SRCS = [
+  '/patients/IMG_7756.PNG',
+  '/patients/IMG_7759.PNG',
+  '/patients/IMG_7765.PNG',
+  '/patients/IMG_7769.PNG',
+  '/patients/IMG_7771.PNG',
+  '/patients/IMG_7774.PNG',
 ]
 
 const REELS = ['DSfOTsYFWwP', 'DScpauAEq5N', 'DSaEnJtkbZ5']
 
-/* one set: 6 cards × (320px + 16px gap) = 2016px */
-const CARD_W   = 320
-const GAP      = 16
-const SET_W    = TESTIMONIALS.length * (CARD_W + GAP)
+const CARD_W = 320
+const GAP    = 16
+const SET_W  = PATIENT_SRCS.length * (CARD_W + GAP)
 
 const GEIST  = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
@@ -58,13 +34,20 @@ function QuoteIcon() {
 }
 
 export default function TestimonialsSection() {
-  /* triple the array so the seamless loop has plenty of runway */
+  const t = useTranslations('testimonials')
+  const quotes = t.raw('quotes') as string[]
+
+  const TESTIMONIALS = quotes.map((quote, i) => ({
+    name:  t('patientName'),
+    quote,
+    src:   PATIENT_SRCS[i % PATIENT_SRCS.length],
+  }))
+
   const items = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]
 
   return (
     <section className="bg-[#0c0c0c] py-20 overflow-hidden">
 
-      {/* ── Header (constrained) ── */}
       <div className="max-w-6xl mx-auto px-6 md:px-8 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -76,21 +59,20 @@ export default function TestimonialsSection() {
             className="text-white/40 text-[10px] uppercase mb-4"
             style={{ ...GEIST, letterSpacing: '0.22em' }}
           >
-            ▪ Testimonios
+            ▪ {t('eyebrow')}
           </p>
           <h2
             className="text-[2.6rem] md:text-5xl text-white leading-[1.12] tracking-tight mb-3"
             style={ALBERT}
           >
-            Lo que dicen<br />sobre nosotros
+            {t('headingPart1')}<br />{t('headingPart2')}
           </h2>
           <p className="text-white/50 text-[14px] leading-relaxed" style={GEIST}>
-            Historias reales de pacientes que transformaron su sonrisa.
+            {t('description')}
           </p>
         </motion.div>
       </div>
 
-      {/* ── Infinite marquee (full width) ── */}
       <motion.div
         className="flex"
         style={{ gap: GAP, width: 'max-content' }}
@@ -127,7 +109,6 @@ export default function TestimonialsSection() {
         ))}
       </motion.div>
 
-      {/* ── Instagram Reels ── */}
       <div className="max-w-6xl mx-auto px-6 md:px-8 mt-16">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -137,7 +118,7 @@ export default function TestimonialsSection() {
           className="text-white/40 text-[10px] uppercase mb-8"
           style={{ ...GEIST, letterSpacing: '0.22em' }}
         >
-          ▪ En video
+          ▪ {t('videoEyebrow')}
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -157,7 +138,7 @@ export default function TestimonialsSection() {
                 style={{ height: 'calc(100% + 250px)', top: '-95px' }}
                 scrolling="no"
                 allow="encrypted-media"
-                title={`Testimonio en video ${i + 1}`}
+                title={`${t('videoTitlePrefix')} ${i + 1}`}
               />
             </motion.div>
           ))}
