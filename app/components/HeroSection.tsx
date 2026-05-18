@@ -148,7 +148,8 @@ export default function HeroSection() {
             alt={t('doctorAlt')}
             fill
             priority
-            sizes="(max-width: 640px) 150vw, 0px"
+            quality={70}
+            sizes="(max-width: 640px) 100vw, 0px"
             className="object-cover object-top sm:hidden"
           />
           {/* Desktop & up: standard doctor */}
@@ -206,11 +207,14 @@ export default function HeroSection() {
                       ease:     'easeInOut',
                     }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={card.src}
                       alt={card.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      fill
+                      sizes="60vw"
+                      quality={65}
+                      loading="lazy"
+                      className="object-cover"
                     />
                     <div style={{
                       position:   'absolute',
@@ -310,11 +314,14 @@ export default function HeroSection() {
                       : '0 8px 32px rgba(0,0,0,0.6)',
                   }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={card.src}
                     alt={card.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    fill
+                    sizes={`${cardSize}px`}
+                    quality={65}
+                    loading="lazy"
+                    className="object-cover"
                   />
                   <div style={{
                     position:   'absolute',

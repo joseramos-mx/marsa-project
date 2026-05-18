@@ -7,6 +7,7 @@ import React, {
   createContext,
   useContext,
 } from 'react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 /* ─── Types ─── */
@@ -153,12 +154,13 @@ export function Card({ card }: { card: CardData }) {
     <div className="relative h-[420px] w-[240px] md:h-[480px] md:w-[300px] overflow-hidden rounded-3xl">
 
       {/* Photo */}
-      <img
+      <Image
         src={card.src}
         alt={card.title}
-        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
-        loading="lazy"
-        decoding="async"
+        fill
+        sizes="(max-width: 768px) 240px, 300px"
+        quality={65}
+        className="object-cover object-center transition-transform duration-500 hover:scale-105"
       />
 
       {/* Gradient: transparent top → black bottom */}

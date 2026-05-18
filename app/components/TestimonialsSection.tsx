@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
@@ -90,12 +91,14 @@ export default function TestimonialsSection() {
             className="shrink-0 rounded-3xl overflow-hidden relative"
             style={{ width: CARD_W, height: CARD_W }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={t.src}
               alt={t.name}
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              fill
+              sizes="320px"
+              quality={65}
               loading="lazy"
+              className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/30 to-transparent" />
             <div className="absolute top-5 left-5"><QuoteIcon /></div>
