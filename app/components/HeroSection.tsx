@@ -142,12 +142,13 @@ export default function HeroSection() {
         style={{ y: doctorY, scale: doctorScale, opacity: doctorOpacity }}
       >
         <div className="relative w-[150vw] sm:w-100 md:w-150 h-full md:h-250">
-          {/* Mobile: vertical-portrait doctor (1340×2400) */}
+          {/* Mobile: vertical-portrait doctor (1340×2400) — LCP element */}
           <Image
             src="/doctorver.webp"
             alt={t('doctorAlt')}
             fill
             priority
+            fetchPriority="high"
             quality={70}
             sizes="(max-width: 640px) 100vw, 0px"
             className="object-cover object-top sm:hidden"

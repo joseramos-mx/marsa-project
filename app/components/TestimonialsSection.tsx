@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
                 src={`https://www.instagram.com/reel/${id}/embed/`}
                 className="absolute inset-0 w-full border-0 bg-transparent"
                 style={{ height: 'calc(100% + 250px)', top: '-95px' }}
-                scrolling="no"
+                loading="lazy"
                 allow="encrypted-media"
                 title={`${t('videoTitlePrefix')} ${i + 1}`}
               />
