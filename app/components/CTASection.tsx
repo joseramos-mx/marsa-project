@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
@@ -51,10 +52,15 @@ export default function CTASection() {
               {AVATARS.map((src, i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 rounded-full border-2 border-[#1a0008] overflow-hidden"
+                  className="relative w-8 h-8 rounded-full border-2 border-[#1a0008] overflow-hidden"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt="" className="w-full h-full object-cover object-top" />
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="32px"
+                    className="object-cover object-top"
+                  />
                 </div>
               ))}
             </div>

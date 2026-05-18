@@ -96,10 +96,15 @@ export default function StatsSection() {
                 ].map((src, n) => (
                   <div
                     key={n}
-                    className="w-9 h-9 rounded-full border-[3px] border-[#1a1a1a] overflow-hidden"
+                    className="relative w-9 h-9 rounded-full border-[3px] border-[#1a1a1a] overflow-hidden"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={src} alt="" className="w-full h-full object-cover object-top" />
+                    <Image
+                      src={src}
+                      alt=""
+                      fill
+                      sizes="36px"
+                      className="object-cover object-top"
+                    />
                   </div>
                 ))}
               </div>
