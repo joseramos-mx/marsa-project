@@ -15,11 +15,24 @@
     "especialidades": "Especialidades",
     "servicios": "Servicios",
     "testimonios": "Testimonios",
+    "blog": "Blog",
     "faq": "FAQ",
     "agenda": "Agenda",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "home": "MARSA Home"
+  },
+
+  "blog": {
+    "metaTitle": "Blog · Marsa Project",
+    "metaDescription": "Artículos sobre odontología estética, tratamientos dentales y consejos para tu sonrisa.",
+    "badge": "Próximamente",
+    "comingSoonHeading1": "Nuestro blog",
+    "comingSoonHeading2": "llegará pronto",
+    "comingSoonDescription": "Estamos preparando artículos sobre odontología estética, tratamientos dentales y consejos para mantener tu mejor sonrisa. Pronto disponible.",
+    "backToHome": "Volver al inicio",
+    "eyebrow": "Blog",
+    "indexHeading": "Últimos artículos"
   },
 
   "hero": {

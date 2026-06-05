@@ -15,11 +15,24 @@
     "especialidades": "Specialties",
     "servicios": "Services",
     "testimonios": "Testimonials",
+    "blog": "Blog",
     "faq": "FAQ",
     "agenda": "Book",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "home": "MARSA Home"
+  },
+
+  "blog": {
+    "metaTitle": "Blog · Marsa Project",
+    "metaDescription": "Articles about aesthetic dentistry, dental treatments and tips for your smile.",
+    "badge": "Coming soon",
+    "comingSoonHeading1": "Our blog",
+    "comingSoonHeading2": "is coming soon",
+    "comingSoonDescription": "We're preparing articles about aesthetic dentistry, dental treatments and tips to keep your best smile. Available soon.",
+    "backToHome": "Back to home",
+    "eyebrow": "Blog",
+    "indexHeading": "Latest articles"
   },
 
   "hero": {

@@ -75,6 +75,7 @@ export default function Navbar() {
     { label: t('especialidades'),  href: '#especialidades' },
     { label: t('servicios'),       href: '#servicios'      },
     { label: t('testimonios'),     href: '#testimonios'    },
+    { label: t('blog'),            href: '/blog'           },
     { label: t('faq'),             href: '#faq'            },
   ]
 
