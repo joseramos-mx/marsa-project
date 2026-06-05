@@ -51,6 +51,30 @@
     }
   },
 
+  "leadership": {
+    "eyebrow": "Liderazgo profesional",
+    "headingPart1": "Trayectoria reconocida",
+    "headingHighlight": "nacional e internacionalmente",
+    "description": "Marsa Project está dirigido por especialistas activos en la formación continua y en el desarrollo de la odontología estética en México y el extranjero.",
+    "doctorName": "Dr. Salem Marín Sarmiento",
+    "doctorRole": "Director clínico",
+    "doctorAlt": "Dr. Salem Marín Sarmiento, director clínico de Marsa Project",
+    "cards": {
+      "kulzer": {
+        "title": "Líder de opinión y speaker oficial Kulzer",
+        "description": "Reconocido como speaker oficial por Kulzer — una de las marcas líderes a nivel mundial en materiales y soluciones para odontología."
+      },
+      "national": {
+        "title": "Conferencista nacional",
+        "description": "Ponente recurrente en los principales congresos y simposios de odontología estética y restaurativa en México."
+      },
+      "international": {
+        "title": "Conferencista internacional",
+        "description": "Participa en eventos, simposios y cursos internacionales compartiendo técnicas y casos clínicos con colegas de toda Latinoamérica y Europa."
+      }
+    }
+  },
+
   "stats": {
     "eyebrow": "Sobre nosotros",
     "headingPart1": "Equipo especializado",

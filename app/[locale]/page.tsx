@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import LogoMarquee from "../components/LogoMarquee";
+import LeadershipSection from "../components/LeadershipSection";
 import StatsSection from "../components/StatsSection";
 import WhyTrustSection from "../components/WhyTrustSection";
 import WellnessSection from "../components/WellnessSection";
@@ -30,6 +31,10 @@ export default async function Home({
 
       <section id="aliados">
         <LogoMarquee />
+      </section>
+
+      <section id="liderazgo">
+        <LeadershipSection />
       </section>
 
       <section id="estadisticas">

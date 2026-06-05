@@ -51,6 +51,30 @@
     }
   },
 
+  "leadership": {
+    "eyebrow": "Professional leadership",
+    "headingPart1": "A career recognized",
+    "headingHighlight": "nationally and internationally",
+    "description": "Marsa Project is led by specialists actively involved in continuing education and in the development of aesthetic dentistry both in Mexico and abroad.",
+    "doctorName": "Dr. Salem Marín Sarmiento",
+    "doctorRole": "Clinical director",
+    "doctorAlt": "Dr. Salem Marín Sarmiento, clinical director of Marsa Project",
+    "cards": {
+      "kulzer": {
+        "title": "Key Opinion Leader & official Kulzer speaker",
+        "description": "Recognized as an official speaker by Kulzer — one of the world's leading brands in dental materials and solutions."
+      },
+      "national": {
+        "title": "National speaker",
+        "description": "Regular speaker at Mexico's leading congresses and symposia on aesthetic and restorative dentistry."
+      },
+      "international": {
+        "title": "International speaker",
+        "description": "Participates in international events, symposia and courses, sharing techniques and clinical cases with colleagues across Latin America and Europe."
+      }
+    }
+  },
+
   "stats": {
     "eyebrow": "About us",
     "headingPart1": "A specialized team",
