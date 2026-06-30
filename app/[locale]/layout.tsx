@@ -9,6 +9,7 @@ import "../globals.css";
 import JsonLd from "../components/seo/JsonLd";
 import SmoothScrolling from "../components/SmoothScrolling";
 import FloatingButtons from "../components/FloatingButtons";
+import ClarityInit from "../components/ClarityInit";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -141,19 +142,6 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased bg-[#0c0c0c]`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Microsoft Clarity — inlined in <head> exactly as Microsoft recommends.
-            Inline script captures session start before any other JS runs. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "x2d7wn0idh");`,
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <NextIntlClientProvider>
           <SmoothScrolling>
@@ -163,6 +151,7 @@ export default async function LocaleLayout({
           </SmoothScrolling>
           <SpeedInsights />
           <Analytics />
+          <ClarityInit />
         </NextIntlClientProvider>
       </body>
     </html>
