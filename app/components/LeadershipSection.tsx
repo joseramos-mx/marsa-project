@@ -96,16 +96,14 @@ export default function LeadershipSection() {
                 <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
                   <Microphone size={22} weight="duotone" className="text-black" />
                 </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/Allies/Kulzer_Logo_RGB_w_trans-1-e1747069135279.webp"
                   alt="Kulzer"
                   width={90}
                   height={28}
                   loading="lazy"
-                  decoding="async"
-                  className="opacity-70 brightness-0 invert"
-                  style={{ height: '28px', width: 'auto', maxWidth: '90px' }}
+                  quality={50}
+                  className="opacity-70 brightness-0 invert h-7 w-auto max-w-22.5 object-contain"
                 />
               </div>
               <div className="flex flex-col gap-2">
