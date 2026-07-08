@@ -123,7 +123,8 @@ export default function HeroSection() {
           alt=""
           width={1920}
           height={1080}
-          fetchPriority="high"
+          loading="lazy"
+          fetchPriority="low"
           decoding="async"
           className="w-full h-full object-contain backdrop-blur-l"
           style={{ filter: 'brightness(0) invert(1)' }}
