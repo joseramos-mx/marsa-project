@@ -32,7 +32,7 @@ export default function WellnessSection() {
             >
               ▪ {t('eyebrow')}
             </p>
-            <h2
+            <h1
               className="text-[2.6rem] md:text-5xl text-white tracking-tight leading-[1.12]"
               style={ALBERT}
             >
@@ -42,7 +42,7 @@ export default function WellnessSection() {
                 <img src="/smileicon.svg" alt="" width={24} height={24} className="inline h-[0.85em] align-middle mx-0.5" />
                 {' '}{t('highlightSuffix')}
               </span>
-            </h2>
+            </h1>
           </div>
 
           <div className="flex flex-col gap-5 max-w-xs">

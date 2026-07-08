@@ -37,9 +37,10 @@ function QuoteIcon() {
 export default function TestimonialsSection() {
   const t = useTranslations('testimonials')
   const quotes = t.raw('quotes') as string[]
+  const treatments = t.raw('treatments') as string[]
 
   const TESTIMONIALS = quotes.map((quote, i) => ({
-    name:  t('patientName'),
+    name:  `${t('patientName')} · ${treatments[i]}`,
     quote,
     src:   PATIENT_SRCS[i % PATIENT_SRCS.length],
   }))

@@ -118,8 +118,8 @@
     "doctorAlt": "Marsa Project team",
     "treatmentsLabel": "Our treatments",
     "ratingLabel": "Average rating",
-    "ratingValue": "5.0 ★",
-    "ratingDesc": "Based on more than 500 verified reviews.",
+    "ratingValue": "4.9 ★",
+    "ratingDesc": "Based on the experience of +500 patients treated.",
     "tags": [
       "Teeth whitening",
       "Porcelain veneers",
@@ -194,6 +194,14 @@
       "Cutting-edge technology and a team that really listens. The smile design changed my life.",
       "I came for whitening and left in love with the service. A team that genuinely cares about you.",
       "The dental implants look natural and beautiful. Thank you Marsa Project for giving me back my smile."
+    ],
+    "treatments": [
+      "Smile design",
+      "Dental implants",
+      "Porcelain veneers",
+      "Smile design",
+      "Teeth whitening",
+      "Dental implants"
     ]
   },
 

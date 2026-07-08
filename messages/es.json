@@ -118,8 +118,8 @@
     "doctorAlt": "Equipo Marsa Project",
     "treatmentsLabel": "Nuestros tratamientos",
     "ratingLabel": "Calificación promedio",
-    "ratingValue": "5.0 ★",
-    "ratingDesc": "Basada en más de 500 reseñas verificadas.",
+    "ratingValue": "4.9 ★",
+    "ratingDesc": "Basada en la experiencia de +500 pacientes atendidos.",
     "tags": [
       "Blanqueamiento dental",
       "Carillas de porcelana",
@@ -194,6 +194,14 @@
       "Tecnología de punta y un equipo que realmente escucha. El diseño de sonrisa cambió mi vida.",
       "Vine por el blanqueamiento y salí enamorada del servicio. Un equipo que se preocupa genuinamente por ti.",
       "Los implantes dentales quedaron naturales y hermosos. Gracias Marsa Project por devolverme mi sonrisa."
+    ],
+    "treatments": [
+      "Diseño de sonrisa",
+      "Implantes dentales",
+      "Carillas de porcelana",
+      "Diseño de sonrisa",
+      "Blanqueamiento dental",
+      "Implantes dentales"
     ]
   },
 
