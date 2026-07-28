@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { Link, usePathname } from '../../i18n/navigation'
 import { routing } from '../../i18n/routing'
+import WhatsAppLink from './WhatsAppLink'
 
 function MarsaLogo() {
   return (
@@ -109,14 +110,12 @@ export default function Navbar() {
           <div className="flex items-center gap-2 shrink-0">
             <LanguageSwitch />
 
-            <NextLink
+            <WhatsAppLink
               href="https://wa.me/527225356109"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-4 py-1.5 rounded-full text-sm hover:brightness-110 transition-all"
             >
               {t('agenda')}
-            </NextLink>
+            </WhatsAppLink>
 
             <button
               onClick={() => setMenuOpen(!menuOpen)}

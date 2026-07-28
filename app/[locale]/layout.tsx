@@ -11,6 +11,7 @@ import SmoothScrolling from "../components/SmoothScrolling";
 import FloatingButtons from "../components/FloatingButtons";
 import ClarityInit from "../components/ClarityInit";
 import GoogleAdsInit from "../components/GoogleAdsInit";
+import GclidCapture from "../components/GclidCapture";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -148,6 +149,7 @@ export default async function LocaleLayout({
           <Analytics />
           <ClarityInit />
           <GoogleAdsInit />
+          <GclidCapture />
         </NextIntlClientProvider>
       </body>
     </html>

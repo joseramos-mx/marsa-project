@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion, AnimatePresence, LayoutGroup } from 'motion/react'
 import { Tooth, HeartStraight, Lightning, ArrowUpRight } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
+import WhatsAppLink from './WhatsAppLink'
 
 const CARD_DEFS = [
   { key: 'specialists', Icon: Tooth,         image: '/check.webp' },
@@ -60,10 +60,8 @@ export default function WhyTrustSection() {
             {t('description')}
           </p>
 
-          <Link
+          <WhatsAppLink
             href="https://wa.me/527225356109"
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-0 bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
           >
             <span
@@ -75,7 +73,7 @@ export default function WhyTrustSection() {
             <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
               <ArrowUpRight size={15} weight="bold" className="text-black" />
             </span>
-          </Link>
+          </WhatsAppLink>
         </motion.div>
 
         <div className="bg-[#141414] rounded-3xl p-3">
