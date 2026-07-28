@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Marsa Project — Odontología Estética",
+    name: "Marsa Project — Dentista en Toluca",
     short_name: "Marsa Project",
     description:
-      "Clínica especializada en odontología estética y medicina estética. Blanqueamiento, carillas, diseño de sonrisa e implantes.",
+      "Clínica dental en Toluca especializada en rehabilitación oral, implantes, carillas, diseño de sonrisa y urgencias dentales.",
     start_url: "/",
     display: "standalone",
     background_color: "#0c0c0c",
@@ -19,6 +19,6 @@ export default function manifest(): MetadataRoute.Manifest {
       { src: "/favicon/android-chrome-512x512.png",  sizes: "512x512", type: "image/png"    },
       { src: "/favicon/apple-touch-icon.png",        sizes: "180x180", type: "image/png"    },
     ],
-    categories: ["health", "medical", "beauty"],
+    categories: ["health", "medical"],
   };
 }

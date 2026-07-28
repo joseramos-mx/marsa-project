@@ -19,8 +19,10 @@ const CARDS = [
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
   },
   {
-    category: 'Medicina Estética',
-    title: 'Estética\nFacial',
+    // NOTE 2026-07-28: entrada de "Medicina Estética · Estética Facial" removida
+    // (fuera de scope odontológico). Reemplazada por Rehabilitación oral.
+    category: 'Rehabilitación',
+    title: 'Rehabilitación\nOral',
     src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
   },
   {

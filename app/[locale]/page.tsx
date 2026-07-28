@@ -46,6 +46,8 @@ export default async function Home({
       </section>
 
       <section id="nosotros">
+        {/* Anchor para Ángulo B — rehabilitación */}
+        <div id="rehabilitacion" aria-hidden="true" />
         <WellnessSection />
       </section>
 
@@ -62,6 +64,8 @@ export default async function Home({
       </section>
 
       <section id="faq">
+        {/* Anchor para Ángulo A — urgencias (la FAQ incluye la pregunta de urgencia) */}
+        <div id="urgencias" aria-hidden="true" />
         <FAQSection />
       </section>
 
@@ -69,6 +73,8 @@ export default async function Home({
         <CTASection />
       </section>
 
+      {/* Anchor de ubicación — Footer contiene la dirección */}
+      <div id="ubicacion" aria-hidden="true" />
       <Footer />
     </main>
   );
