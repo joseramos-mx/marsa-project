@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Odontología Estética y Medicina Estética en Toluca",
+    "title": "Odontología Estética en Toluca",
     "titleTemplate": "%s | Marsa Project",
     "description": "Marsa Project · Clínica dental en Toluca: blanqueamiento, carillas, diseño de sonrisa, implantes y ortodoncia invisible. Consulta gratuita.",
-    "ogTitle": "Marsa Project | Odontología Estética y Medicina Estética",
+    "ogTitle": "Marsa Project | Odontología Estética",
     "ogDescription": "Especialistas en blanqueamiento dental, carillas, diseño de sonrisa e implantes. Tecnología avanzada, resultados naturales. ¡Agenda tu consulta gratuita!",
     "twitterDescription": "Blanqueamiento dental, carillas, diseño de sonrisa e implantes con tecnología avanzada. Consulta gratuita.",
-    "ogAlt": "Marsa Project — Odontología Estética y Medicina Estética"
+    "ogAlt": "Marsa Project — Odontología Estética"
   },
 
   "navbar": {
@@ -36,7 +36,7 @@
   },
 
   "hero": {
-    "h1": "Marsa Project · Clínica de odontología estética y medicina estética en Toluca: blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales",
+    "h1": "Marsa Project · Clínica de odontología estética en Toluca: blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales",
     "reviewsPrefix": "Más de",
     "reviewsPatients": "500 pacientes",
     "reviewsMiddle": "· Calificación",
@@ -82,7 +82,7 @@
     "headingPart3": "a construir tu",
     "headingHighlight": "mejor sonrisa",
     "yearsValue": "08+",
-    "yearsDesc": "Años de experiencia en odontología estética y medicina estética.",
+    "yearsDesc": "Años de experiencia en odontología estética.",
     "patientsLabel": "Pacientes satisfechos",
     "patientsValue": "500+",
     "patientsQuote": "Un equipo increíble, resultados naturales y un trato excepcional desde el primer día.",
@@ -214,7 +214,7 @@
     "items": [
       {
         "q": "¿Qué es Marsa Project y qué servicios ofrece?",
-        "a": "Marsa Project es una clínica especializada en odontología estética y medicina estética. Ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales."
+        "a": "Marsa Project es una clínica especializada en odontología estética. Ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa, ortodoncia invisible, implantes dentales."
       },
       {
         "q": "¿Cuánto tiempo dura un tratamiento de blanqueamiento dental?",
@@ -256,7 +256,7 @@
   },
 
   "footer": {
-    "tagline": "Clínica especializada en odontología estética y medicina estética. Resultados naturales, seguros y personalizados para revelar tu mejor versión.",
+    "tagline": "Clínica especializada en odontología estética. Resultados naturales, seguros y personalizados para revelar tu mejor versión.",
     "quickLinks": "Enlaces Rápidos",
     "inicio": "Inicio",
     "servicios": "Servicios",

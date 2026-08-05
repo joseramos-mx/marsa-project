@@ -3,8 +3,8 @@
 import { useRef, useState } from 'react'
 import { useAnimationFrame } from 'motion/react'
 
-// 9 arm angles — incrementos de 20deg, centrados en 70deg
-const ARM_ANGLES = [-10, 10, 30, 50, 70, 90, 110, 130, 150]
+// 7 arm angles — incrementos de 20deg, centrados en 70deg
+const ARM_ANGLES = [10, 30, 50, 70, 90, 110, 130]
 
 const CARDS = [
   {
@@ -21,11 +21,6 @@ const CARDS = [
     category: 'Diseño',
     title: 'Diseño de Sonrisa',
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    category: 'Medicina Estética',
-    title: 'Estética Facial',
-    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
   },
   {
     category: 'Ortodoncia',
@@ -46,11 +41,6 @@ const CARDS = [
     category: 'Diseño',
     title: 'Diseño Digital',
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    category: 'Estética',
-    title: 'Medicina Estética',
-    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
   },
 ]
 

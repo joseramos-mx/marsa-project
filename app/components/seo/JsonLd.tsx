@@ -49,7 +49,7 @@ export default async function JsonLd({
     "@id": `${siteUrl}/#local-business`,
     name: "Marsa Project",
     description:
-      "Clínica especializada en odontología estética y medicina estética. Blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales.",
+      "Clínica especializada en odontología estética. Blanqueamiento dental, carillas de porcelana, diseño de sonrisa, ortodoncia invisible e implantes dentales.",
     url: siteUrl,
     image: `${siteUrl}/og-image.jpg`,
     priceRange: "$$",
@@ -90,7 +90,6 @@ export default async function JsonLd({
     medicalSpecialty: [
       "Dentistry",
       "Cosmetic Dentistry",
-      "Aesthetic Medicine",
       "Orthodontics",
       "Pediatric Dentistry",
       "Endodontics",

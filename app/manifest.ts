@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Marsa Project — Odontología Estética",
     short_name: "Marsa Project",
     description:
-      "Clínica especializada en odontología estética y medicina estética. Blanqueamiento, carillas, diseño de sonrisa e implantes.",
+      "Clínica especializada en odontología estética. Blanqueamiento, carillas, diseño de sonrisa e implantes.",
     start_url: "/",
     display: "standalone",
     background_color: "#0c0c0c",

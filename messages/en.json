@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Aesthetic Dentistry & Aesthetic Medicine in Toluca",
+    "title": "Aesthetic Dentistry in Toluca",
     "titleTemplate": "%s | Marsa Project",
     "description": "Marsa Project · Dental clinic in Toluca: whitening, veneers, smile design, implants and clear aligners. Free first consultation.",
-    "ogTitle": "Marsa Project | Aesthetic Dentistry & Aesthetic Medicine",
+    "ogTitle": "Marsa Project | Aesthetic Dentistry",
     "ogDescription": "Specialists in teeth whitening, veneers, smile design and implants. Advanced technology, natural results. Book your free consultation!",
     "twitterDescription": "Teeth whitening, veneers, smile design and implants with advanced technology. Free consultation.",
-    "ogAlt": "Marsa Project — Aesthetic Dentistry & Aesthetic Medicine"
+    "ogAlt": "Marsa Project — Aesthetic Dentistry"
   },
 
   "navbar": {
@@ -36,7 +36,7 @@
   },
 
   "hero": {
-    "h1": "Marsa Project · Aesthetic dentistry and aesthetic medicine clinic in Toluca: teeth whitening, porcelain veneers, smile design, clear aligners and dental implants",
+    "h1": "Marsa Project · Aesthetic dentistry clinic in Toluca: teeth whitening, porcelain veneers, smile design, clear aligners and dental implants",
     "reviewsPrefix": "Over",
     "reviewsPatients": "500 patients",
     "reviewsMiddle": "· Rating",
@@ -82,7 +82,7 @@
     "headingPart3": "to building your",
     "headingHighlight": "best smile",
     "yearsValue": "08+",
-    "yearsDesc": "Years of experience in aesthetic dentistry and aesthetic medicine.",
+    "yearsDesc": "Years of experience in aesthetic dentistry.",
     "patientsLabel": "Happy patients",
     "patientsValue": "500+",
     "patientsQuote": "An amazing team, natural results, and exceptional care from day one.",
@@ -214,7 +214,7 @@
     "items": [
       {
         "q": "What is Marsa Project and what services does it offer?",
-        "a": "Marsa Project is a clinic specialized in aesthetic dentistry and aesthetic medicine. We offer whitening, porcelain veneers, smile design, clear aligners and dental implants."
+        "a": "Marsa Project is a clinic specialized in aesthetic dentistry. We offer whitening, porcelain veneers, smile design, clear aligners and dental implants."
       },
       {
         "q": "How long does a teeth whitening treatment last?",
@@ -256,7 +256,7 @@
   },
 
   "footer": {
-    "tagline": "Clinic specialized in aesthetic dentistry and aesthetic medicine. Natural, safe and personalized results to reveal your best self.",
+    "tagline": "Clinic specialized in aesthetic dentistry. Natural, safe and personalized results to reveal your best self.",
     "quickLinks": "Quick Links",
     "inicio": "Home",
     "servicios": "Services",

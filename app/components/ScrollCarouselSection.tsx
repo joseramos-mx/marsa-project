@@ -19,11 +19,6 @@ const CARDS = [
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
   },
   {
-    category: 'Medicina Estética',
-    title: 'Estética\nFacial',
-    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
-  },
-  {
     category: 'Ortodoncia',
     title: 'Ortodoncia\nInvisible',
     src: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=800&auto=format&fit=crop',
