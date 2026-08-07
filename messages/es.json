@@ -20,7 +20,8 @@
     "agenda": "Agenda",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "home": "MARSA Home"
+    "home": "MARSA Home",
+    "phoneLabel": "Llamar al 722 535 6109"
   },
 
   "blog": {
@@ -275,6 +276,7 @@
 
   "floating": {
     "whatsappLabel": "Contactar por WhatsApp",
+    "instagramLabel": "Visítanos en Instagram",
     "scrollTopLabel": "Volver arriba",
     "agendaLabel": "Agenda tu cita por WhatsApp",
     "agendaText": "Agenda tu cita"
