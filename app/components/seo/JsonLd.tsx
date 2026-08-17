@@ -51,14 +51,14 @@ export default async function JsonLd({
     description:
       "Clínica dental en Toluca especializada en rehabilitación oral, implantes dentales, carillas de porcelana, diseño de sonrisa, blanqueamiento, ortodoncia y urgencias dentales.",
     url: siteUrl,
-    image: `${siteUrl}/og-image.jpg`,
+    image: `${siteUrl}/og-image.webp`,
     priceRange: "$$",
     currenciesAccepted: "MXN",
     paymentAccepted: "Cash, Credit Card, Debit Card",
     telephone: "+52-722-535-6109",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "P.º Cristóbal Colón 128-MZ 027, Residencial Colón y Col Ciprés",
+      streetAddress: "P.º Cristóbal Colón 128-MZ 027, Residencial Colón y Col. Ciprés",
       addressLocality: "Toluca de Lerdo",
       addressRegion: "Estado de México",
       postalCode: "50120",

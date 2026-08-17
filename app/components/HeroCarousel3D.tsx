@@ -3,8 +3,8 @@
 import { useRef, useState } from 'react'
 import { useAnimationFrame } from 'motion/react'
 
-// 9 arm angles — incrementos de 20deg, centrados en 70deg
-const ARM_ANGLES = [-10, 10, 30, 50, 70, 90, 110, 130, 150]
+// 7 arm angles — incrementos de 20deg, centrados en 70deg
+const ARM_ANGLES = [10, 30, 50, 70, 90, 110, 130]
 
 const CARDS = [
   {

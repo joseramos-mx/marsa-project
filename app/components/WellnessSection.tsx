@@ -32,7 +32,8 @@ export default function WellnessSection() {
             >
               ▪ {t('eyebrow')}
             </p>
-            <h1
+            {/* H2 — el H1 único de la página vive en el Hero (regla "H1 único") */}
+            <h2
               className="text-[2.6rem] md:text-5xl text-white tracking-tight leading-[1.12]"
               style={ALBERT}
             >
@@ -42,7 +43,7 @@ export default function WellnessSection() {
                 <img src="/smileicon.svg" alt="" width={24} height={24} className="inline h-[0.85em] align-middle mx-0.5" />
                 {' '}{t('highlightSuffix')}
               </span>
-            </h1>
+            </h2>
           </div>
 
           <div className="flex flex-col gap-5 max-w-xs">
