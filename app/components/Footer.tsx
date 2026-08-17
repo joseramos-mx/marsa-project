@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3 text-sm font-light text-white/55">
               <p className="hover:text-white transition-colors cursor-default leading-snug">
                 P.º Cristóbal Colón 128-MZ 027,<br />
-                Residencial Colón y Col Ciprés,<br />
+                Residencial Colón y Col. Ciprés,<br />
                 50120 Toluca de Lerdo, Méx.
               </p>
               <a href="tel:+527225356109" className="hover:text-white transition-colors">722 535 6109</a>

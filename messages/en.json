@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Aesthetic Dentistry in Toluca",
+    "title": "Dental Implants & Aesthetic Dentistry in Toluca",
     "titleTemplate": "%s | Marsa Project",
-    "description": "Marsa Project · Dental clinic in Toluca: whitening, veneers, smile design, implants and clear aligners. Free first consultation.",
-    "ogTitle": "Marsa Project | Aesthetic Dentistry",
-    "ogDescription": "Specialists in teeth whitening, veneers, smile design and implants. Advanced technology, natural results. Book your free consultation!",
-    "twitterDescription": "Teeth whitening, veneers, smile design and implants with advanced technology. Free consultation.",
-    "ogAlt": "Marsa Project — Aesthetic Dentistry"
+    "description": "Dental clinic in Toluca: dental implants, oral rehabilitation, smile design, veneers and clear aligners. Book your consultation at Marsa Project.",
+    "ogTitle": "Marsa Project | Dental Implants & Aesthetic Dentistry in Toluca",
+    "ogDescription": "Dental implants, oral rehabilitation, smile design, veneers and clear aligners in Toluca. Specialists and digital technology to plan every case. Book your consultation.",
+    "twitterDescription": "Dental implants, smile design, veneers and clear aligners in Toluca. Book your consultation at Marsa Project.",
+    "ogAlt": "Marsa Project — Dental clinic in Toluca"
   },
 
   "navbar": {
@@ -36,12 +36,12 @@
   },
 
   "hero": {
-    "h1": "Marsa Project · Aesthetic dentistry clinic in Toluca: teeth whitening, porcelain veneers, smile design, clear aligners and dental implants",
+    "h1": "Dental implants and aesthetic dentistry in Toluca",
     "reviewsPrefix": "Over",
     "reviewsPatients": "500 patients",
     "reviewsMiddle": "· Rating",
     "reviewsRating": "4.9 / 5",
-    "doctorAlt": "Marsa Project doctor",
+    "doctorAlt": "Dr. Salém Sarmiento Marín, clinical director of Marsa Project, dental clinic in Toluca",
     "cards": {
       "blanqueamiento":    { "category": "Dentistry",    "title": "Teeth\nWhitening" },
       "carillas":          { "category": "Dentistry",    "title": "Porcelain\nVeneers" },
@@ -55,10 +55,10 @@
     "eyebrow": "Professional leadership",
     "headingPart1": "A career recognized",
     "headingHighlight": "nationally and internationally",
-    "description": "Marsa Project is led by specialists actively involved in continuing education and in the development of aesthetic dentistry both in Mexico and abroad.",
+    "description": "Marsa Project is led by specialists actively involved in continuing education and in the development of restorative and aesthetic dentistry both in Mexico and abroad.",
     "doctorName": "Dr. Salém Sarmiento Marín",
     "doctorRole": "Clinical director",
-    "doctorAlt": "Dr. Salém Sarmiento Marín, clinical director of Marsa Project",
+    "doctorAlt": "Dr. Salém Sarmiento Marín, clinical director of Marsa Project, dental implant specialist in Toluca",
     "cards": {
       "kulzer": {
         "title": "Key Opinion Leader & official Kulzer speaker",
@@ -82,28 +82,28 @@
     "headingPart3": "to building your",
     "headingHighlight": "best smile",
     "yearsValue": "08+",
-    "yearsDesc": "Years of experience in aesthetic dentistry.",
-    "patientsLabel": "Happy patients",
+    "yearsDesc": "Years of experience in restorative and aesthetic dentistry.",
+    "patientsLabel": "Patients treated",
     "patientsValue": "500+",
     "patientsQuote": "An amazing team, natural results, and exceptional care from day one.",
     "implantsLabel": "Implants placed",
     "implantsValue": "100+",
-    "implantsDesc": "With state-of-the-art technology and certified premium materials.",
+    "implantsDesc": "Materials from recognized brands and up-to-date clinical protocols.",
     "ratingLabel": "Average rating",
     "ratingValue": "4.9/5",
-    "doctorAlt": "Marsa Project doctor"
+    "doctorAlt": "Dr. Salém Sarmiento Marín during a clinical assessment at Marsa Project, Toluca"
   },
 
   "whyTrust": {
     "eyebrow": "Why choose us?",
     "headingPart1": "Specialists committed",
     "headingPart2": "to transforming your smile",
-    "description": "Advanced technology, certified specialists and an environment designed so you get the results you deserve.",
-    "ctaLabel": "Book your appointment",
+    "description": "Clinical experience, continuing education, technology and personalized care to define a treatment plan according to each patient's needs.",
+    "ctaLabel": "Book your consultation",
     "cards": {
-      "specialists":  { "title": "Certified specialists",   "description": "Certified professionals with broad experience in aesthetics and dentistry." },
-      "facilities":   { "title": "Modern facilities",       "description": "Safe spaces designed for your comfort and wellbeing." },
-      "equipment":    { "title": "State-of-the-art equipment", "description": "Latest-generation equipment for precise and safe results." }
+      "specialists":  { "title": "Specialists",         "description": "Professionals with continuing education in restorative and aesthetic dentistry." },
+      "facilities":   { "title": "Personalized care",   "description": "Every treatment begins with an assessment to define the specific needs of each patient." },
+      "equipment":    { "title": "Digital technology",  "description": "Tools for diagnosis and planning: intraoral scanning, digital radiography and planning software." }
     }
   },
 
@@ -113,20 +113,20 @@
     "headingPart2": "to your wellbeing and",
     "highlightPrefix": "your best",
     "highlightSuffix": "smile",
-    "description": "At Marsa Project we combine science, advanced technology and a human approach to deliver exceptional results.",
-    "ctaLabel": "Book your appointment",
-    "doctorAlt": "Marsa Project team",
+    "description": "At Marsa Project we combine science, digital technology and a human approach to plan every treatment according to each patient's needs.",
+    "ctaLabel": "Book your consultation",
+    "doctorAlt": "The Marsa Project team, dental clinic in Toluca",
     "treatmentsLabel": "Our treatments",
     "ratingLabel": "Average rating",
     "ratingValue": "4.9 ★",
     "ratingDesc": "Based on the experience of +500 patients treated.",
     "tags": [
-      "Teeth whitening",
-      "Porcelain veneers",
-      "Smile design",
-      "Clear aligners",
       "Dental implants",
-      "Natural results"
+      "Oral rehabilitation",
+      "Smile design",
+      "Porcelain veneers",
+      "Teeth whitening",
+      "Clear aligners"
     ]
   },
 
@@ -136,11 +136,11 @@
     "headingHighlight": "at Marsa Project",
     "description": "A multidisciplinary team of certified specialists covers every dental need under one roof.",
     "items": {
-      "implants":   { "title": "Implantology",         "description": "Permanent replacement of missing teeth with high-strength titanium implants and a natural finish." },
-      "aesthetic":  { "title": "Aesthetic dentistry",  "description": "Veneers, whitening and smile design for luminous, natural-looking results." },
-      "ortho":      { "title": "Orthodontics",         "description": "Clear aligners and brackets to comfortably correct the position of your teeth." },
-      "pediatric":  { "title": "Pediatric dentistry",  "description": "Specialized dental care for children in a warm, safe and fun environment." },
-      "endo":       { "title": "Endodontics",          "description": "Root canal treatments that preserve your original tooth with precise technique." },
+      "implants":   { "title": "Dental implantology",   "description": "An option to replace missing teeth through a plan defined from each case's clinical assessment." },
+      "aesthetic":  { "title": "Aesthetic dentistry",   "description": "Veneers, whitening and smile design planned to blend with the characteristics of your smile." },
+      "ortho":      { "title": "Orthodontics",          "description": "Clear aligners and brackets to comfortably correct the position of your teeth." },
+      "pediatric":  { "title": "Pediatric dentistry",   "description": "Specialized dental care for children in a warm, safe and fun environment." },
+      "endo":       { "title": "Endodontics",           "description": "Root canal treatments that aim to preserve your original tooth with precise technique." },
       "surgery":    { "title": "Maxillofacial surgery", "description": "Specialized surgical procedures of the maxillofacial area with advanced technology." }
     }
   },
@@ -154,17 +154,17 @@
       "whitening": {
         "category": "Dentistry",
         "title": "Teeth whitening",
-        "description": "At Marsa Project we combine specialized medical care, advanced technology and a luxury environment for results visible from the first session."
+        "description": "We combine specialized care, technology and an environment designed for your comfort. The protocol and number of sessions are defined after the clinical assessment."
       },
       "veneers": {
         "category": "Dentistry",
         "title": "Porcelain veneers",
-        "description": "Transform your smile with ultra-thin porcelain veneers that perfectly mimic the natural look of your teeth."
+        "description": "Ultra-thin porcelain veneers planned to blend visually with your smile, according to the characteristics of each case."
       },
       "smileDesign": {
         "category": "Smile design",
         "title": "Smile design",
-        "description": "We plan every detail of your new smile with digital simulations before treatment so you approve the result."
+        "description": "We plan every detail with digital simulations before treatment, so you know the proposal before starting."
       },
       "ortho": {
         "category": "Orthodontics",
@@ -174,7 +174,7 @@
       "implants": {
         "category": "Implants",
         "title": "Dental implants",
-        "description": "Restore the function and aesthetics of your smile with high-strength titanium implants and a natural finish."
+        "description": "Restore the function and aesthetics of your smile with a personalized treatment, backed by specialists and digital technology."
       }
     }
   },
@@ -183,9 +183,9 @@
     "eyebrow": "Testimonials",
     "headingPart1": "What they say",
     "headingPart2": "about us",
-    "description": "Real stories from patients who transformed their smile.",
+    "description": "Real, authorized testimonials from Marsa Project patients. Results may vary according to the particular conditions of each patient.",
     "videoEyebrow": "In video",
-    "patientName": "Marsa Patient",
+    "patientName": "Marsa Project patient",
     "videoTitlePrefix": "Video testimonial",
     "quotes": [
       "The Marsa team completely transformed my smile. Natural results and incredibly human care from day one.",
@@ -210,35 +210,51 @@
     "headingPart1": "Frequently",
     "headingHighlight": "asked questions",
     "description": "Find answers to the most common questions about our treatments and the process at Marsa Project.",
-    "ctaLabel": "Book your appointment",
+    "ctaLabel": "Book your consultation",
     "items": [
       {
         "q": "What is Marsa Project and what services does it offer?",
-        "a": "Marsa Project is a clinic specialized in aesthetic dentistry. We offer whitening, porcelain veneers, smile design, clear aligners and dental implants."
+        "a": "Marsa Project is a dental clinic in Toluca specialized in oral rehabilitation, dental implants and aesthetic dentistry. We also offer whitening, porcelain veneers, smile design and clear aligners."
       },
       {
-        "q": "How long does a teeth whitening treatment last?",
-        "a": "A session lasts 60 to 90 minutes. Results are visible from the first session and can last up to 2 years with proper care."
+        "q": "What is a dental implant?",
+        "a": "It is a solution used to replace the root of a missing tooth and later receive a dental restoration that helps recover function and aesthetics."
       },
       {
-        "q": "Are aesthetic treatments safe?",
-        "a": "Yes. All our procedures are performed by certified specialists using state-of-the-art technology under strict safety protocols."
+        "q": "Can anyone get a dental implant?",
+        "a": "Not necessarily. Suitability depends on each patient's clinical conditions and must be determined through a professional assessment."
+      },
+      {
+        "q": "Do I need an assessment before starting?",
+        "a": "Yes. The first step is an assessment to understand the conditions of your case and define the corresponding treatment plan."
+      },
+      {
+        "q": "How much does a dental implant cost?",
+        "a": "The cost depends on the characteristics of each case, the procedures required and the treatment plan. That is why we recommend starting with an assessment."
+      },
+      {
+        "q": "How long does treatment take?",
+        "a": "The time depends on the clinical conditions and on the treatment indicated for each patient. The assessment makes it possible to estimate the timeline for your case."
+      },
+      {
+        "q": "What does digital smile design include?",
+        "a": "It includes a clinical and aesthetic evaluation, a digital simulation of the treatment proposal and a detailed plan before starting any procedure."
+      },
+      {
+        "q": "How long do treatment results last?",
+        "a": "It depends on the treatment indicated, each patient's clinical conditions, home care and periodic check-ups. Your specialist will explain what to expect in your case."
       },
       {
         "q": "Do you offer payment plans or financing?",
         "a": "Yes — we offer flexible payment plans and financing options adapted to your budget so you can access the treatment you need."
       },
       {
-        "q": "How can I book my first consultation?",
-        "a": "You can book through our website, WhatsApp or by calling us directly. The first consultation includes a complete personalized evaluation of your case."
+        "q": "Where is Marsa Project located?",
+        "a": "Marsa Project is located at Paseo Cristóbal Colón 128-MZ 027, Residencial Colón y Colonia Ciprés, 50120 Toluca de Lerdo, State of Mexico. We are open Monday to Friday from 10:00 a.m. to 8:00 p.m. and Saturdays from 10:00 a.m. to 4:00 p.m."
       },
       {
-        "q": "What does digital smile design include?",
-        "a": "It includes a complete aesthetic evaluation, virtual simulation of your new smile and a detailed treatment plan before starting any procedure."
-      },
-      {
-        "q": "How long do the results last?",
-        "a": "It depends on the treatment: whitening lasts up to 2 years, veneers up to 10 years, and dental implants are a permanent solution. Every treatment depends on patient care and periodic check-ups."
+        "q": "How can I book an assessment?",
+        "a": "You can request information and book your assessment via WhatsApp, through the contact form or by calling 722 535 6109."
       }
     ]
   },
@@ -247,16 +263,16 @@
     "trustPrefix": "Over",
     "trustPatients": "500 patients",
     "trustSuffix": "trust us",
-    "headingPart1": "Your best smile",
-    "headingHighlight": "is waiting.",
-    "description": "Certified specialists, advanced technology and an environment designed for your comfort. Book today and discover the ideal treatment for you.",
-    "ctaLabel": "Book your appointment",
+    "headingPart1": "Take the first step",
+    "headingHighlight": "toward your best smile.",
+    "description": "Book an assessment with the Marsa Project team and learn about the treatment options available for your case.",
+    "ctaLabel": "Book your consultation",
     "whatsappLabel": "WhatsApp",
-    "doctorAlt": "Marsa Project team doctor"
+    "doctorAlt": "Specialist from the Marsa Project team, dental clinic in Toluca"
   },
 
   "footer": {
-    "tagline": "Clinic specialized in aesthetic dentistry. Natural, safe and personalized results to reveal your best self.",
+    "tagline": "Dental clinic specialized in oral rehabilitation, dental implants, aesthetic dentistry and dental treatments.",
     "quickLinks": "Quick Links",
     "inicio": "Home",
     "servicios": "Services",
@@ -273,8 +289,8 @@
   "floating": {
     "whatsappLabel": "Contact via WhatsApp",
     "scrollTopLabel": "Back to top",
-    "agendaLabel": "Book your appointment on WhatsApp",
-    "agendaText": "Book your appointment"
+    "agendaLabel": "Book your consultation on WhatsApp",
+    "agendaText": "Book your consultation"
   },
 
   "language": {
