@@ -11,6 +11,8 @@ import SmoothScrolling from "../components/SmoothScrolling";
 import FloatingButtons from "../components/FloatingButtons";
 import ClarityInit from "../components/ClarityInit";
 import GoogleAdsInit from "../components/GoogleAdsInit";
+import MetricoolInit from "../components/MetricoolInit";
+import GoogleTagManagerInit, { GTM_ID } from "../components/GoogleTagManagerInit";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -120,7 +122,10 @@ export async function generateMetadata({
       },
     },
     verification: {
-      google: "rgFyeP5KqEFkWyLDJytbWd9TWzUcvwCyTD3HeQNnJiI",
+      google: [
+        "rgFyeP5KqEFkWyLDJytbWd9TWzUcvwCyTD3HeQNnJiI",
+        "EXl4QQm-DNpjlyID5b_fVcm93aEvbUy9cHCGqMpWXR8",
+      ],
     },
     category: "health",
   };
@@ -144,6 +149,16 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        {/* Google Tag Manager (noscript) — debe ir como primer hijo de <body> */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <GoogleTagManagerInit />
         <NextIntlClientProvider>
           <SmoothScrolling>
             <JsonLd siteUrl={SITE_URL} locale={locale} />
@@ -154,6 +169,7 @@ export default async function LocaleLayout({
           <Analytics />
           <ClarityInit />
           <GoogleAdsInit />
+          <MetricoolInit />
         </NextIntlClientProvider>
       </body>
     </html>
