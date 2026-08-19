@@ -5,6 +5,7 @@ import Image from 'next/image'
 import type { CSSProperties } from 'react'
 import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
+import CookieSettingsButton from './consent/CookieSettingsButton'
 
 function CrossMark({ style, className = '' }: { style: CSSProperties; className?: string }) {
   return (
@@ -101,6 +102,17 @@ export default function Footer() {
           <p className="text-white/30 text-xs font-light">
             &copy; {currentYear} {t('copyright')}
           </p>
+
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-light">
+            <Link href="/aviso-de-privacidad" className="text-white/40 hover:text-white transition-colors">
+              {t('privacy')}
+            </Link>
+            <Link href="/terminos-y-condiciones" className="text-white/40 hover:text-white transition-colors">
+              {t('terms')}
+            </Link>
+            <CookieSettingsButton className="text-white/40 hover:text-white transition-colors cursor-pointer" />
+          </nav>
+
           <p className="text-white/30 text-xs font-light flex items-center gap-1">
             {t('madeWith')} <span className="text-white/50">🤍</span> {t('madeWithSuffix')}
           </p>

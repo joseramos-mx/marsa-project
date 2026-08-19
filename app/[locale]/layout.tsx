@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Albert_Sans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -9,10 +8,11 @@ import "../globals.css";
 import JsonLd from "../components/seo/JsonLd";
 import SmoothScrolling from "../components/SmoothScrolling";
 import FloatingButtons from "../components/FloatingButtons";
-import ClarityInit from "../components/ClarityInit";
 import GoogleAdsInit from "../components/GoogleAdsInit";
-import MetricoolInit from "../components/MetricoolInit";
 import GoogleTagManagerInit, { GTM_ID } from "../components/GoogleTagManagerInit";
+import ConsentModeInit from "../components/consent/ConsentModeInit";
+import ConsentProvider from "../components/consent/ConsentProvider";
+import ConsentGatedScripts from "../components/consent/ConsentGatedScripts";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -148,6 +148,8 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased bg-[#0c0c0c]`}
       suppressHydrationWarning
     >
+      {/* Consent Mode v2: todo denegado por defecto, antes que gtag y GTM */}
+      <ConsentModeInit />
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) — debe ir como primer hijo de <body> */}
         <noscript>
@@ -160,16 +162,17 @@ export default async function LocaleLayout({
         </noscript>
         <GoogleTagManagerInit />
         <NextIntlClientProvider>
-          <SmoothScrolling>
-            <JsonLd siteUrl={SITE_URL} locale={locale} />
-            {children}
-            <FloatingButtons />
-          </SmoothScrolling>
+          <ConsentProvider>
+            <SmoothScrolling>
+              <JsonLd siteUrl={SITE_URL} locale={locale} />
+              {children}
+              <FloatingButtons />
+            </SmoothScrolling>
+            {/* Clarity, Metricool y Vercel Analytics: solo con consentimiento */}
+            <ConsentGatedScripts />
+          </ConsentProvider>
           <SpeedInsights />
-          <Analytics />
-          <ClarityInit />
           <GoogleAdsInit />
-          <MetricoolInit />
         </NextIntlClientProvider>
       </body>
     </html>

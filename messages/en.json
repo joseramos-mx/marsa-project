@@ -281,6 +281,9 @@
     "faq": "FAQ",
     "contact": "Contact",
     "hours": "Mon–Fri 10 a.m.–8 p.m. · Sat 10 a.m.–4 p.m.\nSun closed",
+    "privacy": "Privacy Notice",
+    "terms": "Terms & Conditions",
+    "cookies": "Cookie settings",
     "copyright": "Marsa Project. All rights reserved.",
     "madeWith": "Made with",
     "madeWithSuffix": "for your smile."
@@ -291,6 +294,28 @@
     "scrollTopLabel": "Back to top",
     "agendaLabel": "Book your consultation on WhatsApp",
     "agendaText": "Book your consultation"
+  },
+
+  "cookies": {
+    "title": "Cookies",
+    "body": "We use necessary cookies to make the site work and, with your permission, others to measure how the site is used and how well our ads perform. You can change your choice at any time. More detail in our",
+    "privacyLink": "privacy notice",
+    "customize": "Customize",
+    "acceptAll": "Accept all",
+    "rejectAll": "Necessary only",
+    "save": "Save choice",
+    "necessary": {
+      "title": "Necessary",
+      "description": "Language, security and your own cookie choice. The site does not work without them."
+    },
+    "analytics": {
+      "title": "Analytics",
+      "description": "Help us understand how the site is used. Includes session recording and heatmaps."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "description": "Measure how well our ads perform and allow us to show you relevant advertising."
+    }
   },
 
   "language": {

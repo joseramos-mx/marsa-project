@@ -281,6 +281,9 @@
     "faq": "FAQ",
     "contact": "Contacto",
     "hours": "Lun–Vie 10 a.m.–8 p.m. · Sáb 10 a.m.–4 p.m.\nDom cerrado",
+    "privacy": "Aviso de Privacidad",
+    "terms": "Términos y Condiciones",
+    "cookies": "Configurar cookies",
     "copyright": "Marsa Project. Todos los derechos reservados.",
     "madeWith": "Hecho con",
     "madeWithSuffix": "para tu sonrisa."
@@ -291,6 +294,28 @@
     "scrollTopLabel": "Volver arriba",
     "agendaLabel": "Agenda tu valoración por WhatsApp",
     "agendaText": "Agenda tu valoración"
+  },
+
+  "cookies": {
+    "title": "Cookies",
+    "body": "Usamos cookies necesarias para que el sitio funcione y, con tu permiso, otras para medir el uso del sitio y la eficacia de nuestros anuncios. Puedes cambiar tu elección cuando quieras. Más detalle en el",
+    "privacyLink": "aviso de privacidad",
+    "customize": "Configurar",
+    "acceptAll": "Aceptar todas",
+    "rejectAll": "Solo las necesarias",
+    "save": "Guardar elección",
+    "necessary": {
+      "title": "Necesarias",
+      "description": "Idioma, seguridad y tu propia elección de cookies. Sin ellas el sitio no funciona."
+    },
+    "analytics": {
+      "title": "Analíticas",
+      "description": "Nos ayudan a entender cómo se usa el sitio. Incluye grabación de sesión y mapas de calor."
+    },
+    "marketing": {
+      "title": "Marketing",
+      "description": "Miden la eficacia de nuestros anuncios y permiten mostrarte publicidad relevante."
+    }
   },
 
   "language": {
