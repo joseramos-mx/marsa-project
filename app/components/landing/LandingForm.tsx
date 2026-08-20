@@ -2,9 +2,10 @@
 
 import { useActionState, useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
-import { trackEvent } from "../../../../lib/gtag"
-import { submitContact, type ContactActionState } from '../../../actions/contact'
-import { readGclid } from '../../../components/GclidCapture'
+import { submitContact, type ContactActionState } from '../../actions/contact'
+import { readGclid } from '../GclidCapture'
+import { trackEvent } from '../../../lib/gtag'
+import type { ContactReason } from '../../../lib/schemas/contact'
 
 const initialState: ContactActionState = { status: 'idle' }
 
@@ -15,7 +16,11 @@ const inputBase =
 
 function FieldError({ msg }: { msg?: string[] }) {
   if (!msg?.length) return null
-  return <p className="mt-1.5 text-[12px] text-red-400/90" style={GEIST}>{msg[0]}</p>
+  return (
+    <p className="mt-1.5 text-[12px] text-red-400/90" style={GEIST}>
+      {msg[0]}
+    </p>
+  )
 }
 
 function SubmitButton({ formName }: { formName: string }) {
@@ -25,7 +30,7 @@ function SubmitButton({ formName }: { formName: string }) {
       type="submit"
       disabled={pending}
       // Intento de envio: NO es un lead. El lead se confirma en /gracias.
-      onClick={() => trackEvent("form_submit_attempt", { form_name: formName })}
+      onClick={() => trackEvent('form_submit_attempt', { form_name: formName })}
       className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-8 py-3.5 rounded-full text-[13px] uppercase tracking-[0.14em] disabled:opacity-60 disabled:cursor-not-allowed hover:brightness-110 transition-all w-full sm:w-auto"
       style={GEIST}
     >
@@ -42,11 +47,21 @@ function SubmitButton({ formName }: { formName: string }) {
 }
 
 /**
- * Formulario corto para la landing de Implantes Dentales.
- * Reutiliza `submitContact` con `reason` prefijado a "Me faltan dientes"
- * y omite el mensaje libre para reducir fricción.
+ * Formulario corto de landing.
+ *
+ * Solo pide nombre, telefono y correo opcional: el brief exige formulario
+ * corto para reducir friccion. El motivo y el origen viajan en campos ocultos
+ * segun la landing, para que el aviso por correo diga de donde viene el lead.
  */
-export default function ContactFormShort() {
+export default function LandingForm({
+  reason,
+  origin,
+  formName,
+}: {
+  reason: ContactReason
+  origin: string
+  formName: string
+}) {
   const [state, formAction] = useActionState(submitContact, initialState)
   const [clientFields, setClientFields] = useState<{ ts: number; gclid: string } | null>(null)
 
@@ -61,10 +76,10 @@ export default function ContactFormShort() {
     <form action={formAction} className="flex flex-col gap-4" noValidate>
       <input type="hidden" name="ts" value={clientFields?.ts ?? 0} readOnly />
       <input type="hidden" name="gclid" value={clientFields?.gclid ?? ''} readOnly />
-      <input type="hidden" name="reason" value="Me faltan dientes" readOnly />
-      <input type="hidden" name="message" value="Origen: Landing Implantes Dentales Toluca" readOnly />
+      <input type="hidden" name="reason" value={reason} readOnly />
+      <input type="hidden" name="message" value={origin} readOnly />
 
-      {/* Honeypot */}
+      {/* Honeypot: si se rellena, el server action lo trata como bot. */}
       <div
         aria-hidden="true"
         style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
@@ -76,11 +91,15 @@ export default function ContactFormShort() {
       </div>
 
       <div>
-        <label htmlFor="lf-name" className="block text-[11px] uppercase tracking-[0.14em] text-white/50 mb-2" style={GEIST}>
+        <label
+          htmlFor={`lf-name-${formName}`}
+          className="block text-[11px] uppercase tracking-[0.14em] text-white/50 mb-2"
+          style={GEIST}
+        >
           Nombre *
         </label>
         <input
-          id="lf-name"
+          id={`lf-name-${formName}`}
           name="name"
           type="text"
           required
@@ -94,11 +113,15 @@ export default function ContactFormShort() {
       </div>
 
       <div>
-        <label htmlFor="lf-phone" className="block text-[11px] uppercase tracking-[0.14em] text-white/50 mb-2" style={GEIST}>
+        <label
+          htmlFor={`lf-phone-${formName}`}
+          className="block text-[11px] uppercase tracking-[0.14em] text-white/50 mb-2"
+          style={GEIST}
+        >
           Teléfono *
         </label>
         <input
-          id="lf-phone"
+          id={`lf-phone-${formName}`}
           name="phone"
           type="tel"
           required
@@ -111,11 +134,15 @@ export default function ContactFormShort() {
       </div>
 
       <div>
-        <label htmlFor="lf-email" className="block text-[11px] uppercase tracking-[0.14em] text-white/50 mb-2" style={GEIST}>
+        <label
+          htmlFor={`lf-email-${formName}`}
+          className="block text-[11px] uppercase tracking-[0.14em] text-white/50 mb-2"
+          style={GEIST}
+        >
           Email <span className="text-white/30 normal-case tracking-normal">(opcional)</span>
         </label>
         <input
-          id="lf-email"
+          id={`lf-email-${formName}`}
           name="email"
           type="email"
           autoComplete="email"
@@ -125,14 +152,22 @@ export default function ContactFormShort() {
         <FieldError msg={fe.email} />
       </div>
 
-      <label className="flex items-start gap-3 text-[13px] text-white/70 leading-relaxed cursor-pointer" style={GEIST}>
+      <label
+        className="flex items-start gap-3 text-[13px] text-white/70 leading-relaxed cursor-pointer"
+        style={GEIST}
+      >
         <input type="checkbox" name="consent" required className="mt-1 w-4 h-4 accent-[#c69a2c]" />
         <span>
           Acepto el{' '}
-          <a href="/aviso-de-privacidad" target="_blank" rel="noopener noreferrer" className="underline text-white hover:text-[#f8d974]">
+          <a
+            href="/aviso-de-privacidad"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-white hover:text-[#f8d974]"
+          >
             aviso de privacidad
-          </a>
-          {' '}y ser contactado para agendar mi valoración.
+          </a>{' '}
+          y ser contactado para agendar mi valoración.
         </span>
       </label>
       <FieldError msg={fe.consent} />
@@ -149,7 +184,7 @@ export default function ContactFormShort() {
       )}
 
       <div className="pt-2">
-        <SubmitButton formName="landing_implantes" />
+        <SubmitButton formName={formName} />
         <p className="mt-3 text-[11px] text-white/40" style={GEIST}>
           Te contactamos en horario de atención.
         </p>

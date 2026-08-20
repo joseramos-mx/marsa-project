@@ -1,4 +1,3 @@
-import { getMessages } from "next-intl/server";
 
 /* ─────────────────────────────────────────────────────────────
    JSON-LD Structured Data — Server Component (locale-aware)
@@ -6,11 +5,7 @@ import { getMessages } from "next-intl/server";
      • Organization
      • Dentist (LocalBusiness)
      • MedicalOrganization
-     • WebSite (with SearchAction)
-     • FAQPage
-   ───────────────────────────────────────────────────────────── */
-
-type FaqMessages = { items: { q: string; a: string }[] };
+     • WebSite (with SearchAction)   ───────────────────────────────────────────────────────────── */
 
 export default async function JsonLd({
   siteUrl,
@@ -19,8 +14,6 @@ export default async function JsonLd({
   siteUrl: string;
   locale: string;
 }) {
-  const messages = (await getMessages({ locale })) as unknown as { faq: FaqMessages };
-  const faqItems = messages.faq.items;
   const organization = {
     "@context": "https://schema.org",
     "@type": ["Organization", "MedicalOrganization"],
@@ -131,17 +124,7 @@ export default async function JsonLd({
     },
   };
 
-  const faqPage = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map(({ q, a }) => ({
-      "@type": "Question",
-      name: q,
-      acceptedAnswer: { "@type": "Answer", text: a },
-    })),
-  };
-
-  const schemas = [organization, localBusiness, website, faqPage];
+  const schemas = [organization, localBusiness, website];
 
   return (
     <>

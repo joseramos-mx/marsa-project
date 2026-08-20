@@ -4,6 +4,9 @@ export const REASONS = [
   'Diente fracturado',
   'Me faltan dientes',
   'Diseño de sonrisa',
+  'Carillas dentales',
+  'Ortodoncia invisible',
+  'Blanqueamiento dental',
   'Otro',
 ] as const
 

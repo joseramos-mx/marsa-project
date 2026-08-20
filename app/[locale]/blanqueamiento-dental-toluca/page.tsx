@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { setRequestLocale } from "next-intl/server"
 import LandingPage, { landingMetadata } from "../../components/landing/LandingPage"
-import { implantes } from "../../../lib/landings"
+import { blanqueamiento } from "../../../lib/landings"
 
 /** Landing de Google Ads: solo existe en español, no se genera variante /en. */
 export function generateStaticParams() {
@@ -11,9 +11,9 @@ export function generateStaticParams() {
 
 export const dynamicParams = false
 
-export const metadata: Metadata = landingMetadata(implantes)
+export const metadata: Metadata = landingMetadata(blanqueamiento)
 
-export default async function ImplantesLanding({
+export default async function BlanqueamientoLanding({
   params,
 }: {
   params: Promise<{ locale: string }>
@@ -22,5 +22,5 @@ export default async function ImplantesLanding({
   if (locale !== "es") notFound()
   setRequestLocale(locale)
 
-  return <LandingPage content={implantes} />
+  return <LandingPage content={blanqueamiento} />
 }

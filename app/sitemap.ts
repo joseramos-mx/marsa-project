@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { routing } from "../i18n/routing";
+import { LANDING_PATHS } from "../lib/landings";
 
 const SITE_URL = "https://marsaproject.com";
 
@@ -15,9 +16,7 @@ const LOCALIZED_ROUTES = [
  * local ("... en Toluca"), asi que no se generan variantes en ingles ni
  * alternates hreflang que apunten a paginas inexistentes.
  */
-const LANDING_ROUTES = [
-  "/implantes-dentales-toluca",
-];
+const LANDING_ROUTES = LANDING_PATHS;
 
 const localeToHref = (locale: string, path: string) =>
   locale === routing.defaultLocale

@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import HomeFaqSchema from "../components/seo/HomeFaqSchema";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import LogoMarquee from "../components/LogoMarquee";
@@ -23,6 +24,8 @@ export default async function Home({
 
   return (
     <main className="bg-[#0c0c0c]">
+      {/* El FAQPage se emite aqui, no en el layout: solo la home muestra este FAQ. */}
+      <HomeFaqSchema locale={locale} />
       <Navbar />
 
       <section id="inicio">

@@ -1,12 +1,19 @@
 'use client'
 
 import { useState } from 'react'
-import { FAQ_ITEMS } from './faq-data'
 
 const GEIST = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
-export default function FaqSection() {
+/**
+ * Acordeon de preguntas frecuentes.
+ *
+ * El contenido se renderiza siempre en el HTML (solo se colapsa por CSS), que
+ * es la condicion que Google pide para poder marcar la FAQ con datos
+ * estructurados. El FAQPage se emite desde <LandingSchema /> con estas mismas
+ * preguntas.
+ */
+export default function LandingFaq({ items }: { items: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
@@ -25,10 +32,10 @@ export default function FaqSection() {
         </div>
 
         <ul className="flex flex-col gap-3">
-          {FAQ_ITEMS.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = open === i
             return (
-              <li key={i} className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
+              <li key={item.q} className="rounded-2xl border border-white/10 bg-white/[0.03] overflow-hidden">
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
@@ -59,7 +66,10 @@ export default function FaqSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 md:px-6 pb-5 md:pb-6 text-white/70 text-[14.5px] leading-relaxed" style={GEIST}>
+                    <p
+                      className="px-5 md:px-6 pb-5 md:pb-6 text-white/70 text-[14.5px] leading-relaxed"
+                      style={GEIST}
+                    >
                       {item.a}
                     </p>
                   </div>
