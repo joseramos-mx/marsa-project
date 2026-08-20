@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
+import WhatsAppLink from './WhatsAppLink'
 
 const GEIST  = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
@@ -93,10 +93,8 @@ export default function FAQSection() {
               </p>
             </div>
 
-            <Link
+            <WhatsAppLink
               href="https://wa.me/527225356109"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center self-start bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
             >
               <span
@@ -108,7 +106,7 @@ export default function FAQSection() {
               <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
                 <ArrowUpRight size={15} weight="bold" className="text-black" />
               </span>
-            </Link>
+            </WhatsAppLink>
           </motion.div>
 
           <motion.div

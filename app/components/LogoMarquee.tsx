@@ -18,7 +18,7 @@ function LogoItem({ src, alt }: { src: string; alt: string }) {
         width={140}
         height={44}
         loading="lazy"
-        decoding="async"
+        quality={50}
         className="object-contain grayscale brightness-0 invert"
         style={{ height: '44px', width: 'auto', maxWidth: '140px' }}
       />

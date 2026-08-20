@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Implantes y Odontología Estética en Toluca",
+    "title": "Dentista en Toluca · Implantes y rehabilitación | Marsa",
     "titleTemplate": "%s | Marsa Project",
-    "description": "Clínica dental en Toluca: implantes dentales, rehabilitación oral, diseño de sonrisa y ortodoncia invisible. Agenda tu valoración en Marsa Project.",
-    "ogTitle": "Marsa Project | Implantes Dentales y Odontología Estética en Toluca",
-    "ogDescription": "Implantes dentales, rehabilitación oral, diseño de sonrisa, carillas y ortodoncia invisible en Toluca. Especialistas y tecnología digital para planificar cada caso. Agenda tu valoración.",
-    "twitterDescription": "Implantes dentales, diseño de sonrisa, carillas y ortodoncia invisible en Toluca. Agenda tu valoración en Marsa Project.",
-    "ogAlt": "Marsa Project — Clínica dental en Toluca"
+    "description": "Clínica dental en Toluca especializada en rehabilitación oral, implantes dentales, carillas, diseño de sonrisa y urgencias dentales. Agenda tu valoración.",
+    "ogTitle": "Marsa Project · Dentista en Toluca — Implantes y rehabilitación oral",
+    "ogDescription": "Rehabilitación oral, implantes dentales, carillas, diseño de sonrisa y atención de urgencias dentales en Toluca. Agenda tu valoración.",
+    "twitterDescription": "Rehabilitación oral, implantes, carillas y urgencias dentales en Toluca.",
+    "ogAlt": "Marsa Project — Dentista en Toluca"
   },
 
   "navbar": {
@@ -20,28 +20,29 @@
     "agenda": "Agenda",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
-    "home": "MARSA Home"
+    "home": "MARSA Home",
+    "phoneLabel": "Llamar al 722 535 6109"
   },
 
   "blog": {
     "metaTitle": "Blog · Marsa Project",
-    "metaDescription": "Artículos sobre odontología estética, tratamientos dentales y consejos para tu sonrisa.",
+    "metaDescription": "Artículos sobre odontología, tratamientos dentales y cuidado de tu sonrisa.",
     "badge": "Próximamente",
     "comingSoonHeading1": "Nuestro blog",
     "comingSoonHeading2": "llegará pronto",
-    "comingSoonDescription": "Estamos preparando artículos sobre odontología estética, tratamientos dentales y consejos para mantener tu mejor sonrisa. Pronto disponible.",
+    "comingSoonDescription": "Estamos preparando artículos sobre odontología, tratamientos dentales y consejos para el cuidado de tu sonrisa. Pronto disponible.",
     "backToHome": "Volver al inicio",
     "eyebrow": "Blog",
     "indexHeading": "Últimos artículos"
   },
 
   "hero": {
-    "h1": "Implantes dentales y odontología estética en Toluca",
+    "h1": "Marsa Project · Dentista en Toluca. Rehabilitación oral, implantes dentales, carillas de porcelana, diseño de sonrisa y atención de urgencias dentales — diente fracturado o piezas ausentes. Agenda tu valoración.",
     "reviewsPrefix": "Más de",
     "reviewsPatients": "500 pacientes",
     "reviewsMiddle": "· Calificación",
     "reviewsRating": "4.9 / 5",
-    "doctorAlt": "Dr. Salém Sarmiento Marín, director clínico de Marsa Project, clínica dental en Toluca",
+    "doctorAlt": "Doctor Marsa Project",
     "cards": {
       "blanqueamiento":    { "category": "Odontología",   "title": "Blanqueamiento\nDental" },
       "carillas":          { "category": "Odontología",   "title": "Carillas de\nPorcelana" },
@@ -55,22 +56,22 @@
     "eyebrow": "Liderazgo profesional",
     "headingPart1": "Trayectoria reconocida",
     "headingHighlight": "nacional e internacionalmente",
-    "description": "Marsa Project está dirigido por especialistas activos en la formación continua y en el desarrollo de la odontología restauradora y estética en México y el extranjero.",
+    "description": "Marsa Project está dirigido por especialistas activos en la formación continua y en el desarrollo de la odontología restaurativa y estética en México y el extranjero.",
     "doctorName": "Dr. Salém Sarmiento Marín",
     "doctorRole": "Director clínico",
-    "doctorAlt": "Dr. Salém Sarmiento Marín, director clínico de Marsa Project, especialista en implantes dentales en Toluca",
+    "doctorAlt": "Dr. Salém Sarmiento Marín, director clínico de Marsa Project",
     "cards": {
       "kulzer": {
         "title": "Líder de opinión y speaker oficial Kulzer",
-        "description": "Reconocido como speaker oficial por Kulzer — una de las marcas líderes a nivel mundial en materiales y soluciones para odontología."
+        "description": "Reconocido como speaker oficial por Kulzer, una de las marcas de referencia mundial en materiales y soluciones para odontología."
       },
       "national": {
         "title": "Conferencista nacional",
-        "description": "Ponente recurrente en los principales congresos y simposios de odontología estética y restaurativa en México."
+        "description": "Ponente en congresos y simposios de odontología restaurativa y estética en México."
       },
       "international": {
         "title": "Conferencista internacional",
-        "description": "Participa en eventos, simposios y cursos internacionales compartiendo técnicas y casos clínicos con colegas de toda Latinoamérica y Europa."
+        "description": "Participa en eventos, simposios y cursos internacionales, compartiendo técnicas y casos clínicos con colegas de Latinoamérica y Europa."
       }
     }
   },
@@ -80,53 +81,53 @@
     "headingPart1": "Equipo especializado",
     "headingPart2": "dedicado",
     "headingPart3": "a construir tu",
-    "headingHighlight": "mejor sonrisa",
+    "headingHighlight": "sonrisa",
     "yearsValue": "08+",
-    "yearsDesc": "Años de experiencia en odontología restauradora y estética.",
+    "yearsDesc": "Años de experiencia en odontología restaurativa y estética.",
     "patientsLabel": "Pacientes atendidos",
     "patientsValue": "500+",
-    "patientsQuote": "Un equipo increíble, resultados naturales y un trato excepcional desde el primer día.",
+    "patientsQuote": "Trato humano y un plan claro desde la primera valoración: tratamiento, tiempos y costo.",
     "implantsLabel": "Implantes colocados",
     "implantsValue": "100+",
-    "implantsDesc": "Materiales de marcas reconocidas y protocolos clínicos actualizados.",
+    "implantsDesc": "Con materiales certificados y protocolos clínicos actualizados.",
     "ratingLabel": "Calificación promedio",
     "ratingValue": "4.9/5",
-    "doctorAlt": "Dr. Salém Sarmiento Marín durante una valoración clínica en Marsa Project, Toluca"
+    "doctorAlt": "Doctor Marsa Project"
   },
 
   "whyTrust": {
     "eyebrow": "¿Por qué elegirnos?",
     "headingPart1": "Especialistas dedicados",
-    "headingPart2": "a transformar tu sonrisa",
-    "description": "Experiencia clínica, formación continua, tecnología y atención personalizada para definir un plan de tratamiento de acuerdo con las necesidades de cada paciente.",
+    "headingPart2": "a recuperar tu sonrisa",
+    "description": "Formación continua, protocolos clínicos actualizados y valoración previa por especialista. Cada plan se ajusta a lo que tu caso realmente necesita.",
     "ctaLabel": "Agenda tu valoración",
     "cards": {
-      "specialists":  { "title": "Especialistas",           "description": "Profesionales con formación continua en odontología restauradora y estética." },
-      "facilities":   { "title": "Atención personalizada",  "description": "Cada tratamiento comienza con una valoración para definir las necesidades particulares del paciente." },
-      "equipment":    { "title": "Tecnología digital",      "description": "Herramientas para diagnóstico y planificación: escaneo intraoral, radiografía digital y software de planificación." }
+      "specialists":  { "title": "Especialistas certificados",   "description": "Profesionales con formación continua en odontología restaurativa y estética." },
+      "facilities":   { "title": "Instalaciones modernas",       "description": "Espacios diseñados para tu comodidad y con protocolos de higiene clínica." },
+      "equipment":    { "title": "Equipamiento actualizado",     "description": "Equipos para diagnóstico y procedimientos precisos: escaneo intraoral, radiografía digital y planificación por software." }
     }
   },
 
   "wellness": {
     "eyebrow": "Nosotros",
     "headingPart1": "Un equipo dedicado",
-    "headingPart2": "a tu bienestar y",
-    "highlightPrefix": "tu mejor",
+    "headingPart2": "a tu boca y a",
+    "highlightPrefix": "tu",
     "highlightSuffix": "sonrisa",
-    "description": "En Marsa Project combinamos ciencia, tecnología digital y un enfoque humano para planificar cada tratamiento de acuerdo con las necesidades de cada paciente.",
+    "description": "En Marsa Project combinamos ciencia y tecnología con un enfoque humano. Cada tratamiento parte de una valoración clínica y del plan que corresponde a tu caso.",
     "ctaLabel": "Agenda tu valoración",
-    "doctorAlt": "Equipo de Marsa Project, clínica dental en Toluca",
+    "doctorAlt": "Equipo Marsa Project",
     "treatmentsLabel": "Nuestros tratamientos",
     "ratingLabel": "Calificación promedio",
     "ratingValue": "4.9 ★",
     "ratingDesc": "Basada en la experiencia de +500 pacientes atendidos.",
     "tags": [
-      "Implantes dentales",
       "Rehabilitación oral",
-      "Diseño de sonrisa",
+      "Implantes dentales",
       "Carillas de porcelana",
-      "Blanqueamiento dental",
-      "Ortodoncia invisible"
+      "Diseño de sonrisa",
+      "Ortodoncia invisible",
+      "Blanqueamiento dental"
     ]
   },
 
@@ -134,14 +135,13 @@
     "eyebrow": "Especialidades",
     "headingPart1": "Especialidades",
     "headingHighlight": "en Marsa Project",
-    "description": "Un equipo multidisciplinario de especialistas certificados cubre cada necesidad odontológica bajo un mismo techo.",
+    "description": "Un equipo multidisciplinario cubre cada necesidad odontológica bajo un mismo techo: rehabilitación oral, implantes, odontología estética, ortodoncia, odontopediatría y endodoncia.",
     "items": {
-      "implants":   { "title": "Implantología dental",    "description": "Alternativa para reemplazar dientes ausentes mediante un plan definido a partir de la valoración clínica de cada caso." },
-      "aesthetic":  { "title": "Odontología estética",    "description": "Carillas, blanqueamiento y diseño de sonrisa planificados para integrarse con las características de tu sonrisa." },
-      "ortho":      { "title": "Ortodoncia",              "description": "Alineadores invisibles y brackets para corregir la posición de tus dientes de forma cómoda." },
-      "pediatric":  { "title": "Odontopediatría",         "description": "Atención dental especializada para niños en un ambiente cálido, seguro y divertido." },
-      "endo":       { "title": "Endodoncia",              "description": "Tratamientos de conducto que buscan preservar la pieza dental original con técnica precisa." },
-      "surgery":    { "title": "Cirugía maxilofacial",    "description": "Procedimientos quirúrgicos especializados de la zona maxilofacial con tecnología avanzada." }
+      "implants":   { "title": "Implantología",          "description": "Reemplazo de piezas ausentes con implantes de titanio para recuperar función masticatoria y estética. Plan definido tras valoración." },
+      "aesthetic":  { "title": "Odontología estética",   "description": "Carillas, blanqueamiento y diseño de sonrisa. Cada caso se planifica a partir de una valoración clínica." },
+      "ortho":      { "title": "Ortodoncia",             "description": "Alineadores invisibles y brackets para corregir la posición de los dientes. La técnica se elige según cada caso." },
+      "pediatric":  { "title": "Odontopediatría",        "description": "Atención dental especializada para niños en un ambiente cálido y seguro." },
+      "endo":       { "title": "Endodoncia",             "description": "Tratamientos de conducto para preservar la pieza dental original con técnica precisa." }
     }
   },
 
@@ -154,27 +154,27 @@
       "whitening": {
         "category": "Odontología",
         "title": "Blanqueamiento dental",
-        "description": "Combinamos atención especializada, tecnología y un ambiente diseñado para tu comodidad. El protocolo y el número de sesiones se definen tras la valoración clínica."
+        "description": "Aclaramiento dental profesional en clínica. El número de sesiones y el resultado dependen de cada caso y de tu valoración previa."
       },
       "veneers": {
         "category": "Odontología",
         "title": "Carillas de porcelana",
-        "description": "Carillas ultrafinas de porcelana planificadas para integrarse visualmente con tu sonrisa, de acuerdo con las características de cada caso."
+        "description": "Carillas de porcelana diseñadas para integrarse en color y forma con tus dientes. Cada caso se planifica a partir de una valoración clínica."
       },
       "smileDesign": {
         "category": "Diseño de sonrisa",
         "title": "Diseño de sonrisa",
-        "description": "Planificamos cada detalle con simulaciones digitales antes del tratamiento, para que conozcas la propuesta antes de comenzar."
+        "description": "Simulamos digitalmente tu nueva sonrisa antes de comenzar cualquier procedimiento, para que apruebes el diseño y los tiempos."
       },
       "ortho": {
         "category": "Ortodoncia",
         "title": "Ortodoncia invisible",
-        "description": "Alineadores transparentes a medida que corrigen la posición de tus dientes de forma discreta y cómoda."
+        "description": "Alineadores transparentes a medida que corrigen la posición de los dientes de forma discreta. La técnica y los tiempos se definen según tu caso."
       },
       "implants": {
         "category": "Implantología",
         "title": "Implantes dentales",
-        "description": "Recupera la función y estética de tu sonrisa con un tratamiento personalizado, respaldado por especialistas y tecnología digital."
+        "description": "Reemplazo de piezas ausentes con implantes de titanio para recuperar función masticatoria y estética natural. Plan definido tras valoración."
       }
     }
   },
@@ -183,17 +183,17 @@
     "eyebrow": "Testimonios",
     "headingPart1": "Lo que dicen",
     "headingPart2": "sobre nosotros",
-    "description": "Testimonios reales y autorizados de pacientes de Marsa Project. Los resultados pueden variar de acuerdo con las condiciones particulares de cada paciente.",
+    "description": "Historias de pacientes atendidos en la clínica.",
     "videoEyebrow": "En video",
-    "patientName": "Paciente de Marsa Project",
+    "patientName": "Paciente Marsa",
     "videoTitlePrefix": "Testimonio en video",
     "quotes": [
-      "El equipo de Marsa transformó mi sonrisa por completo. Resultados naturales y un trato increíblemente humano desde el primer día.",
-      "Los implantes quedaron perfectos. Nadie cree que no son mis dientes naturales. Totalmente recomendado.",
-      "Me devolvieron la confianza en mi sonrisa. El resultado superó todas mis expectativas, me siento increíble.",
-      "Tecnología de punta y un equipo que realmente escucha. El diseño de sonrisa cambió mi vida.",
-      "Vine por el blanqueamiento y salí enamorada del servicio. Un equipo que se preocupa genuinamente por ti.",
-      "Los implantes dentales quedaron naturales y hermosos. Gracias Marsa Project por devolverme mi sonrisa."
+      "El equipo de Marsa fue muy claro con el plan desde el inicio. El resultado quedó natural y el trato fue humano en todas las citas.",
+      "Los implantes quedaron muy bien integrados. Se ven y se sienten como mis propios dientes.",
+      "Me devolvieron la confianza para sonreír. Cumplieron con los tiempos que me dieron en la valoración.",
+      "Tecnología actualizada y un equipo que realmente escucha. Muy contento con mi diseño de sonrisa.",
+      "Vine por el blanqueamiento y me explicaron paso a paso qué esperar. Un equipo que se toma el tiempo contigo.",
+      "Los implantes dentales quedaron naturales. Gracias Marsa Project por ayudarme a recuperar mi sonrisa."
     ],
     "treatments": [
       "Diseño de sonrisa",
@@ -209,52 +209,44 @@
     "eyebrow": "FAQ",
     "headingPart1": "Preguntas",
     "headingHighlight": "frecuentes",
-    "description": "Encuentra respuestas a las preguntas más comunes sobre nuestros tratamientos y el proceso en Marsa Project.",
+    "description": "Respuestas a las preguntas más comunes sobre nuestros tratamientos y el proceso en Marsa Project.",
     "ctaLabel": "Agenda tu valoración",
     "items": [
       {
         "q": "¿Qué es Marsa Project y qué servicios ofrece?",
-        "a": "Marsa Project es una clínica dental en Toluca especializada en rehabilitación oral, implantes dentales y odontología estética. También ofrecemos blanqueamiento, carillas de porcelana, diseño de sonrisa y ortodoncia invisible."
+        "a": "Marsa Project es una clínica dental en Toluca especializada en rehabilitación oral, implantes dentales, carillas, diseño de sonrisa, blanqueamiento, ortodoncia, endodoncia, odontopediatría y atención de urgencias dentales."
       },
       {
-        "q": "¿Qué es un implante dental?",
-        "a": "Es una solución utilizada para reemplazar la raíz de un diente ausente y recibir posteriormente una restauración dental que permita recuperar función y estética."
+        "q": "¿Cuánto dura una sesión de blanqueamiento dental?",
+        "a": "Una sesión de blanqueamiento en clínica dura entre 60 y 90 minutos. El número de sesiones necesarias y la duración del resultado dependen de cada caso y de la valoración previa; tu especialista te lo define en la primera cita."
       },
       {
-        "q": "¿Todos pueden colocarse un implante dental?",
-        "a": "No necesariamente. La indicación depende de las condiciones clínicas de cada paciente y debe determinarse mediante una valoración profesional."
-      },
-      {
-        "q": "¿Necesito una valoración antes de comenzar?",
-        "a": "Sí. El primer paso es realizar una valoración para conocer las condiciones de tu caso y definir el plan de tratamiento correspondiente."
-      },
-      {
-        "q": "¿Cuánto cuesta un implante dental?",
-        "a": "El costo depende de las características de cada caso, los procedimientos necesarios y el plan de tratamiento. Por ello, se recomienda realizar primero una valoración."
-      },
-      {
-        "q": "¿Cuánto dura el tratamiento?",
-        "a": "El tiempo depende de las condiciones clínicas y del tratamiento indicado para cada paciente. La valoración permite estimar los tiempos de tu caso."
-      },
-      {
-        "q": "¿Qué incluye el diseño de sonrisa digital?",
-        "a": "Incluye una evaluación clínica y estética, una simulación digital de la propuesta de tratamiento y un plan detallado antes de comenzar cualquier procedimiento."
-      },
-      {
-        "q": "¿Cuánto tiempo duran los resultados de los tratamientos?",
-        "a": "La duración depende del tratamiento indicado, de las condiciones clínicas de cada paciente, de los cuidados en casa y de las revisiones periódicas. Tu especialista te indicará qué esperar en tu caso."
+        "q": "¿Los tratamientos dentales estéticos son seguros?",
+        "a": "Sí. Todos nuestros procedimientos son realizados por especialistas certificados, con equipamiento actualizado y bajo protocolos de higiene y seguridad clínica."
       },
       {
         "q": "¿Ofrecen planes de pago o financiamiento?",
-        "a": "Sí, contamos con planes de pago flexibles y opciones de financiamiento adaptadas a tu presupuesto para que puedas acceder al tratamiento que necesitas."
+        "a": "Sí. Contamos con planes de pago flexibles y opciones de financiamiento; las condiciones se definen a partir del tratamiento y del monto de tu plan."
+      },
+      {
+        "q": "¿Atienden urgencias dentales? — diente fracturado o dolor agudo",
+        "a": "Sí. Atendemos urgencias como diente fracturado, dolor agudo, pérdida de una pieza o daño en una restauración. Contáctanos por WhatsApp para asignarte la cita disponible más próxima."
+      },
+      {
+        "q": "¿Cómo puedo agendar mi primera consulta?",
+        "a": "Puedes agendar por WhatsApp, por el formulario del sitio o llamándonos directamente. La primera cita es una valoración clínica: revisamos tu caso y te entregamos un plan de tratamiento con tiempos y costo."
+      },
+      {
+        "q": "¿Qué incluye el diseño de sonrisa digital?",
+        "a": "Incluye una evaluación clínica, la simulación digital de tu nueva sonrisa y un plan de tratamiento detallado antes de iniciar cualquier procedimiento, para que apruebes el diseño."
+      },
+      {
+        "q": "¿Cuánto duran los resultados de los tratamientos?",
+        "a": "Depende de cada caso y de la valoración previa. En general el aclaramiento dental puede mantenerse hasta 2 años, las carillas hasta 10 años y los implantes dentales son una solución de largo plazo. En todos los casos, el resultado depende del cuidado del paciente y de las revisiones periódicas."
       },
       {
         "q": "¿Dónde se encuentra Marsa Project?",
         "a": "Marsa Project se encuentra en Paseo Cristóbal Colón 128-MZ 027, Residencial Colón y Colonia Ciprés, 50120 Toluca de Lerdo, Estado de México. Atendemos de lunes a viernes de 10:00 a.m. a 8:00 p.m. y sábados de 10:00 a.m. a 4:00 p.m."
-      },
-      {
-        "q": "¿Cómo puedo agendar una valoración?",
-        "a": "Puedes solicitar información y agendar tu valoración por WhatsApp, mediante el formulario de contacto o llamando al 722 535 6109."
       }
     ]
   },
@@ -263,16 +255,16 @@
     "trustPrefix": "Más de",
     "trustPatients": "500 pacientes",
     "trustSuffix": "confían en nosotros",
-    "headingPart1": "Da el primer paso",
-    "headingHighlight": "hacia tu mejor sonrisa.",
-    "description": "Agenda una valoración con el equipo de Marsa Project y conoce las opciones de tratamiento disponibles para tu caso.",
+    "headingPart1": "Tu sonrisa",
+    "headingHighlight": "empieza con una valoración.",
+    "description": "Especialistas con formación continua y protocolos clínicos actualizados. Agenda una valoración para definir el tratamiento que corresponde a tu caso: tiempos, costo y siguientes pasos.",
     "ctaLabel": "Agenda tu valoración",
     "whatsappLabel": "WhatsApp",
-    "doctorAlt": "Especialista del equipo de Marsa Project, clínica dental en Toluca"
+    "doctorAlt": "Doctora del equipo Marsa Project"
   },
 
   "footer": {
-    "tagline": "Clínica dental especializada en rehabilitación oral, implantes dentales, odontología estética y tratamientos dentales.",
+    "tagline": "Clínica dental en Toluca especializada en rehabilitación oral, implantes, carillas, diseño de sonrisa y atención de urgencias dentales.",
     "quickLinks": "Enlaces Rápidos",
     "inicio": "Inicio",
     "servicios": "Servicios",
@@ -291,9 +283,10 @@
 
   "floating": {
     "whatsappLabel": "Contactar por WhatsApp",
+    "instagramLabel": "Visítanos en Instagram",
     "scrollTopLabel": "Volver arriba",
-    "agendaLabel": "Agenda tu valoración por WhatsApp",
-    "agendaText": "Agenda tu valoración"
+    "agendaLabel": "Agenda tu cita por WhatsApp",
+    "agendaText": "Agenda tu cita"
   },
 
   "cookies": {

@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'motion/react'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
+import WhatsAppLink from './WhatsAppLink'
 
 const NUM   = { fontFamily: 'var(--font-albert-sans)', fontWeight: 900 }
 const GEIST = { fontFamily: 'var(--font-geist-sans)' }
@@ -50,10 +50,8 @@ export default function WellnessSection() {
             <p className="text-white/50 text-[14px] leading-relaxed" style={GEIST}>
               {t('description')}
             </p>
-            <Link
+            <WhatsAppLink
               href="https://wa.me/527225356109"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center self-start bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
             >
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] pr-3" style={GEIST}>
@@ -62,7 +60,7 @@ export default function WellnessSection() {
               <span className="w-8 h-8 rounded-full bg-linear-to-br from-[#c69a2c] via-[#f8d974] to-[#c69a2c] flex items-center justify-center shrink-0">
                 <ArrowUpRight size={15} weight="bold" className="text-black" />
               </span>
-            </Link>
+            </WhatsAppLink>
           </div>
         </motion.div>
 

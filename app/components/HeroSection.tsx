@@ -123,7 +123,8 @@ export default function HeroSection() {
           alt=""
           width={1920}
           height={1080}
-          fetchPriority="high"
+          loading="lazy"
+          fetchPriority="low"
           decoding="async"
           className="w-full h-full object-contain backdrop-blur-l"
           style={{ filter: 'brightness(0) invert(1)' }}
@@ -153,12 +154,13 @@ export default function HeroSection() {
             sizes="(max-width: 640px) 100vw, 0px"
             className="object-cover object-top sm:hidden"
           />
-          {/* Desktop & up: standard doctor */}
+          {/* Desktop & up: standard doctor (no priority — mobile LCP owns the preload budget) */}
           <Image
             src="/doctor n.webp"
             alt={t('doctorAlt')}
             fill
-            priority
+            loading="eager"
+            fetchPriority="low"
             sizes="(max-width: 768px) 25rem, 37.5rem"
             className="hidden sm:block object-contain object-bottom"
           />
@@ -213,7 +215,7 @@ export default function HeroSection() {
                       alt={card.title}
                       fill
                       sizes="60vw"
-                      quality={65}
+                      quality={55}
                       loading="lazy"
                       className="object-cover"
                     />

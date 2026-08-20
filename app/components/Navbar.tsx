@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { Link, usePathname } from '../../i18n/navigation'
 import { routing } from '../../i18n/routing'
+import WhatsAppLink from './WhatsAppLink'
 
 function MarsaLogo() {
   return (
@@ -83,12 +84,12 @@ export default function Navbar() {
 
       <div
         className={`rounded-2xl overflow-hidden w-fit mx-auto transition-all duration-500 ${
-          scrolled ? 'border border-white/10' : 'border border-transparent'
+          scrolled || menuOpen ? 'border border-white/10' : 'border border-transparent'
         }`}
         style={{
-          background: scrolled ? 'rgba(8, 8, 8, 0.45)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+          background: menuOpen ? 'rgba(8, 8, 8, 0.95)' : scrolled ? 'rgba(8, 8, 8, 0.45)' : 'transparent',
+          backdropFilter: scrolled || menuOpen ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: scrolled || menuOpen ? 'blur(20px)' : 'none',
         }}
       >
 
@@ -107,16 +108,25 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2 shrink-0">
+            <a
+              href="tel:+527225356109"
+              aria-label={t('phoneLabel')}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 md:px-3 rounded-full text-white/80 hover:text-white border border-white/15 hover:border-white/30 transition-colors text-[11px] uppercase tracking-wider font-medium"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span className="hidden sm:inline">722 535 6109</span>
+            </a>
+
             <LanguageSwitch />
 
-            <NextLink
+            <WhatsAppLink
               href="https://wa.me/527225356109"
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-4 py-1.5 rounded-full text-sm hover:brightness-110 transition-all"
             >
               {t('agenda')}
-            </NextLink>
+            </WhatsAppLink>
 
             <button
               onClick={() => setMenuOpen(!menuOpen)}

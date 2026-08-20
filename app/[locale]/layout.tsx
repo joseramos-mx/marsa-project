@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Albert_Sans } from "next/font/google";
+import { Geist, Albert_Sans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
@@ -13,6 +13,7 @@ import GoogleTagManagerInit, { GTM_ID } from "../components/GoogleTagManagerInit
 import ConsentModeInit from "../components/consent/ConsentModeInit";
 import ConsentProvider from "../components/consent/ConsentProvider";
 import ConsentGatedScripts from "../components/consent/ConsentGatedScripts";
+import GclidCapture from "../components/GclidCapture";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -21,16 +22,10 @@ const geistSans = Geist({
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 const albertSans = Albert_Sans({
   variable: "--font-albert-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "900"],
+  weight: ["300", "400", "600", "900"],
   display: "swap",
 });
 
@@ -145,7 +140,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} ${albertSans.variable} h-full antialiased bg-[#0c0c0c]`}
+      className={`${geistSans.variable} ${albertSans.variable} h-full antialiased bg-[#0c0c0c]`}
       suppressHydrationWarning
     >
       {/* Consent Mode v2: todo denegado por defecto, antes que gtag y GTM */}
@@ -173,6 +168,7 @@ export default async function LocaleLayout({
           </ConsentProvider>
           <SpeedInsights />
           <GoogleAdsInit />
+          <GclidCapture />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -49,7 +49,7 @@ export default async function JsonLd({
     "@id": `${siteUrl}/#local-business`,
     name: "Marsa Project",
     description:
-      "Clínica dental en Toluca especializada en rehabilitación oral, implantes dentales, odontología estética y tratamientos dentales.",
+      "Clínica dental en Toluca especializada en rehabilitación oral, implantes dentales, carillas de porcelana, diseño de sonrisa, blanqueamiento, ortodoncia y urgencias dentales.",
     url: siteUrl,
     image: `${siteUrl}/og-image.webp`,
     priceRange: "$$",
@@ -87,27 +87,31 @@ export default async function JsonLd({
     sameAs: [
       "https://www.instagram.com/marsa.project",
     ],
+    // NOTE: "Aesthetic Medicine" y "Oral and Maxillofacial Surgery" removidas
+    // 2026-07-28 por scope (fuera de odontología / pendiente cédula). Reponer
+    // si se confirma certificación del especialista responsable.
     medicalSpecialty: [
       "Dentistry",
       "Cosmetic Dentistry",
       "Orthodontics",
       "Pediatric Dentistry",
       "Endodontics",
-      "Oral and Maxillofacial Surgery",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Tratamientos Marsa Project",
+      // NOTE: "Cirugía maxilofacial" removida 2026-07-28 (fuera de scope /
+      // pendiente cédula). Reponer si se confirma certificación.
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Implantología dental" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Rehabilitación oral" } },
-        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Blanqueamiento dental" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Implantes dentales" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Carillas de porcelana" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Diseño de sonrisa digital" } },
-        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Ortodoncia invisible" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Blanqueamiento dental" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Ortodoncia" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Odontopediatría" } },
         { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Endodoncia" } },
-        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Cirugía maxilofacial" } },
+        { "@type": "Offer", itemOffered: { "@type": "MedicalProcedure", name: "Urgencias dentales" } },
       ],
     },
   };

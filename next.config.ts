@@ -37,8 +37,11 @@ const nextConfig: NextConfig = {
   /* ── Image optimisation ── */
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    // 384 helps small phones pick a smaller variant instead of jumping to 640.
+    deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920],
+    // 384 + 512 give fixed-size images (sizes="240px" / "300px") a closer
+    // match at 2x DPR, avoiding the 640w fallback from deviceSizes.
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
     ],

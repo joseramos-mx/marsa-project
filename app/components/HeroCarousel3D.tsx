@@ -22,6 +22,14 @@ const CARDS = [
     title: 'Diseño de Sonrisa',
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
   },
+  // NOTE 2026-07-28: entradas de "Medicina Estética / Estética Facial /
+  // Blanqueamiento Laser" removidas (fuera de scope odontológico).
+  // Reemplazadas por servicios dentales del perímetro permitido.
+  {
+    category: 'Rehabilitación',
+    title: 'Rehabilitación Oral',
+    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
+  },
   {
     category: 'Ortodoncia',
     title: 'Ortodoncia Invisible',
@@ -33,14 +41,19 @@ const CARDS = [
     src: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=800&auto=format&fit=crop',
   },
   {
-    category: 'Odontología',
-    title: 'Blanqueamiento Laser',
+    category: 'Urgencias',
+    title: 'Urgencias Dentales',
     src: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=800&auto=format&fit=crop',
   },
   {
     category: 'Diseño',
     title: 'Diseño Digital',
     src: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
+  },
+  {
+    category: 'Odontología',
+    title: 'Coronas y Puentes',
+    src: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=800&auto=format&fit=crop',
   },
 ]
 

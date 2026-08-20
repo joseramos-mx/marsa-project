@@ -1,19 +1,21 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { Tooth, Sparkle, LineSegments, Baby, Drop, FirstAid } from '@phosphor-icons/react'
+import { Tooth, Sparkle, LineSegments, Baby, Drop } from '@phosphor-icons/react'
 import { useTranslations } from 'next-intl'
 
 const GEIST  = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
+// NOTE: "surgery" (Cirugía maxilofacial, Icon: FirstAid) removida 2026-07-28
+// por scope (pendiente cédula de especialidad). Reponer aquí y en
+// messages/{es,en}.json → specialties.items.surgery si se confirma.
 const SPECIALTY_DEFS = [
   { key: 'implants',  Icon: Tooth },
   { key: 'aesthetic', Icon: Sparkle },
   { key: 'ortho',     Icon: LineSegments },
   { key: 'pediatric', Icon: Baby },
   { key: 'endo',      Icon: Drop },
-  { key: 'surgery',   Icon: FirstAid },
 ] as const
 
 export default function SpecialtiesSection() {
