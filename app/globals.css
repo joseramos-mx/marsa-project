@@ -48,3 +48,19 @@ body {
 .soft-pulse {
   animation: soft-pulse 2.4s ease-in-out infinite;
 }
+
+/* ---------------------------------------------------------------
+   Sileo — tarjeta de consentimiento de cookies
+
+   Ojo con el naming: en Sileo `theme` describe LA PAGINA, no el
+   toast. Con theme="light" (pagina clara) pinta una tarjeta oscura
+   con texto claro, que es lo que encaja con este sitio.
+
+   Aqui solo ajustamos el acento y el ancho: el acento por defecto
+   (--sileo-state-info) es azul y el ancho 350px se queda corto para
+   una tarjeta con tres interruptores.
+   --------------------------------------------------------------- */
+[data-sileo-viewport] {
+  --sileo-state-info: #c69a2c;
+  --sileo-width: min(26rem, calc(100vw - 2.5rem));
+}

@@ -92,8 +92,8 @@ export default function ConsentCard({
     'px-3.5 py-2 rounded-full bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black text-[11px] font-semibold uppercase tracking-[0.1em] hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60'
 
   return (
-    <div className="w-full max-w-[27rem]" style={GEIST}>
-      <p className="text-white/60 text-[12.5px] leading-relaxed">
+    <div className="w-full" style={GEIST}>
+      <p className="text-white/70 text-[12.5px] leading-relaxed">
         {t('body')}{' '}
         <Link href="/aviso-de-privacidad#cookies" className={linkCls}>
           {t('privacyLink')}

@@ -83,6 +83,9 @@ export default function ConsentProvider({ children }: { children: ReactNode }) {
         type: 'info',
         duration: null,
         position: 'bottom-left',
+        // `fill` fija el fondo de la tarjeta al gris del sitio en vez de
+        // dejarlo al mapa de temas de Sileo.
+        fill: '#141414',
         title: t('title'),
         description: (
           <ConsentCard initialExpanded={expanded} initial={initial} onSave={commit} />
@@ -113,7 +116,12 @@ export default function ConsentProvider({ children }: { children: ReactNode }) {
   return (
     <ConsentContext.Provider value={{ consent, openPreferences }}>
       {children}
-      <Toaster position="bottom-left" theme="dark" offset={{ bottom: 24, left: 24 }} />
+      {/*
+        theme="light" NO significa tarjeta clara: en Sileo el tema describe la
+        pagina. Con "light" el texto del toast se pinta claro, que es lo que
+        necesita una tarjeta oscura. Ver la nota en globals.css.
+      */}
+      <Toaster position="bottom-left" theme="light" offset={{ bottom: 24, left: 24 }} />
     </ConsentContext.Provider>
   )
 }
