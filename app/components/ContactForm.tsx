@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useState } from 'react'
 import { useFormStatus } from 'react-dom'
+import { trackEvent } from "../../lib/gtag"
 import { submitContact, type ContactActionState } from '../actions/contact'
 import { REASONS } from '../../lib/schemas/contact'
 import { readGclid } from './GclidCapture'
@@ -19,12 +20,14 @@ function FieldError({ msg }: { msg?: string[] }) {
   return <p className="mt-1.5 text-[12px] text-red-400/90" style={GEIST}>{msg[0]}</p>
 }
 
-function SubmitButton() {
+function SubmitButton({ formName }: { formName: string }) {
   const { pending } = useFormStatus()
   return (
     <button
       type="submit"
       disabled={pending}
+      // Intento de envio: NO es un lead. El lead se confirma en /gracias.
+      onClick={() => trackEvent("form_submit_attempt", { form_name: formName })}
       className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-8 py-3.5 rounded-full text-[13px] uppercase tracking-[0.14em] disabled:opacity-60 disabled:cursor-not-allowed hover:brightness-110 transition-all"
       style={GEIST}
     >
@@ -196,7 +199,7 @@ export default function ContactForm() {
       )}
 
       <div className="flex items-center gap-4 pt-1">
-        <SubmitButton />
+        <SubmitButton formName="contacto_largo" />
         <p className="text-[11px] text-white/40" style={GEIST}>
           Te contactamos en horario de atención.
         </p>

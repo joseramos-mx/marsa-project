@@ -17,16 +17,19 @@ const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
 
 export default async function GraciasPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>
+  searchParams: Promise<{ lid?: string }>
 }) {
   const { locale } = await params
+  const { lid } = await searchParams
   setRequestLocale(locale)
 
   return (
     <main className="bg-[#0c0c0c] min-h-screen flex flex-col">
       <Navbar />
-      <ThanksConversion />
+      <ThanksConversion lid={lid} />
 
       <section className="flex-1 flex items-center justify-center px-6 py-32">
         <div className="max-w-xl w-full text-center flex flex-col items-center gap-7">
@@ -46,7 +49,7 @@ export default async function GraciasPage({
             inmediata, escríbenos por WhatsApp.
           </p>
 
-          <WhatsAppLink
+          <WhatsAppLink src="gracias"
             href="https://wa.me/527225356109"
             className="inline-flex items-center bg-[#25D366] text-white pl-6 pr-1.5 py-1.5 rounded-full hover:brightness-110 transition-all"
           >

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import PhoneLink from "../../../components/PhoneLink"
 import Link from 'next/link'
 import WhatsAppLink from '../../../components/WhatsAppLink'
 
@@ -31,10 +32,10 @@ export default function Footer() {
               Residencial Colón y Col. Ciprés<br />
               50120 Toluca de Lerdo, Méx.
             </address>
-            <a href="tel:+527225356109" className="hover:text-white transition-colors w-fit">
+            <PhoneLink src="footer" className="hover:text-white transition-colors w-fit">
               722 535 6109
-            </a>
-            <WhatsAppLink href={WHATSAPP_URL} className="hover:text-white transition-colors w-fit">
+            </PhoneLink>
+            <WhatsAppLink src="footer" href={WHATSAPP_URL} className="hover:text-white transition-colors w-fit">
               WhatsApp
             </WhatsAppLink>
           </div>

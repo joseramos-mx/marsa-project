@@ -93,7 +93,7 @@ export default function FAQSection() {
               </p>
             </div>
 
-            <WhatsAppLink
+            <WhatsAppLink src="faq"
               href="https://wa.me/527225356109"
               className="inline-flex items-center self-start bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
             >

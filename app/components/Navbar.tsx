@@ -1,6 +1,7 @@
 'use client'
 
 import NextLink from 'next/link'
+import PhoneLink from "./PhoneLink"
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
@@ -108,8 +109,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2 shrink-0">
-            <a
-              href="tel:+527225356109"
+            <PhoneLink src="navbar"
               aria-label={t('phoneLabel')}
               className="flex items-center gap-1.5 px-2.5 py-1.5 md:px-3 rounded-full text-white/80 hover:text-white border border-white/15 hover:border-white/30 transition-colors text-[11px] uppercase tracking-wider font-medium"
             >
@@ -117,11 +117,11 @@ export default function Navbar() {
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
               <span className="hidden sm:inline">722 535 6109</span>
-            </a>
+            </PhoneLink>
 
             <LanguageSwitch />
 
-            <WhatsAppLink
+            <WhatsAppLink src="navbar"
               href="https://wa.me/527225356109"
               className="bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-4 py-1.5 rounded-full text-sm hover:brightness-110 transition-all"
             >

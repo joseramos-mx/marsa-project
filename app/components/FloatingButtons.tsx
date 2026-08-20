@@ -26,7 +26,7 @@ export default function FloatingButtons() {
   return (
     <>
     {/* Botón lateral fijo — Agenda tu cita */}
-    <WhatsAppLink
+    <WhatsAppLink src="floating"
       href={whatsappUrl}
       aria-label={t('agendaLabel')}
       className="flex fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-2 rounded-l-2xl shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-x-1 px-1.5 py-4 md:px-2 md:py-5 bg-linear-to-b from-[#c69a2c] via-[#f8d974] to-[#c69a2c]"
@@ -71,7 +71,7 @@ export default function FloatingButtons() {
           </svg>
         </a>
 
-        <WhatsAppLink
+        <WhatsAppLink src="floating"
           href={whatsappUrl}
           aria-label={t('whatsappLabel')}
           className="w-14 h-14 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform duration-300 hover:scale-110"

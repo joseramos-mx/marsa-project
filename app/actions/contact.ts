@@ -41,6 +41,8 @@ export async function submitContact(
   // ---------- Anti-spam ----------
   if (data.website && data.website.length > 0) {
     // Honeypot filled → pretend success to avoid tipping off bots.
+    // Sin `lid`: /gracias no disparara conversion, asi que el bot no
+    // contamina Google Ads aunque le devolvamos la pagina de exito.
     redirect('/gracias')
   }
 
@@ -111,5 +113,7 @@ export async function submitContact(
     }
   }
 
-  redirect('/gracias')
+  // `lid` identifica este lead. /gracias lo usa como transaction_id para
+  // que Google deduplique si el usuario recarga o vuelve atras.
+  redirect(`/gracias?lid=${crypto.randomUUID()}`)
 }

@@ -67,7 +67,7 @@ export default function Hero() {
             >
               Agenda tu valoración
             </a>
-            <WhatsAppLink
+            <WhatsAppLink src="hero"
               href={WHATSAPP_URL}
               className="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium px-6 py-3.5 rounded-full text-[13px] uppercase tracking-[0.14em] hover:bg-white/5 transition-all"
             >

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import PhoneLink from "../../components/PhoneLink"
 import { setRequestLocale } from 'next-intl/server'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
@@ -45,7 +46,7 @@ export default async function ContactoPage({
               prefieres respuesta inmediata, escríbenos directo por WhatsApp.
             </p>
 
-            <WhatsAppLink
+            <WhatsAppLink src="contacto"
               href="https://wa.me/527225356109"
               className="inline-flex items-center self-start bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] px-5 py-2.5 rounded-full text-[12px] font-medium uppercase tracking-[0.14em] hover:bg-[#25D366]/20 transition-colors"
               style={GEIST}
@@ -57,7 +58,7 @@ export default async function ContactoPage({
               <p>P.º Cristóbal Colón 128-MZ 027</p>
               <p>Residencial Colón y Col Ciprés</p>
               <p>50120 Toluca de Lerdo, Méx.</p>
-              <p className="mt-2">Tel. <a className="underline hover:text-white" href="tel:+527225356109">722 535 6109</a></p>
+              <p className="mt-2">Tel. <PhoneLink src="contacto" className="underline hover:text-white">722 535 6109</PhoneLink></p>
             </div>
           </div>
 

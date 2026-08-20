@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import PhoneLink from "./PhoneLink"
 import Image from 'next/image'
 import type { CSSProperties } from 'react'
 import { motion } from 'motion/react'
@@ -76,7 +77,7 @@ export default function Footer() {
                 Residencial Colón y Col. Ciprés,<br />
                 50120 Toluca de Lerdo, Méx.
               </p>
-              <a href="tel:+527225356109" className="hover:text-white transition-colors">722 535 6109</a>
+              <PhoneLink src="footer" className="hover:text-white transition-colors">722 535 6109</PhoneLink>
               <div className="text-white/40 text-xs leading-relaxed whitespace-pre-line">
                 {t('hours')}
               </div>
@@ -86,7 +87,7 @@ export default function Footer() {
               <a href="https://www.instagram.com/marsa.project" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="Instagram">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </a>
-              <WhatsAppLink href="https://wa.me/527225356109" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="WhatsApp">
+              <WhatsAppLink src="footer" href="https://wa.me/527225356109" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:bg-white/10 hover:text-white transition-all" aria-label="WhatsApp">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
               </WhatsAppLink>
             </div>

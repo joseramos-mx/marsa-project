@@ -88,7 +88,7 @@ export default function CTASection() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <WhatsAppLink
+            <WhatsAppLink src="cta"
               href="https://wa.me/527225356109"
               className="inline-flex items-center bg-white text-black pl-6 pr-1.5 py-1.5 rounded-full hover:bg-white/90 transition-colors"
             >

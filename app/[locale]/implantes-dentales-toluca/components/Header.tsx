@@ -54,7 +54,7 @@ export default function Header() {
               <span className="hidden sm:inline">722 535 6109</span>
             </a>
 
-            <WhatsAppLink
+            <WhatsAppLink src="header"
               href={WHATSAPP_URL}
               className="inline-flex items-center gap-1.5 bg-linear-to-r from-[#c69a2c] via-[#f8d974] to-[#c69a2c] text-black font-semibold px-3.5 md:px-4 py-1.5 rounded-full text-[12px] md:text-[13px] hover:brightness-110 transition-all whitespace-nowrap"
             >
