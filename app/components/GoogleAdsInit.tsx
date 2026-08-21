@@ -17,7 +17,7 @@ import Script from 'next/script'
  * declara denegadas con estrategia beforeInteractive, por delante de este
  * script y del contenedor de GTM.
  */
-const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-17871428510'
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-18394009075'
 const GA4_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-ZLKMQC2J6S'
 
 export default function GoogleAdsInit() {

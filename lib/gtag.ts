@@ -20,7 +20,7 @@ declare global {
 
 /* Los IDs admiten override por entorno pero llevan valor por defecto, para que
    la medicion no dependa de que las variables esten definidas en el despliegue. */
-export const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-17871428510'
+export const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-18394009075'
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-ZLKMQC2J6S'
 
 /* Etiquetas de conversion de Google Ads. Se rellenan desde
