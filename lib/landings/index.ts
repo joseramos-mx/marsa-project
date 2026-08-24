@@ -1,4 +1,4 @@
-import type { LandingContent } from './types'
+import type { LandingContent, Review } from "./types"
 
 /* ─────────────────────────────────────────────────────────────
    Contenido de las landings de Google Ads.
@@ -11,6 +11,53 @@ import type { LandingContent } from './types'
    ───────────────────────────────────────────────────────────── */
 
 const SHARED_STATS = ['4.9/5', '500+ pacientes', '8+ años de experiencia']
+
+
+/**
+ * Reseñas reales publicadas en el perfil de Google de Marsa Project.
+ *
+ * Transcritas literalmente salvo normalizacion tipografica menor
+ * (mayusculas, tildes y puntos en abreviaturas). No se altera el sentido ni
+ * se completa lo que Google mostraba truncado: las que venian cortadas se
+ * recortan en el ultimo punto completo.
+ *
+ * Se omite la fecha a proposito: Google la da en relativo ("hace 2 dias") y
+ * hardcodearla la volveria falsa al dia siguiente.
+ *
+ * Provisional hasta tener el embed oficial de Google Reviews.
+ */
+const GOOGLE_REVIEWS: Review[] = [
+  {
+    author: "Mireya García",
+    rating: 5,
+    text: "Quiero compartir lo bien que me sentí aquí. Desde el primer momento me hablaron con calma, me explicaron cada paso sin prisas y siempre estuvieron atentos a cómo me sentía.",
+  },
+  {
+    author: "Gabriela González Gallegos",
+    rating: 5,
+    text: "Excelente servicio en general. El Dr. Salém y la Dra. Evelyn son excelentes, el trato es muy profesional y sin duda te ayudan a encontrar una solución. 100% recomendado.",
+  },
+  {
+    author: "Tania Itzel García Jaimes",
+    rating: 5,
+    text: "Recomiendo totalmente Marsa Project para el cuidado y salud de tu boca. Aquí encontrarás la mejor atención, paciencia y profesionalismo que esperas recibir. Se ha dado un excelente seguimiento durante todo mi tratamiento, los elegiría una y mil veces más.",
+  },
+  {
+    author: "Gabriela Campuzano",
+    rating: 5,
+    text: "Mi experiencia con Marsa ha sido excelente. Desde el primer momento me brindaron mucha confianza, atención y profesionalismo. Siempre explican todo con claridad y se preocupan porque sus pacientes estén cómodos durante el tratamiento.",
+  },
+  {
+    author: "Giselle Hernández",
+    rating: 5,
+    text: "Muy buen consultorio y profesionales. Desde la primera consulta me atendieron súper bien, todos fueron muy amables. El consultorio está muy limpio y agradable. 100% recomendado.",
+  },
+  {
+    author: "Mayanin Garduño",
+    rating: 5,
+    text: "Muy buen servicio para toda la familia, son muy amables en todo momento. Te explican a detalle lo que requieres. Lo recomiendo ampliamente.",
+  },
+]
 
 /* ── Landing 01 ─────────────────────────────────────────────── */
 
@@ -72,6 +119,7 @@ export const implantes: LandingContent = {
 
   casesIntro: 'Conoce algunos de los casos tratados por nuestro equipo.',
   testimonialTreatment: 'Implantes dentales',
+  reviews: GOOGLE_REVIEWS,
 
   faq: [
     {
@@ -176,6 +224,7 @@ export const disenoSonrisa: LandingContent = {
 
   casesIntro: 'Algunos casos de diseño de sonrisa tratados por nuestro equipo.',
   testimonialTreatment: 'Diseño de sonrisa',
+  reviews: GOOGLE_REVIEWS,
 
   faq: [
     {
@@ -280,6 +329,7 @@ export const carillas: LandingContent = {
 
   casesIntro: 'Algunos casos tratados con carillas por nuestro equipo.',
   testimonialTreatment: 'Carillas de porcelana',
+  reviews: GOOGLE_REVIEWS,
 
   faq: [
     {
@@ -384,6 +434,7 @@ export const ortodoncia: LandingContent = {
 
   casesIntro: 'Algunos casos de ortodoncia tratados por nuestro equipo.',
   testimonialTreatment: 'Ortodoncia invisible',
+  reviews: GOOGLE_REVIEWS,
 
   faq: [
     {
@@ -488,6 +539,7 @@ export const blanqueamiento: LandingContent = {
 
   casesIntro: 'Algunos casos de blanqueamiento tratados por nuestro equipo.',
   testimonialTreatment: 'Blanqueamiento dental',
+  reviews: GOOGLE_REVIEWS,
 
   faq: [
     {
