@@ -32,12 +32,12 @@ export default async function Home({
         <HeroSection />
       </section>
 
-      <section id="especialidades">
-        <SpecialtiesSection />
-      </section>
-
       <section id="aliados">
         <LogoMarquee />
+      </section>
+
+      <section id="especialidades">
+        <SpecialtiesSection />
       </section>
 
       <section id="liderazgo">
