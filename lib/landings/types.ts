@@ -1,4 +1,20 @@
-import type { ContactReason } from '../schemas/contact'
+import type { ContactReason } from "../schemas/contact"
+
+/**
+ * Reseña real de un paciente, transcrita de Google.
+ *
+ * Provisional hasta tener el embed de Google Reviews. NO inventar entradas
+ * aqui: publicar reseñas falsas es ilegal en Mexico y contrario al brief,
+ * que exige testimonios reales y autorizados.
+ */
+export type Review = {
+  author: string
+  /** Estrellas, 1 a 5. */
+  rating: number
+  text: string
+  /** Fecha tal como la muestra Google, p. ej. "hace 2 meses". Opcional. */
+  date?: string
+}
 
 /**
  * Contenido de una landing de Google Ads.
@@ -62,6 +78,8 @@ export type LandingContent = {
 
   /* ── Testimonios ── */
   testimonialTreatment: string
+  /** Reseñas reales. Si va vacio, la seccion muestra el marcador de posicion. */
+  reviews?: Review[]
 
   /* ── FAQ ── */
   faq: { q: string; a: string }[]

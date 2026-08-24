@@ -3,6 +3,7 @@ import Link from 'next/link'
 import WhatsAppLink from '../WhatsAppLink'
 import PhoneLink, { PHONE_DISPLAY } from '../PhoneLink'
 import LandingForm from './LandingForm'
+import LandingReviews from './LandingReviews'
 import { WhatsAppIcon, PhoneIcon, CheckIcon, StarRow } from './icons'
 import type { LandingContent } from '../../../lib/landings/types'
 
@@ -416,8 +417,12 @@ export function LandingTestimonials({ c }: { c: LandingContent }) {
           </h2>
         </div>
 
-        {/* El brief exige testimonios reales y autorizados: hasta tenerlos,
-            marcador de posicion explicito en lugar de texto inventado. */}
+        {/* Con reseñas reales cargadas se muestra el carrusel; si no, el
+            marcador de posicion. El brief exige testimonios reales y
+            autorizados, asi que nunca se rellena con texto inventado. */}
+        {c.reviews && c.reviews.length > 0 ? (
+          <LandingReviews reviews={c.reviews} />
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
           {[0, 1, 2].map((i) => (
             <div
@@ -442,6 +447,7 @@ export function LandingTestimonials({ c }: { c: LandingContent }) {
             </div>
           ))}
         </div>
+        )}
       </div>
     </section>
   )
