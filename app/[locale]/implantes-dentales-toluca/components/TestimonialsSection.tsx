@@ -1,5 +1,14 @@
+import Image from 'next/image'
+
 const GEIST = { fontFamily: 'var(--font-geist-sans)' }
 const ALBERT = { fontFamily: 'var(--font-albert-sans)' }
+
+// Fotos de pacientes autorizadas · texto pendiente de testimonio real
+const TESTIMONIALS = [
+  { photo: '/patients/IMG_7756.webp', treatment: 'Rehabilitación con implantes' },
+  { photo: '/patients/IMG_7765.webp', treatment: 'Diseño de sonrisa' },
+  { photo: '/patients/IMG_7774.webp', treatment: 'Rehabilitación con implantes' },
+] as const
 
 export default function TestimonialsSection() {
   return (
@@ -17,13 +26,33 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Placeholder autorizado — reemplazar con testimonios reales */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="flex flex-col gap-4 p-6 md:p-7 rounded-2xl border border-dashed border-white/15 bg-white/[0.02]"
+          {TESTIMONIALS.map((t) => (
+            <article
+              key={t.photo}
+              className="flex flex-col gap-4 p-6 md:p-7 rounded-2xl border border-white/10 bg-white/2"
             >
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/15 shrink-0">
+                  <Image
+                    src={t.photo}
+                    alt={`Paciente Marsa Project — ${t.treatment}`}
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <p className="text-white/90 text-[14px] font-medium" style={GEIST}>
+                    Paciente Marsa Project
+                  </p>
+                  <p className="text-[#f8d974] text-[10.5px] uppercase tracking-[0.14em]" style={GEIST}>
+                    {t.treatment}
+                  </p>
+                </div>
+              </div>
+
               <div className="flex gap-1" aria-label="5 estrellas">
                 {[0, 1, 2, 3, 4].map((s) => (
                   <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#f8d974" aria-hidden="true">
@@ -31,23 +60,21 @@ export default function TestimonialsSection() {
                   </svg>
                 ))}
               </div>
+
               <p className="text-white/70 text-[14px] leading-relaxed italic" style={GEIST}>
                 &ldquo;Testimonio real del paciente.&rdquo;
               </p>
-              <div className="pt-2 border-t border-white/10 flex flex-col gap-1">
-                <p className="text-white/85 text-[14px] font-medium" style={GEIST}>
-                  Paciente Marsa Project
-                </p>
-                <p className="text-[#f8d974] text-[11px] uppercase tracking-[0.14em]" style={GEIST}>
-                  Tratamiento: Implantes dentales
-                </p>
-              </div>
+
               <p className="text-white/25 text-[10px] pt-2 border-t border-white/5" style={GEIST}>
-                Pendiente testimonio real autorizado
+                Pendiente testimonio autorizado por escrito
               </p>
-            </div>
+            </article>
           ))}
         </div>
+
+        <p className="text-white/45 text-[12px] italic" style={GEIST}>
+          Los resultados pueden variar de acuerdo con las condiciones particulares de cada paciente.
+        </p>
       </div>
     </section>
   )
