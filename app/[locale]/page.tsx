@@ -32,6 +32,10 @@ export default async function Home({
         <HeroSection />
       </section>
 
+      <section id="especialidades">
+        <SpecialtiesSection />
+      </section>
+
       <section id="aliados">
         <LogoMarquee />
       </section>
@@ -52,10 +56,6 @@ export default async function Home({
         {/* Anchor para Ángulo B — rehabilitación */}
         <div id="rehabilitacion" aria-hidden="true" />
         <WellnessSection />
-      </section>
-
-      <section id="especialidades">
-        <SpecialtiesSection />
       </section>
 
       <section id="servicios">
