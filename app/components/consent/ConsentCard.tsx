@@ -176,28 +176,43 @@ export default function ConsentCard({
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-2 mt-4">
+      {/* La tarjeta mide 350px fijos, asi que la accion principal ocupa el
+          ancho completo y las secundarias se reparten debajo. En fila los
+          tres rotulos en mayusculas no caben y desbordan. */}
+      <div className="flex flex-col gap-2 mt-4">
         {expanded ? (
-          <Pressable
-            className={solidBtn}
-            onPress={() => onSave({ v: CONSENT_VERSION, analytics, marketing })}
-          >
-            {t('save')}
-          </Pressable>
+          <>
+            <Pressable
+              className={`${solidBtn} w-full`}
+              onPress={() => onSave({ v: CONSENT_VERSION, analytics, marketing })}
+            >
+              {t('save')}
+            </Pressable>
+            <Pressable
+              className={`${ghostBtn} w-full`}
+              onPress={() => onSave({ ...DENY_ALL })}
+            >
+              {t('rejectAll')}
+            </Pressable>
+          </>
         ) : (
-          <Pressable className={ghostBtn} onPress={() => setExpanded(true)}>
-            {t('customize')}
-          </Pressable>
-        )}
-
-        <Pressable className={ghostBtn} onPress={() => onSave({ ...DENY_ALL })}>
-          {t('rejectAll')}
-        </Pressable>
-
-        {!expanded && (
-          <Pressable className={solidBtn} onPress={() => onSave({ ...GRANT_ALL })}>
-            {t('acceptAll')}
-          </Pressable>
+          <>
+            <Pressable
+              className={`${solidBtn} w-full`}
+              onPress={() => onSave({ ...GRANT_ALL })}
+            >
+              {t('acceptAll')}
+            </Pressable>
+            <Pressable className={`${ghostBtn} w-full`} onPress={() => setExpanded(true)}>
+              {t('customize')}
+            </Pressable>
+            <Pressable
+              className={`${ghostBtn} w-full`}
+              onPress={() => onSave({ ...DENY_ALL })}
+            >
+              {t('rejectAll')}
+            </Pressable>
+          </>
         )}
       </div>
     </div>

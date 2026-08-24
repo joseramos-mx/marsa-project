@@ -55,11 +55,13 @@ body {
    toast. Con theme="light" (pagina clara) pinta una tarjeta oscura
    con texto claro, que es lo que encaja con este sitio.
 
-   Aqui solo ajustamos el acento y el ancho: el acento por defecto
-   (--sileo-state-info) es azul y el ancho 350px se queda corto para
-   una tarjeta con tres interruptores.
+   Solo se ajusta el acento: el de por defecto (--sileo-state-info) es azul.
+
+   NO tocar --sileo-width: el fondo de la tarjeta es un SVG con WIDTH=350
+   hardcodeado en el JS de la libreria, y la variable solo dimensiona la
+   caja CSS. Subirla ensancha la caja pero no el fondo, y el contenido se
+   sale de la tarjeta.
    --------------------------------------------------------------- */
 [data-sileo-viewport] {
   --sileo-state-info: #c69a2c;
-  --sileo-width: min(26rem, calc(100vw - 2.5rem));
 }
