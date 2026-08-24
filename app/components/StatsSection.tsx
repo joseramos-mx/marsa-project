@@ -123,15 +123,17 @@ export default function StatsSection() {
             className="rounded-3xl px-7 pt-6 pb-7 flex flex-col justify-between min-h-60"
             style={{ background: 'linear-gradient(135deg, #c69a2c 0%, #f8d974 50%, #c69a2c 100%)' }}
           >
+            {/* Texto en negro, no blanco: sobre el dorado #c69a2c el blanco da
+                2.6:1 de contraste y resulta ilegible. En negro sube a ~8:1. */}
             <div>
-              <p className="text-white/55 text-[11px] uppercase mb-3" style={LABEL}>
+              <p className="text-black/65 text-[11px] uppercase mb-3" style={LABEL}>
                 {t('implantsLabel')}
               </p>
-              <span className="block text-[4rem] leading-none text-white" style={NUM}>
+              <span className="block text-[4rem] leading-none text-black" style={NUM}>
                 {t('implantsValue')}
               </span>
             </div>
-            <p className="text-white/60 text-[13px] leading-snug" style={{ fontFamily: 'var(--font-geist-sans)' }}>
+            <p className="text-black/75 text-[13px] leading-snug" style={{ fontFamily: 'var(--font-geist-sans)' }}>
               {t('implantsDesc')}
             </p>
           </motion.div>

@@ -28,18 +28,22 @@ export function renderNotificationEmail(d: ContactInput): string {
     timeZone: 'America/Mexico_City',
   })
 
+  // Diseño plano y sobrio: los correos con cabeceras de color y mucho markup
+  // puntúan peor en los filtros de spam, y este solo tiene que leerse rápido.
   return `<!doctype html>
-<html><body style="margin:0;padding:24px;background:#f5f5f5;font-family:Arial,sans-serif">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5">
+<html><body style="margin:0;padding:24px;background:#ffffff;font-family:Arial,sans-serif">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:640px;margin:0 auto">
     <tr>
-      <td style="padding:20px 24px;background:#0c0c0c;color:#fff">
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#c69a2c">MARSA Project</div>
-        <div style="font-size:18px;margin-top:4px;font-weight:600">Nuevo contacto web</div>
+      <td style="padding:0 0 14px;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;color:#0c0c0c">
+        Nuevo contacto web
       </td>
     </tr>
-    <tr><td style="padding:8px 0">
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+    <tr><td>
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-top:1px solid #ececec">
         ${row('Nombre', d.name)}
+        ${/* En las landings el motivo se deriva del tratamiento; en /contacto
+             lo elige el paciente. En ambos casos le sirve al equipo clínico
+             para saber de que viene la consulta antes de llamar. */ ''}
         ${row('Motivo', d.reason)}
         ${row('Teléfono', phoneIntl)}
         ${row('WhatsApp', waLink)}
@@ -49,32 +53,35 @@ export function renderNotificationEmail(d: ContactInput): string {
         ${row('gclid', d.gclid)}
       </table>
     </td></tr>
-    <tr><td style="padding:16px 24px 20px;font-family:Arial,sans-serif;font-size:12px;color:#888">
+    <tr><td style="padding:16px 0 0;font-family:Arial,sans-serif;font-size:12px;color:#777">
       Responde a este correo para contactar al paciente por email, o abre WhatsApp:
-      <a href="${waLink}" style="color:#c69a2c">${esc(waLink)}</a>
+      <a href="${waLink}" style="color:#8a6608">${esc(waLink)}</a>
     </td></tr>
   </table>
 </body></html>`
 }
 
 export function renderConfirmationEmail(d: ContactInput): string {
+  // Mismo criterio que el aviso al equipo: diseño plano y sin cabecera de
+  // color. Tampoco se menciona el motivo — en las landings es un valor
+  // derivado del tratamiento, no algo que el paciente haya escrito, y verlo
+  // repetido de vuelta resulta extraño.
   return `<!doctype html>
-<html><body style="margin:0;padding:24px;background:#f5f5f5;font-family:Arial,sans-serif">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5">
+<html><body style="margin:0;padding:24px;background:#ffffff;font-family:Arial,sans-serif">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;margin:0 auto">
     <tr>
-      <td style="padding:24px;background:#0c0c0c;color:#fff">
-        <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#c69a2c">MARSA Project</div>
-        <div style="font-size:20px;margin-top:6px;font-weight:600">Gracias, ${esc(d.name)}.</div>
+      <td style="padding:0 0 16px;font-family:Arial,sans-serif;font-size:18px;font-weight:bold;color:#0c0c0c;border-bottom:1px solid #ececec">
+        Gracias, ${esc(d.name)}.
       </td>
     </tr>
-    <tr><td style="padding:24px;color:#333;font-size:15px;line-height:1.55">
-      <p style="margin:0 0 12px">Recibimos tu solicitud sobre <strong>${esc(d.reason)}</strong>.</p>
+    <tr><td style="padding:18px 0 0;color:#333;font-size:15px;line-height:1.55;font-family:Arial,sans-serif">
+      <p style="margin:0 0 12px">Recibimos tu solicitud.</p>
       <p style="margin:0 0 12px">Un miembro del equipo te contactará al <strong>+52 ${esc(d.phone)}</strong> lo antes posible en horario de atención.</p>
       <p style="margin:0 0 20px">Si prefieres respuesta inmediata, escríbenos por WhatsApp:</p>
-      <p style="margin:0"><a href="https://wa.me/527225356109" style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:600">Abrir WhatsApp</a></p>
+      <p style="margin:0"><a href="https://wa.me/527225356109" style="display:inline-block;background:#25D366;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:bold">Abrir WhatsApp</a></p>
     </td></tr>
-    <tr><td style="padding:16px 24px;background:#fafafa;border-top:1px solid #eee;color:#888;font-size:12px">
-      P.º Cristóbal Colón 128-MZ 027, Residencial Colón y Col Ciprés, 50120 Toluca de Lerdo, Méx. · Tel. 722 535 6109
+    <tr><td style="padding:20px 0 0;margin-top:16px;border-top:1px solid #ececec;color:#888;font-size:12px;font-family:Arial,sans-serif">
+      P.º Cristóbal Colón 128-MZ 027, Residencial Colón y Col. Ciprés, 50120 Toluca de Lerdo, Méx. · Tel. 722 535 6109
     </td></tr>
   </table>
 </body></html>`
