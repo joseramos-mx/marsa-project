@@ -254,7 +254,7 @@ export const carillas: LandingContent = {
     h2Highlight: 'proporción de tus dientes',
     paragraphs: [
       'Los desgastes, las fracturas pequeñas, las manchas resistentes o las diferencias de forma entre piezas pueden afectar la armonía de la sonrisa.',
-      'Las carillas dentales son una alternativa para modificar la superficie visible del diente. Si son adecuadas para tu caso, y con qué material, es algo que se determina mediante valoración clínica.',
+      'Las carillas dentales son una alternativa para modificar forma, color y tamaño del diente. Si son adecuadas para tu caso, y con qué material, es algo que se determina mediante valoración clínica.',
     ],
   },
 
