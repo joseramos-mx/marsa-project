@@ -15,6 +15,19 @@ const CTA_SOLID =
 const CTA_GHOST =
   'inline-flex items-center justify-center gap-2 border border-white/20 text-white font-medium px-6 py-3.5 rounded-full text-[13px] uppercase tracking-[0.14em] hover:bg-white/5 transition-all'
 
+/**
+ * Fotografias reales de pacientes autorizadas. Compartidas por las 5 landings
+ * (implantes, carillas, diseño de sonrisa, ortodoncia, blanqueamiento).
+ */
+const LANDING_CASES = [
+  '/patients/IMG_7756.webp',
+  '/patients/IMG_7759.webp',
+  '/patients/IMG_7765.webp',
+  '/patients/IMG_7769.webp',
+  '/patients/IMG_7771.webp',
+  '/patients/IMG_7774.webp',
+] as const
+
 /** Titulo de seccion con la segunda mitad resaltada en dorado. */
 function SplitHeading({ lead, highlight }: { lead: string; highlight: string }) {
   return (
@@ -356,43 +369,43 @@ export function LandingCases({ c }: { c: LandingContent }) {
           </p>
         </div>
 
-        {/* Marcador de posicion: el brief prohibe stock, asi que la galeria
-            espera fotografia real autorizada por los pacientes. */}
+        {/* Fotografias reales de pacientes autorizadas para uso web. Todas son
+            "despues" del tratamiento: no hay pares antes/despues pareables
+            todavia, asi que se muestran como galeria de resultados sin
+            atribuir un tratamiento especifico (las mismas fotos aparecen en
+            las 5 landings, incluidas ortodoncia y blanqueamiento). */}
         <div
           role="group"
-          aria-label="Galería de casos clínicos autorizados"
+          aria-label="Galería de resultados de pacientes"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="relative aspect-[4/3] rounded-2xl border border-dashed border-white/15 bg-white/[0.02] flex items-center justify-center overflow-hidden"
+          {LANDING_CASES.map((photo, i) => (
+            <figure
+              key={photo}
+              className="group relative aspect-3/4 rounded-2xl overflow-hidden border border-white/10 bg-white/2"
             >
-              <div className="flex flex-col items-center gap-2 text-center px-4">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-white/25"
-                  aria-hidden="true"
+              <Image
+                src={photo}
+                alt="Resultado de paciente atendido en Marsa Project"
+                fill
+                loading={i < 3 ? 'eager' : 'lazy'}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-x-0 top-0 p-3 flex justify-end">
+                <span
+                  className="text-[10px] uppercase tracking-[0.16em] bg-black/55 text-white/90 border border-white/15 rounded-full px-2.5 py-1 backdrop-blur-sm"
+                  style={GEIST}
                 >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="9" cy="9" r="2" />
-                  <path d="M21 15l-5-5L5 21" />
-                </svg>
-                <p className="text-white/40 text-[11px] uppercase tracking-[0.14em]" style={GEIST}>
-                  Caso #{i + 1} — pendiente
-                </p>
-                <p className="text-white/25 text-[10px]" style={GEIST}>
-                  Contenido autorizado por publicar
-                </p>
+                  Resultado
+                </span>
               </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 p-4 bg-linear-to-t from-black/85 via-black/55 to-transparent">
+                <p className="text-white text-[13px] leading-tight" style={GEIST}>
+                  Paciente Marsa Project
+                </p>
+              </figcaption>
+            </figure>
           ))}
         </div>
 
