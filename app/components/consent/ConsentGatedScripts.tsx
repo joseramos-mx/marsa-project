@@ -3,21 +3,19 @@
 import { Analytics } from '@vercel/analytics/next'
 import ClarityInit from '../ClarityInit'
 import MetricoolInit from '../MetricoolInit'
-import MetaPixelInit from '../MetaPixelInit'
 import { useConsent } from './ConsentProvider'
 
 /**
  * Etiquetas que NO saben escuchar una señal de consentimiento y que, por
- * tanto, no deben cargarse siquiera sin permiso.
+ * tanto, no deben cargarse siquiera sin permiso: Clarity (graba sesion),
+ * Metricool y Vercel Analytics.
  *
- * Analiticas: Clarity (graba sesion), Metricool y Vercel Analytics.
- *
- * Marketing: Meta Pixel.
- *
- * Google Ads, GA4, GTM y HubSpot si se cargan siempre, pero arrancan con todo
- * denegado —<ConsentModeInit /> para las de Google, <HubSpotConsentInit />
- * para HubSpot— y solo pasan a concedido cuando el visitante acepta. Es el
- * mecanismo que cada uno de esos proveedores define para sus etiquetas.
+ * El resto —GTM, GA4, Google Ads, HubSpot y Meta Pixel— si se cargan siempre,
+ * porque cada uno trae su propio mecanismo: arrancan con todo denegado desde
+ * <ConsentModeInit />, <HubSpotConsentInit /> y el `revoke` del snippet de
+ * <MetaPixelInit />, y solo pasan a concedido cuando el visitante acepta.
+ * Ademas es lo que sus validadores de instalacion necesitan: buscan la
+ * etiqueta en la pagina, y no aceptan cookies para encontrarla.
  *
  * SpeedInsights queda fuera: mide rendimiento, no comportamiento, y no se
  * declara como analítica en el aviso de privacidad.
@@ -25,16 +23,13 @@ import { useConsent } from './ConsentProvider'
 export default function ConsentGatedScripts() {
   const { consent } = useConsent()
 
+  if (!consent?.analytics) return null
+
   return (
     <>
-      {consent?.analytics && (
-        <>
-          <ClarityInit />
-          <MetricoolInit />
-          <Analytics />
-        </>
-      )}
-      {consent?.marketing && <MetaPixelInit />}
+      <ClarityInit />
+      <MetricoolInit />
+      <Analytics />
     </>
   )
 }

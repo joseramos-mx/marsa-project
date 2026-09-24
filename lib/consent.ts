@@ -137,11 +137,25 @@ function pushHubSpotConsent(state: { analytics: boolean; marketing: boolean }): 
   ])
 }
 
+/**
+ * Envía el consentimiento a Meta Pixel.
+ *
+ * El pixel arranca con `revoke` en el propio snippet —ver <MetaPixelInit />—
+ * y acumula lo que se le pida hasta que se concede. `grant` libera ese envío;
+ * `revoke` lo vuelve a cerrar si el visitante cambia de idea.
+ */
+function pushMetaConsent(state: { marketing: boolean }): void {
+  const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq
+  if (typeof fbq !== 'function') return
+  fbq('consent', state.marketing ? 'grant' : 'revoke')
+}
+
 /** Reparte la elección del visitante entre las etiquetas que saben escucharla. */
 export function pushConsentUpdate(state: { analytics: boolean; marketing: boolean }): void {
   if (typeof window === 'undefined') return
   pushGtagConsent(state)
   pushHubSpotConsent(state)
+  pushMetaConsent(state)
 }
 
 /* ─────────────────────────────────────────────────────────────

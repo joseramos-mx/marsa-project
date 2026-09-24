@@ -16,6 +16,7 @@ import ConsentProvider from "../components/consent/ConsentProvider";
 import ConsentGatedScripts from "../components/consent/ConsentGatedScripts";
 import GclidCapture from "../components/GclidCapture";
 import HubSpotInit from "../components/HubSpotInit";
+import MetaPixelInit from "../components/MetaPixelInit";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -167,16 +168,18 @@ export default async function LocaleLayout({
               {children}
               <FloatingButtons />
             </SmoothScrolling>
-            {/* Clarity, Metricool, Vercel Analytics y Meta Pixel: solo con consentimiento */}
+            {/* Clarity, Metricool y Vercel Analytics: solo con consentimiento */}
             <ConsentGatedScripts />
           </ConsentProvider>
           <SpeedInsights />
           <GoogleAdsInit />
           <GclidCapture />
         </NextIntlClientProvider>
-        {/* HubSpot, al final del <body> como pide su embed. Va con defer:
-            debe ejecutarse despues de <HubSpotConsentInit /> */}
+        {/* HubSpot y Meta Pixel se cargan siempre, pero sin permiso para
+            nada: cada uno declara su consentimiento en cero antes de
+            arrancar. Al final del <body>, como pide cada embed. */}
         <HubSpotInit />
+        <MetaPixelInit />
       </body>
     </html>
   );
