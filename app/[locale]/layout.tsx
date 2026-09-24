@@ -11,9 +11,11 @@ import FloatingButtons from "../components/FloatingButtons";
 import GoogleAdsInit from "../components/GoogleAdsInit";
 import GoogleTagManagerInit, { GTM_ID } from "../components/GoogleTagManagerInit";
 import ConsentModeInit from "../components/consent/ConsentModeInit";
+import HubSpotConsentInit from "../components/consent/HubSpotConsentInit";
 import ConsentProvider from "../components/consent/ConsentProvider";
 import ConsentGatedScripts from "../components/consent/ConsentGatedScripts";
 import GclidCapture from "../components/GclidCapture";
+import HubSpotInit from "../components/HubSpotInit";
 import { routing } from "../../i18n/routing";
 
 const geistSans = Geist({
@@ -145,6 +147,8 @@ export default async function LocaleLayout({
     >
       {/* Consent Mode v2: todo denegado por defecto, antes que gtag y GTM */}
       <ConsentModeInit />
+      {/* Lo mismo para HubSpot, antes de su script de seguimiento */}
+      <HubSpotConsentInit />
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) — debe ir como primer hijo de <body> */}
         <noscript>
@@ -163,13 +167,16 @@ export default async function LocaleLayout({
               {children}
               <FloatingButtons />
             </SmoothScrolling>
-            {/* Clarity, Metricool y Vercel Analytics: solo con consentimiento */}
+            {/* Clarity, Metricool, Vercel Analytics y Meta Pixel: solo con consentimiento */}
             <ConsentGatedScripts />
           </ConsentProvider>
           <SpeedInsights />
           <GoogleAdsInit />
           <GclidCapture />
         </NextIntlClientProvider>
+        {/* HubSpot, al final del <body> como pide su embed. Va con defer:
+            debe ejecutarse despues de <HubSpotConsentInit /> */}
+        <HubSpotInit />
       </body>
     </html>
   );

@@ -105,11 +105,43 @@ export function toConsentModeSignals(state: {
 }
 
 /** Envía el `consent update` a gtag. No hace nada si gtag aún no existe. */
-export function pushConsentUpdate(state: { analytics: boolean; marketing: boolean }): void {
-  if (typeof window === 'undefined') return
+function pushGtagConsent(state: { analytics: boolean; marketing: boolean }): void {
   const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
   if (typeof gtag !== 'function') return
   gtag('consent', 'update', toConsentModeSignals(state))
+}
+
+/**
+ * Envía el consentimiento a HubSpot.
+ *
+ * HubSpot tiene su propio mecanismo, paralelo al de Google: el script se carga
+ * siempre y lee `_hsp` para saber qué le está permitido. Sus valores por
+ * defecto los emite <HubSpotConsentInit />.
+ *
+ * `advertisement` es nuestra categoría de marketing; `functionality` va
+ * siempre concedida, igual que `functionality_storage` en Consent Mode.
+ *
+ * HubSpot no guarda este valor entre cargas —lo advierte su documentación—,
+ * por eso ConsentProvider lo reenvía en cada visita.
+ */
+function pushHubSpotConsent(state: { analytics: boolean; marketing: boolean }): void {
+  const hsp = (window as unknown as { _hsp?: unknown[] })._hsp
+  if (!Array.isArray(hsp)) return
+  hsp.push([
+    'setHubSpotConsent',
+    {
+      analytics: state.analytics,
+      advertisement: state.marketing,
+      functionality: true,
+    },
+  ])
+}
+
+/** Reparte la elección del visitante entre las etiquetas que saben escucharla. */
+export function pushConsentUpdate(state: { analytics: boolean; marketing: boolean }): void {
+  if (typeof window === 'undefined') return
+  pushGtagConsent(state)
+  pushHubSpotConsent(state)
 }
 
 /* ─────────────────────────────────────────────────────────────
