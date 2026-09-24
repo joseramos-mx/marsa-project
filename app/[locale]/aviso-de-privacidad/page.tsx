@@ -232,14 +232,14 @@ export default async function AvisoDePrivacidadPage({
                 Medir visitas, entender el uso del sitio y detectar errores. Incluye grabación de
                 sesión y mapas de calor.
               </td>
-              <td>Google Analytics, Microsoft Clarity, Metricool, Vercel Analytics</td>
+              <td>Google Analytics, Microsoft Clarity, Metricool, Vercel Analytics, HubSpot</td>
             </tr>
             <tr>
               <td>
                 <strong>Marketing</strong>
               </td>
               <td>Medir la eficacia de los anuncios y mostrar publicidad relevante.</td>
-              <td>Google Ads, Google Tag Manager</td>
+              <td>Google Ads, Google Tag Manager, Meta Pixel</td>
             </tr>
           </tbody>
         </table>

@@ -13,7 +13,7 @@ export const CONSENT_MAX_AGE = 60 * 60 * 24 * 180 // 180 días
  * anteriores y vuelve a pedir permiso: hazlo cuando cambien las categorías
  * o los proveedores declarados en el aviso de privacidad.
  */
-export const CONSENT_VERSION = 1
+export const CONSENT_VERSION = 2
 
 export type ConsentCategory = 'analytics' | 'marketing'
 

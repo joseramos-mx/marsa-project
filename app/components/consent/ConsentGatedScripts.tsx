@@ -3,14 +3,21 @@
 import { Analytics } from '@vercel/analytics/next'
 import ClarityInit from '../ClarityInit'
 import MetricoolInit from '../MetricoolInit'
+import HubSpotInit from '../HubSpotInit'
+import MetaPixelInit from '../MetaPixelInit'
 import { useConsent } from './ConsentProvider'
 
 /**
  * Etiquetas que NO entienden Google Consent Mode y que, por tanto, no deben
- * cargarse siquiera sin permiso: Clarity (graba sesión), Metricool y Vercel
- * Analytics.
+ * cargarse siquiera sin permiso.
  *
- * Google Ads, GA4 y GTM sí se cargan siempre, pero arrancan con todas las
+ * Analiticas: Clarity (graba sesion), Metricool, Vercel Analytics y HubSpot
+ * (sus cookies __hstc / hubspotutk son de seguimiento, y el widget de chat
+ * llega con ellas).
+ *
+ * Marketing: Meta Pixel.
+ *
+ * Google Ads, GA4 y GTM si se cargan siempre, pero arrancan con todas las
  * señales denegadas por <ConsentModeInit /> y solo pasan a `granted` cuando el
  * visitante acepta. Ese es el mecanismo que Google define para ellas.
  *
@@ -20,13 +27,17 @@ import { useConsent } from './ConsentProvider'
 export default function ConsentGatedScripts() {
   const { consent } = useConsent()
 
-  if (!consent?.analytics) return null
-
   return (
     <>
-      <ClarityInit />
-      <MetricoolInit />
-      <Analytics />
+      {consent?.analytics && (
+        <>
+          <ClarityInit />
+          <MetricoolInit />
+          <Analytics />
+          <HubSpotInit />
+        </>
+      )}
+      {consent?.marketing && <MetaPixelInit />}
     </>
   )
 }
