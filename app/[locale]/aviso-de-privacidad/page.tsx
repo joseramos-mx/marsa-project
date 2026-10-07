@@ -232,7 +232,10 @@ export default async function AvisoDePrivacidadPage({
                 Medir visitas, entender el uso del sitio y detectar errores. Incluye grabación de
                 sesión y mapas de calor.
               </td>
-              <td>Google Analytics, Microsoft Clarity, Metricool, Vercel Analytics, HubSpot</td>
+              <td>
+                Google Analytics, Microsoft Clarity, Contentsquare, Metricool, Vercel Analytics,
+                HubSpot
+              </td>
             </tr>
             <tr>
               <td>
@@ -244,9 +247,9 @@ export default async function AvisoDePrivacidadPage({
           </tbody>
         </table>
         <p>
-          <strong>Microsoft Clarity</strong> puede grabar tu recorrido por la página —movimientos,
-          clics y desplazamiento— para elaborar mapas de calor. No captura el contenido que
-          escribes en los campos del formulario.
+          <strong>Microsoft Clarity</strong> y <strong>Contentsquare</strong> pueden grabar tu
+          recorrido por la página —movimientos, clics y desplazamiento— para elaborar mapas de
+          calor. No capturan el contenido que escribes en los campos del formulario.
         </p>
         <p>
           También puedes bloquear o eliminar cookies desde la configuración de tu navegador. Si lo

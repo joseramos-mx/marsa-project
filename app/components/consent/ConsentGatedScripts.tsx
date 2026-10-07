@@ -2,13 +2,14 @@
 
 import { Analytics } from '@vercel/analytics/next'
 import ClarityInit from '../ClarityInit'
+import ContentsquareInit from '../ContentsquareInit'
 import MetricoolInit from '../MetricoolInit'
 import { useConsent } from './ConsentProvider'
 
 /**
  * Etiquetas que NO saben escuchar una señal de consentimiento y que, por
- * tanto, no deben cargarse siquiera sin permiso: Clarity (graba sesion),
- * Metricool y Vercel Analytics.
+ * tanto, no deben cargarse siquiera sin permiso: Clarity y Contentsquare
+ * (graban sesion), Metricool y Vercel Analytics.
  *
  * El resto —GTM, GA4, Google Ads, HubSpot y Meta Pixel— si se cargan siempre,
  * porque cada uno trae su propio mecanismo: arrancan con todo denegado desde
@@ -28,6 +29,7 @@ export default function ConsentGatedScripts() {
   return (
     <>
       <ClarityInit />
+      <ContentsquareInit />
       <MetricoolInit />
       <Analytics />
     </>
