@@ -342,6 +342,15 @@ export function LandingSpecialist() {
 
 /* ── Casos clinicos ─────────────────────────────────────────── */
 
+const CASE_PHOTOS = [
+  '/patients/IMG_7756.webp',
+  '/patients/IMG_7759.webp',
+  '/patients/IMG_7765.webp',
+  '/patients/IMG_7769.webp',
+  '/patients/IMG_7771.webp',
+  '/patients/IMG_7774.webp',
+]
+
 export function LandingCases({ c }: { c: LandingContent }) {
   return (
     <section className="relative bg-[#0c0c0c] py-20 md:py-28 border-t border-white/5">
@@ -356,45 +365,29 @@ export function LandingCases({ c }: { c: LandingContent }) {
           </p>
         </div>
 
-        {/* Marcador de posicion: el brief prohibe stock, asi que la galeria
-            espera fotografia real autorizada por los pacientes. */}
-        <div
-          role="group"
-          aria-label="Galería de casos clínicos autorizados"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        {/* Fotografia real de pacientes, la misma que usa la home. No se
+            atribuye un tratamiento a cada foto: no consta cual recibio cada
+            paciente, asi que la galeria se repite igual en todas las landings. */}
+        <ul
+          aria-label="Galería de casos clínicos"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4"
         >
-          {[0, 1, 2, 3, 4, 5].map((i) => (
-            <div
-              key={i}
-              className="relative aspect-[4/3] rounded-2xl border border-dashed border-white/15 bg-white/[0.02] flex items-center justify-center overflow-hidden"
+          {CASE_PHOTOS.map((src, i) => (
+            <li
+              key={src}
+              className="relative aspect-[4/5] rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden"
             >
-              <div className="flex flex-col items-center gap-2 text-center px-4">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-white/25"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="9" cy="9" r="2" />
-                  <path d="M21 15l-5-5L5 21" />
-                </svg>
-                <p className="text-white/40 text-[11px] uppercase tracking-[0.14em]" style={GEIST}>
-                  Caso #{i + 1} — pendiente
-                </p>
-                <p className="text-white/25 text-[10px]" style={GEIST}>
-                  Contenido autorizado por publicar
-                </p>
-              </div>
-            </div>
+              <Image
+                src={src}
+                alt={`Paciente de Marsa Project sonriendo tras su tratamiento, caso ${i + 1}`}
+                fill
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </li>
           ))}
-        </div>
+        </ul>
 
         <p className="text-white/50 text-[13px] italic max-w-2xl" style={GEIST}>
           Los resultados pueden variar de acuerdo con las condiciones particulares de cada paciente.
