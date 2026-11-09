@@ -30,7 +30,7 @@ export default function CTASection() {
         <div className="absolute right-0 top-0 bottom-0 w-[45%] hidden md:block pointer-events-none">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/doctorascta.webp"
+            src="/nuevos-doctores.png"
             alt={t('doctorAlt')}
             width={800}
             height={1000}
