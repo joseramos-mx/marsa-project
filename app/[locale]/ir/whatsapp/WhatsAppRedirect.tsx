@@ -35,7 +35,7 @@ export default function WhatsAppRedirect({
     const go = () => window.location.replace(target)
     const conversion = whatsappConversionTarget()
 
-    if (conversion) fireConversionThen(conversion, go, 700)
+    if (conversion) fireConversionThen(conversion, go)
     else window.setTimeout(go, 120)
   }, [target, src])
 

@@ -73,29 +73,53 @@ export function fireConversion(sendTo: string, params: Record<string, unknown> =
 }
 
 /**
- * Dispara una conversion y llama a `done` cuando la etiqueta ha salido, o tras
- * un timeout de seguridad. Util antes de navegar fuera del sitio.
+ * Dispara una conversion y llama a `done` cuando la peticion de la etiqueta ha
+ * salido de verdad, o tras un timeout de seguridad. Util antes de navegar
+ * fuera del sitio.
+ *
+ * No se usa `event_callback`: si el evento entra en la cola antes de que
+ * gtag.js haya cargado el destino de Ads, el cargador de gtag y el contenedor
+ * de GTM lo invocan en cuanto procesan la cola, cientos de ms ANTES de que
+ * salga el hit. Navegar en ese momento perdia la conversion. En su lugar se
+ * espera a ver la peticion `/pagead/conversion/<id>/...label=<label>` en
+ * Resource Timing.
  */
 export function fireConversionThen(
   sendTo: string,
   done: () => void,
-  timeoutMs = 800,
+  timeoutMs = 3000,
 ): void {
   if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
     done()
     return
   }
-  let fired = false
-  const callback = () => {
-    if (fired) return
-    fired = true
+
+  let finished = false
+  let observer: PerformanceObserver | undefined
+  const finish = () => {
+    if (finished) return
+    finished = true
+    observer?.disconnect()
     done()
   }
-  window.setTimeout(callback, timeoutMs)
-  window.gtag('event', 'conversion', {
-    send_to: sendTo,
-    event_callback: callback,
-  })
+
+  const [account, label] = sendTo.replace(/^AW-/, '').split('/')
+  const isHit = (url: string) =>
+    url.includes(`/pagead/conversion/${account}/`) && url.includes(`label=${label}`)
+
+  if (typeof PerformanceObserver === 'function') {
+    try {
+      observer = new PerformanceObserver((list) => {
+        if (list.getEntries().some((e) => isHit(e.name))) finish()
+      })
+      observer.observe({ type: 'resource', buffered: true })
+    } catch {
+      observer = undefined
+    }
+  }
+
+  window.setTimeout(finish, timeoutMs)
+  window.gtag('event', 'conversion', { send_to: sendTo })
 }
 
 /** `send_to` de la conversion de WhatsApp, o null si falta la etiqueta. */
